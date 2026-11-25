@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>Poke'Catch 挂机助手</title>
+<style>
+  body{margin:0;width:340px;padding:12px 14px;background:#151923;color:#e8ecf4;font:13px/1.5 system-ui,"Microsoft YaHei",sans-serif}
+  h1{font-size:15px;margin:0 0 6px;color:#ffcb05}
+  h2{font-size:13px;margin:12px 0 4px;color:#9aa4b8;font-weight:600}
+  .row{display:flex;justify-content:space-between;gap:8px;padding:2px 0}
+  .row span:first-child{color:#9aa4b8}
+  .ok{color:#4ade80}.warn{color:#fbbf24}.bad{color:#f87171}
+  button{all:unset;cursor:pointer;padding:5px 10px;border-radius:7px;border:1px solid #2c3346;color:#e8ecf4;margin:4px 6px 0 0}
+  button:hover{border-color:#ffcb05}
+  .sub{color:#6b7488;font-size:12px}
+  #msg{margin-top:6px;min-height:1em}
+</style>
+</head>
+<body>
+  <h1>Poke'Catch 挂机助手 <span id="ver" class="sub"></span></h1>
+  <div id="status"></div>
+
+  <h2>存档备份</h2>
+  <div id="baks" class="sub"></div>
+  <button id="exp">导出全部备份</button>
+  <button id="impFile">从文件导入</button>
+  <input id="file" type="file" accept=".json,application/json" hidden>
+  <div id="msg" class="sub"></div>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Poke'Catch 挂机助手",
+  "version": "{{VERSION}}",
+  "description": "Poke'Catch 挂机助手：原版战斗重放配队、实战统计、主线推进、喂糖、培育屋、存档备份等。",
+  "minimum_chrome_version": "111",
+  "permissions": ["storage", "unlimitedStorage"],
+  "content_scripts": [
+    { "matches": {{MATCHES}}, "js": ["hook.js"], "run_at": "document_start", "world": "MAIN" },
+    { "matches": {{MATCHES}}, "js": ["bridge.js"], "run_at": "document_start" },
+    { "matches": {{MATCHES}}, "js": ["app.js"], "run_at": "document_start", "world": "MAIN" }
+  ],
+  "action": { "default_title": "Poke'Catch 挂机助手", "default_popup": "popup.html" }
+}

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+dumps/
+
+# 本地私有的游戏分析目录（含游戏官方文件与中间产物），不公开
+research/
+
+# 系统/编辑器
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

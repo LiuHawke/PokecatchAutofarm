@@ -1,0 +1,10395 @@
+[
+ {
+  "ch": 0,
+  "region": "kanto",
+  "region_zh": "关都",
+  "name_zh": "灰色徽章",
+  "name_fr": "Badge Roche",
+  "path_zh": "真新镇 → 深灰市",
+  "band": [
+   2,
+   15
+  ],
+  "ui_lv": [
+   14,
+   20
+  ],
+  "ace": 16,
+  "cap": 20,
+  "day": true,
+  "steps": 8,
+  "wild": 9,
+  "trainers": 2,
+  "kinds": [
+   "gift",
+   "route",
+   "heal",
+   "route",
+   "route",
+   "heal",
+   "find",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "1号道路",
+    "lv": [
+     2,
+     3
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "2号道路",
+    "lv": [
+     4,
+     7
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "常青森林",
+    "lv": [
+     11,
+     15
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "礼物@大木博士的研究所：妙蛙种子 / 小火龙 / 杰尼龟 选一 Lv5",
+   "拾取@深灰博物馆：秘密琥珀（一次性）"
+  ],
+  "gym": {
+   "leader_zh": "小刚",
+   "leader_fr": "Pierre",
+   "badge_zh": "灰色徽章",
+   "badge_fr": "Roche",
+   "types": [
+    "rock"
+   ],
+   "ace": 15,
+   "champion": false,
+   "double": false,
+   "reward": 1400,
+   "power": 1.22,
+   "team": [
+    [
+     74,
+     "小拳石",
+     14
+    ],
+    [
+     95,
+     "大岩蛇",
+     15
+    ]
+   ],
+   "counter_types": [
+    "water",
+    "grass",
+    "ice",
+    "fighting"
+   ],
+   "resist_types": [
+    "fighting",
+    "ground",
+    "steel"
+   ],
+   "gym_trainers": 1,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": true,
+  "last_of_region": false
+ },
+ {
+  "ch": 1,
+  "region": "kanto",
+  "region_zh": "关都",
+  "name_zh": "蓝色徽章",
+  "name_fr": "Badge Cascade",
+  "path_zh": "3号道路 → 华蓝市",
+  "band": [
+   16,
+   23
+  ],
+  "ui_lv": [
+   21,
+   24
+  ],
+  "ace": 24,
+  "cap": 24,
+  "day": false,
+  "steps": 9,
+  "wild": 13,
+  "trainers": 12,
+  "kinds": [
+   "route",
+   "gift",
+   "route",
+   "gift",
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "3号道路",
+    "lv": [
+     16,
+     18
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "月见山",
+    "lv": [
+     18,
+     20
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "4号道路",
+    "lv": [
+     20,
+     21
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "金球大桥",
+    "lv": [
+     21,
+     23
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "礼物@宝可梦中心（4号道路）：鲤鱼王 Lv5",
+   "礼物@月见山：甲壳化石 / 贝壳化石 二选一"
+  ],
+  "gym": {
+   "leader_zh": "小霞",
+   "leader_fr": "Ondine",
+   "badge_zh": "蓝色徽章",
+   "badge_fr": "Cascade",
+   "types": [
+    "water"
+   ],
+   "ace": 24,
+   "champion": false,
+   "double": false,
+   "reward": 2100,
+   "power": 1.06,
+   "team": [
+    [
+     120,
+     "海星星",
+     21
+    ],
+    [
+     54,
+     "可达鸭",
+     22
+    ],
+    [
+     121,
+     "宝石海星",
+     24
+    ]
+   ],
+   "counter_types": [
+    "grass",
+    "electric"
+   ],
+   "resist_types": [
+    "water",
+    "grass",
+    "dragon"
+   ],
+   "gym_trainers": 2,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 2,
+  "region": "kanto",
+  "region_zh": "关都",
+  "name_zh": "橙色徽章",
+  "name_fr": "Badge Foudre",
+  "path_zh": "5号道路 → 枯叶市",
+  "band": [
+   24,
+   29
+  ],
+  "ui_lv": [
+   23,
+   30
+  ],
+  "ace": 30,
+  "cap": 30,
+  "day": false,
+  "steps": 8,
+  "wild": 14,
+  "trainers": 11,
+  "kinds": [
+   "route",
+   "route",
+   "heal",
+   "route",
+   "route",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "5号道路",
+    "lv": [
+     24,
+     25
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "6号道路",
+    "lv": [
+     25,
+     26
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "圣特安努号",
+    "lv": [
+     26,
+     27
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "11号道路",
+    "lv": [
+     27,
+     28
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "地鼠洞穴",
+    "lv": [
+     28,
+     29
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "马志士",
+   "leader_fr": "Major Bob",
+   "badge_zh": "橙色徽章",
+   "badge_fr": "Foudre",
+   "types": [
+    "electric"
+   ],
+   "ace": 30,
+   "champion": false,
+   "double": false,
+   "reward": 2400,
+   "power": 1.15,
+   "team": [
+    [
+     100,
+     "霹雳电球",
+     26
+    ],
+    [
+     25,
+     "皮卡丘",
+     23
+    ],
+    [
+     82,
+     "三合一磁怪",
+     28
+    ],
+    [
+     26,
+     "雷丘",
+     30
+    ]
+   ],
+   "counter_types": [
+    "ground"
+   ],
+   "resist_types": [
+    "grass",
+    "electric",
+    "ground",
+    "dragon"
+   ],
+   "gym_trainers": 2,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 3,
+  "region": "kanto",
+  "region_zh": "关都",
+  "name_zh": "彩虹徽章",
+  "name_fr": "Badge Prisme",
+  "path_zh": "9号道路 → 玉虹市",
+  "band": [
+   30,
+   37
+  ],
+  "ui_lv": [
+   31,
+   38
+  ],
+  "ace": 38,
+  "cap": 38,
+  "day": false,
+  "steps": 9,
+  "wild": 13,
+  "trainers": 7,
+  "kinds": [
+   "route",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "route",
+   "heal",
+   "gift",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "9号道路",
+    "lv": [
+     30,
+     31
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "10号道路",
+    "lv": [
+     31,
+     33
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "洞窟",
+    "lv": [
+     33,
+     34
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "8号道路",
+    "lv": [
+     34,
+     36
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "7号道路",
+    "lv": [
+     36,
+     37
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "礼物@玉虹公寓：伊布 Lv28"
+  ],
+  "gym": {
+   "leader_zh": "莉佳",
+   "leader_fr": "Erika",
+   "badge_zh": "彩虹徽章",
+   "badge_fr": "Prisme",
+   "types": [
+    "grass"
+   ],
+   "ace": 38,
+   "champion": false,
+   "double": false,
+   "reward": 2900,
+   "power": 1.1,
+   "team": [
+    [
+     114,
+     "蔓藤怪",
+     31
+    ],
+    [
+     47,
+     "派拉斯特",
+     35
+    ],
+    [
+     103,
+     "椰蛋树",
+     34
+    ],
+    [
+     71,
+     "大食花",
+     38
+    ],
+    [
+     45,
+     "霸王花",
+     38
+    ]
+   ],
+   "counter_types": [
+    "fire",
+    "flying",
+    "ice",
+    "bug"
+   ],
+   "resist_types": [
+    "fire",
+    "grass",
+    "poison",
+    "flying",
+    "bug",
+    "dragon",
+    "steel"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 4,
+  "region": "kanto",
+  "region_zh": "关都",
+  "name_zh": "粉红徽章",
+  "name_fr": "Badge Âme",
+  "path_zh": "宝可梦塔 → 浅红市",
+  "band": [
+   38,
+   45
+  ],
+  "ui_lv": [
+   40,
+   46
+  ],
+  "ace": 46,
+  "cap": 46,
+  "day": false,
+  "steps": 10,
+  "wild": 15,
+  "trainers": 7,
+  "kinds": [
+   "route",
+   "static",
+   "heal",
+   "static",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "宝可梦塔",
+    "lv": [
+     38,
+     40
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "12-13号道路",
+    "lv": [
+     40,
+     42
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "14-15号道路",
+    "lv": [
+     42,
+     43
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "狩猎地带",
+    "lv": [
+     43,
+     45
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "定点@宝可梦塔：嘎啦嘎啦 Lv45 需先取得西尔佛检视镜",
+   "定点@12号道路：卡比兽 Lv38"
+  ],
+  "gym": {
+   "leader_zh": "阿桔",
+   "leader_fr": "Koga",
+   "badge_zh": "粉红徽章",
+   "badge_fr": "Âme",
+   "types": [
+    "poison"
+   ],
+   "ace": 46,
+   "champion": false,
+   "double": false,
+   "reward": 4300,
+   "power": 1.2,
+   "team": [
+    [
+     109,
+     "瓦斯弹",
+     40
+    ],
+    [
+     42,
+     "大嘴蝠",
+     41
+    ],
+    [
+     89,
+     "臭臭泥",
+     42
+    ],
+    [
+     49,
+     "摩鲁蛾",
+     41
+    ],
+    [
+     109,
+     "瓦斯弹",
+     40
+    ],
+    [
+     110,
+     "双弹瓦斯",
+     46
+    ]
+   ],
+   "counter_types": [
+    "psychic",
+    "ground"
+   ],
+   "resist_types": [
+    "poison",
+    "ground",
+    "rock",
+    "ghost",
+    "steel"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 5,
+  "region": "kanto",
+  "region_zh": "关都",
+  "name_zh": "金色徽章",
+  "name_fr": "Badge Marais",
+  "path_zh": "金黄市",
+  "band": [
+   46,
+   53
+  ],
+  "ui_lv": [
+   46,
+   54
+  ],
+  "ace": 54,
+  "cap": 54,
+  "day": false,
+  "steps": 11,
+  "wild": 8,
+  "trainers": 9,
+  "kinds": [
+   "route",
+   "heal",
+   "route",
+   "unlock",
+   "route",
+   "heal",
+   "gift",
+   "route",
+   "find",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "自行车道",
+    "lv": [
+     46,
+     48
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "火箭队基地",
+    "lv": [
+     48,
+     50
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "7-8号道路",
+    "lv": [
+     50,
+     51
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "西尔佛公司",
+    "lv": [
+     51,
+     53
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "关键道具@火箭队基地：西尔佛检视镜",
+   "礼物@格斗道场：飞腿郎 / 快拳郎 选一 Lv42",
+   "拾取@西尔佛公司7楼：神奇糖果（一次性）"
+  ],
+  "gym": {
+   "leader_zh": "娜姿",
+   "leader_fr": "Morgane",
+   "badge_zh": "金色徽章",
+   "badge_fr": "Marais",
+   "types": [
+    "psychic"
+   ],
+   "ace": 54,
+   "champion": false,
+   "double": false,
+   "reward": 4300,
+   "power": 0.79,
+   "team": [
+    [
+     64,
+     "勇基拉",
+     48
+    ],
+    [
+     122,
+     "魔墙人偶",
+     46
+    ],
+    [
+     97,
+     "引梦貘人",
+     48
+    ],
+    [
+     121,
+     "宝石海星",
+     48
+    ],
+    [
+     49,
+     "摩鲁蛾",
+     48
+    ],
+    [
+     65,
+     "胡地",
+     54
+    ]
+   ],
+   "counter_types": [
+    "ghost",
+    "dark",
+    "bug"
+   ],
+   "resist_types": [
+    "psychic",
+    "dark",
+    "steel"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 6,
+  "region": "kanto",
+  "region_zh": "关都",
+  "name_zh": "深红徽章",
+  "name_fr": "Badge Volcan",
+  "path_zh": "水路 → 红莲岛",
+  "band": [
+   54,
+   61
+  ],
+  "ui_lv": [
+   53,
+   62
+  ],
+  "ace": 62,
+  "cap": 62,
+  "day": false,
+  "steps": 9,
+  "wild": 10,
+  "trainers": 11,
+  "kinds": [
+   "route",
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "trade",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "19-20号道路",
+    "lv": [
+     54,
+     56
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "无人发电厂",
+    "lv": [
+     56,
+     58
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "双子岛",
+    "lv": [
+     58,
+     59
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "宝可梦屋",
+    "lv": [
+     59,
+     61
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "复活化石@红莲岛研究所：甲壳化石→化石盔，贝壳化石→菊石兽，秘密琥珀→化石翼龙 Lv30"
+  ],
+  "gym": {
+   "leader_zh": "夏伯",
+   "leader_fr": "Auguste",
+   "badge_zh": "深红徽章",
+   "badge_fr": "Volcan",
+   "types": [
+    "fire"
+   ],
+   "ace": 62,
+   "champion": false,
+   "double": false,
+   "reward": 4700,
+   "power": 1.14,
+   "team": [
+    [
+     58,
+     "卡蒂狗",
+     55
+    ],
+    [
+     77,
+     "小火马",
+     53
+    ],
+    [
+     126,
+     "鸭嘴火兽",
+     57
+    ],
+    [
+     38,
+     "九尾",
+     55
+    ],
+    [
+     78,
+     "烈焰马",
+     55
+    ],
+    [
+     59,
+     "风速狗",
+     62
+    ]
+   ],
+   "counter_types": [
+    "water",
+    "ground",
+    "rock"
+   ],
+   "resist_types": [
+    "fire",
+    "water",
+    "rock",
+    "dragon"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 7,
+  "region": "kanto",
+  "region_zh": "关都",
+  "name_zh": "绿色徽章",
+  "name_fr": "Badge Terre",
+  "path_zh": "21号道路 → 常青市",
+  "band": [
+   62,
+   69
+  ],
+  "ui_lv": [
+   59,
+   70
+  ],
+  "ace": 70,
+  "cap": 70,
+  "day": false,
+  "steps": 8,
+  "wild": 12,
+  "trainers": 8,
+  "kinds": [
+   "route",
+   "heal",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "21号道路",
+    "lv": [
+     62,
+     64
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "1号道路",
+    "lv": [
+     64,
+     66
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "常青森林",
+    "lv": [
+     66,
+     67
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "22号道路",
+    "lv": [
+     67,
+     69
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "坂木",
+   "leader_fr": "Giovanni",
+   "badge_zh": "绿色徽章",
+   "badge_fr": "Terre",
+   "types": [
+    "ground"
+   ],
+   "ace": 70,
+   "champion": false,
+   "double": false,
+   "reward": 5000,
+   "power": 1.27,
+   "team": [
+    [
+     111,
+     "独角犀牛",
+     63
+    ],
+    [
+     51,
+     "三地鼠",
+     59
+    ],
+    [
+     53,
+     "猫老大",
+     62
+    ],
+    [
+     31,
+     "尼多后",
+     62
+    ],
+    [
+     34,
+     "尼多王",
+     63
+    ],
+    [
+     112,
+     "钻角犀兽",
+     70
+    ]
+   ],
+   "counter_types": [
+    "water",
+    "grass",
+    "ice",
+    "ground"
+   ],
+   "resist_types": [
+    "grass",
+    "flying",
+    "bug"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 8,
+  "region": "kanto",
+  "region_zh": "关都",
+  "name_zh": "冠军之路",
+  "name_fr": "Route Victoire",
+  "path_zh": "23号道路 → 冠军之路",
+  "band": [
+   70,
+   74
+  ],
+  "ui_lv": [
+   64,
+   75
+  ],
+  "ace": 75,
+  "cap": 75,
+  "day": false,
+  "steps": 5,
+  "wild": 6,
+  "trainers": 9,
+  "kinds": [
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "23号道路",
+    "lv": [
+     70,
+     72
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "冠军之路",
+    "lv": [
+     72,
+     74
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "青绿",
+   "leader_fr": "Blue",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "normal"
+   ],
+   "ace": 75,
+   "champion": false,
+   "double": false,
+   "reward": 5000,
+   "power": 1.43,
+   "team": [
+    [
+     18,
+     "大比鸟",
+     67
+    ],
+    [
+     65,
+     "胡地",
+     67
+    ],
+    [
+     112,
+     "钻角犀兽",
+     64
+    ],
+    [
+     103,
+     "椰蛋树",
+     64
+    ],
+    [
+     59,
+     "风速狗",
+     64
+    ],
+    [
+     9,
+     "水箭龟",
+     75
+    ]
+   ],
+   "counter_types": [
+    "ice"
+   ],
+   "resist_types": [
+    "rock",
+    "ghost",
+    "steel"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 9,
+  "region": "kanto",
+  "region_zh": "关都",
+  "name_zh": "四天王：科拿",
+  "name_fr": "Conseil 4 : Olga",
+  "path_zh": "石英高原",
+  "band": [
+   75,
+   79
+  ],
+  "ui_lv": [
+   76,
+   80
+  ],
+  "ace": 80,
+  "cap": 83,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     75,
+     79
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "科拿",
+   "leader_fr": "Olga",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "ice"
+   ],
+   "ace": 80,
+   "champion": false,
+   "double": false,
+   "reward": 5500,
+   "power": 0.36,
+   "team": [
+    [
+     87,
+     "白海狮",
+     77
+    ],
+    [
+     91,
+     "刺甲贝",
+     76
+    ],
+    [
+     73,
+     "毒刺水母",
+     79
+    ],
+    [
+     80,
+     "呆壳兽",
+     77
+    ],
+    [
+     124,
+     "迷唇姐",
+     80
+    ],
+    [
+     131,
+     "拉普拉斯",
+     80
+    ]
+   ],
+   "counter_types": [
+    "electric",
+    "grass",
+    "rock",
+    "fighting"
+   ],
+   "resist_types": [
+    "fire",
+    "water",
+    "ice",
+    "steel"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 1,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 10,
+  "region": "kanto",
+  "region_zh": "关都",
+  "name_zh": "四天王：希巴",
+  "name_fr": "Conseil 4 : Aldo",
+  "path_zh": "石英高原",
+  "band": [
+   80,
+   84
+  ],
+  "ui_lv": [
+   78,
+   85
+  ],
+  "ace": 85,
+  "cap": 88,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     80,
+     84
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "希巴",
+   "leader_fr": "Aldo",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "fighting"
+   ],
+   "ace": 85,
+   "champion": false,
+   "double": false,
+   "reward": 5700,
+   "power": 0.48,
+   "team": [
+    [
+     95,
+     "大岩蛇",
+     78
+    ],
+    [
+     107,
+     "快拳郎",
+     81
+    ],
+    [
+     57,
+     "火暴猴",
+     82
+    ],
+    [
+     106,
+     "飞腿郎",
+     81
+    ],
+    [
+     95,
+     "大岩蛇",
+     82
+    ],
+    [
+     68,
+     "怪力",
+     85
+    ]
+   ],
+   "counter_types": [
+    "psychic",
+    "fairy",
+    "flying"
+   ],
+   "resist_types": [
+    "poison",
+    "flying",
+    "psychic",
+    "bug",
+    "ghost",
+    "fairy"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 2,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 11,
+  "region": "kanto",
+  "region_zh": "关都",
+  "name_zh": "四天王：菊子",
+  "name_fr": "Conseil 4 : Agatha",
+  "path_zh": "石英高原",
+  "band": [
+   85,
+   89
+  ],
+  "ui_lv": [
+   83,
+   90
+  ],
+  "ace": 90,
+  "cap": 93,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     85,
+     89
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "菊子",
+   "leader_fr": "Agatha",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "ghost"
+   ],
+   "ace": 90,
+   "champion": false,
+   "double": false,
+   "reward": 5900,
+   "power": 0.73,
+   "team": [
+    [
+     94,
+     "耿鬼",
+     84
+    ],
+    [
+     42,
+     "大嘴蝠",
+     84
+    ],
+    [
+     110,
+     "双弹瓦斯",
+     84
+    ],
+    [
+     93,
+     "鬼斯通",
+     83
+    ],
+    [
+     24,
+     "阿柏怪",
+     87
+    ],
+    [
+     94,
+     "耿鬼",
+     90
+    ]
+   ],
+   "counter_types": [
+    "psychic",
+    "ground",
+    "ghost",
+    "dark"
+   ],
+   "resist_types": [
+    "normal",
+    "dark"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 3,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 12,
+  "region": "kanto",
+  "region_zh": "关都",
+  "name_zh": "四天王：阿渡",
+  "name_fr": "Conseil 4 : Peter",
+  "path_zh": "石英高原",
+  "band": [
+   90,
+   94
+  ],
+  "ui_lv": [
+   86,
+   95
+  ],
+  "ace": 95,
+  "cap": 95,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     90,
+     94
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "阿渡",
+   "leader_fr": "Peter",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "dragon"
+   ],
+   "ace": 95,
+   "champion": false,
+   "double": false,
+   "reward": 6100,
+   "power": 0.57,
+   "team": [
+    [
+     130,
+     "暴鲤龙",
+     89
+    ],
+    [
+     148,
+     "哈克龙",
+     86
+    ],
+    [
+     117,
+     "海刺龙",
+     89
+    ],
+    [
+     148,
+     "哈克龙",
+     86
+    ],
+    [
+     142,
+     "化石翼龙",
+     92
+    ],
+    [
+     149,
+     "快龙",
+     95
+    ]
+   ],
+   "counter_types": [
+    "ice",
+    "electric",
+    "rock",
+    "dragon"
+   ],
+   "resist_types": [
+    "steel",
+    "fairy"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 4,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 13,
+  "region": "kanto",
+  "region_zh": "关都",
+  "name_zh": "联盟冠军",
+  "name_fr": "Maître de la Ligue",
+  "path_zh": "石英高原",
+  "band": [
+   95,
+   94
+  ],
+  "ui_lv": [
+   83,
+   100
+  ],
+  "ace": 95,
+  "cap": 100,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     95,
+     96
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "青绿",
+   "leader_fr": "Blue",
+   "badge_zh": "冠军徽章",
+   "badge_fr": "Maître",
+   "types": [
+    "normal"
+   ],
+   "ace": 95,
+   "champion": true,
+   "double": false,
+   "reward": 10000,
+   "power": 1.72,
+   "team": [
+    [
+     18,
+     "大比鸟",
+     86
+    ],
+    [
+     65,
+     "胡地",
+     83
+    ],
+    [
+     112,
+     "钻角犀兽",
+     86
+    ],
+    [
+     103,
+     "椰蛋树",
+     89
+    ],
+    [
+     59,
+     "风速狗",
+     89
+    ],
+    [
+     9,
+     "水箭龟",
+     95
+    ]
+   ],
+   "counter_types": [
+    "ice"
+   ],
+   "resist_types": [
+    "rock",
+    "ghost",
+    "steel"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 5,
+  "first_of_region": false,
+  "last_of_region": true
+ },
+ {
+  "ch": 14,
+  "region": "johto",
+  "region_zh": "城都",
+  "name_zh": "飞翼徽章",
+  "name_fr": "Badge Zéphyr",
+  "path_zh": "若叶镇 → 桔梗市",
+  "band": [
+   2,
+   15
+  ],
+  "ui_lv": [
+   12,
+   18
+  ],
+  "ace": 16,
+  "cap": 18,
+  "day": false,
+  "steps": 10,
+  "wild": 11,
+  "trainers": 3,
+  "kinds": [
+   "gift",
+   "heal",
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "egg",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "29号道路",
+    "lv": [
+     2,
+     3
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "30-31号道路",
+    "lv": [
+     4,
+     7
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "喇叭芽之塔",
+    "lv": [
+     11,
+     15
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "礼物@空木博士的研究所：菊草叶 / 火球鼠 / 小锯鳄 选一 Lv5",
+   "蛋@空木博士的助手：波克比蛋→寄放屋"
+  ],
+  "gym": {
+   "leader_zh": "阿速",
+   "leader_fr": "Albert",
+   "badge_zh": "飞翼徽章",
+   "badge_fr": "Zéphyr",
+   "types": [
+    "flying"
+   ],
+   "ace": 16,
+   "champion": false,
+   "double": false,
+   "reward": 1400,
+   "power": 1.27,
+   "team": [
+    [
+     16,
+     "波波",
+     12
+    ],
+    [
+     17,
+     "比比鸟",
+     16
+    ]
+   ],
+   "counter_types": [
+    "electric",
+    "ice",
+    "rock"
+   ],
+   "resist_types": [
+    "electric",
+    "rock",
+    "steel"
+   ],
+   "gym_trainers": 1,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": true,
+  "last_of_region": false
+ },
+ {
+  "ch": 15,
+  "region": "johto",
+  "region_zh": "城都",
+  "name_zh": "昆虫徽章",
+  "name_fr": "Badge Essaim",
+  "path_zh": "32号道路 → 桧皮镇",
+  "band": [
+   16,
+   23
+  ],
+  "ui_lv": [
+   21,
+   24
+  ],
+  "ace": 24,
+  "cap": 24,
+  "day": false,
+  "steps": 9,
+  "wild": 16,
+  "trainers": 7,
+  "kinds": [
+   "route",
+   "route",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "find",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "32号道路",
+    "lv": [
+     16,
+     17
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "阿露福遗迹",
+    "lv": [
+     17,
+     19
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "连接洞窟",
+    "lv": [
+     19,
+     20
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "33号道路",
+    "lv": [
+     20,
+     22
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "呆呆兽之井",
+    "lv": [
+     22,
+     23
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "拾取@呆呆兽之井：王者之证（一次性）"
+  ],
+  "gym": {
+   "leader_zh": "阿笔",
+   "leader_fr": "Hector",
+   "badge_zh": "昆虫徽章",
+   "badge_fr": "Essaim",
+   "types": [
+    "bug"
+   ],
+   "ace": 24,
+   "champion": false,
+   "double": false,
+   "reward": 2100,
+   "power": 0.94,
+   "team": [
+    [
+     11,
+     "铁甲蛹",
+     21
+    ],
+    [
+     14,
+     "铁壳蛹",
+     21
+    ],
+    [
+     123,
+     "飞天螳螂",
+     24
+    ]
+   ],
+   "counter_types": [
+    "rock",
+    "fire",
+    "flying"
+   ],
+   "resist_types": [
+    "fire",
+    "fighting",
+    "poison",
+    "flying",
+    "ghost",
+    "steel",
+    "fairy"
+   ],
+   "gym_trainers": 2,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 16,
+  "region": "johto",
+  "region_zh": "城都",
+  "name_zh": "平原徽章",
+  "name_fr": "Badge Plaine",
+  "path_zh": "桐树林 → 满金市",
+  "band": [
+   24,
+   29
+  ],
+  "ui_lv": [
+   27,
+   30
+  ],
+  "ace": 30,
+  "cap": 30,
+  "day": false,
+  "steps": 9,
+  "wild": 11,
+  "trainers": 8,
+  "kinds": [
+   "route",
+   "route",
+   "egg",
+   "heal",
+   "gift",
+   "find",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "桐树林",
+    "lv": [
+     24,
+     26
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "34号道路",
+    "lv": [
+     26,
+     27
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "35号道路",
+    "lv": [
+     27,
+     29
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "蛋@34号道路培育屋：神秘蛋(皮丘/皮宝宝/宝宝丁/无畏小子/迷唇娃/电击怪/鸭嘴宝宝)→寄放屋",
+   "礼物@正辉的家：伊布 Lv22",
+   "拾取@满金市：安抚之铃（一次性）"
+  ],
+  "gym": {
+   "leader_zh": "小茜",
+   "leader_fr": "Blanche",
+   "badge_zh": "平原徽章",
+   "badge_fr": "Plaine",
+   "types": [
+    "normal"
+   ],
+   "ace": 30,
+   "champion": false,
+   "double": false,
+   "reward": 2400,
+   "power": 0.8,
+   "team": [
+    [
+     35,
+     "皮皮",
+     27
+    ],
+    [
+     162,
+     "大尾立",
+     27
+    ],
+    [
+     203,
+     "麒麟奇",
+     29
+    ],
+    [
+     241,
+     "大奶罐",
+     30
+    ]
+   ],
+   "counter_types": [
+    "fighting"
+   ],
+   "resist_types": [
+    "rock",
+    "ghost",
+    "steel"
+   ],
+   "gym_trainers": 2,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 17,
+  "region": "johto",
+  "region_zh": "城都",
+  "name_zh": "雾徽章",
+  "name_fr": "Badge Brume",
+  "path_zh": "自然公园 → 圆朱市",
+  "band": [
+   30,
+   37
+  ],
+  "ui_lv": [
+   32,
+   38
+  ],
+  "ace": 38,
+  "cap": 38,
+  "day": false,
+  "steps": 14,
+  "wild": 13,
+  "trainers": 7,
+  "kinds": [
+   "route",
+   "find",
+   "static",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "trainer",
+   "trainer",
+   "trainer",
+   "trainer",
+   "trainer",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "自然公园",
+    "lv": [
+     30,
+     32
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "36号道路",
+    "lv": [
+     32,
+     34
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "37号道路",
+    "lv": [
+     34,
+     35
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "烧焦塔",
+    "lv": [
+     35,
+     37
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "拾取@自然公园：日之石（一次性）",
+   "定点@36号道路：树才怪 Lv30",
+   "剧情训练家@圆朱歌舞练场：舞女纱代 水伊布Lv33",
+   "剧情训练家@圆朱歌舞练场：舞女小月 雷伊布Lv34",
+   "剧情训练家@圆朱歌舞练场：舞女小国 火伊布Lv35",
+   "剧情训练家@圆朱歌舞练场：舞女小干 太阳伊布Lv36",
+   "剧情训练家@圆朱歌舞练场：舞女直子 月亮伊布Lv37"
+  ],
+  "gym": {
+   "leader_zh": "松叶",
+   "leader_fr": "Mortimer",
+   "badge_zh": "雾徽章",
+   "badge_fr": "Brume",
+   "types": [
+    "ghost"
+   ],
+   "ace": 38,
+   "champion": false,
+   "double": false,
+   "reward": 2900,
+   "power": 1.29,
+   "team": [
+    [
+     92,
+     "鬼斯",
+     32
+    ],
+    [
+     93,
+     "鬼斯通",
+     32
+    ],
+    [
+     200,
+     "梦妖",
+     33
+    ],
+    [
+     93,
+     "鬼斯通",
+     35
+    ],
+    [
+     94,
+     "耿鬼",
+     38
+    ]
+   ],
+   "counter_types": [
+    "ghost",
+    "dark",
+    "ground",
+    "psychic"
+   ],
+   "resist_types": [
+    "normal",
+    "dark"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 18,
+  "region": "johto",
+  "region_zh": "城都",
+  "name_zh": "冲击徽章",
+  "name_fr": "Badge Choc",
+  "path_zh": "38-39号道路 → 湛蓝市",
+  "band": [
+   38,
+   45
+  ],
+  "ui_lv": [
+   41,
+   46
+  ],
+  "ace": 46,
+  "cap": 46,
+  "day": false,
+  "steps": 7,
+  "wild": 12,
+  "trainers": 8,
+  "kinds": [
+   "route",
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "gift",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "38号道路",
+    "lv": [
+     38,
+     40
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "39号道路",
+    "lv": [
+     40,
+     43
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "40-41号道路",
+    "lv": [
+     43,
+     45
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "礼物@湛蓝市的民宅：壶壶 Lv38"
+  ],
+  "gym": {
+   "leader_zh": "阿四",
+   "leader_fr": "Chuck",
+   "badge_zh": "冲击徽章",
+   "badge_fr": "Choc",
+   "types": [
+    "fighting"
+   ],
+   "ace": 46,
+   "champion": false,
+   "double": false,
+   "reward": 4300,
+   "power": 0.8,
+   "team": [
+    [
+     57,
+     "火暴猴",
+     41
+    ],
+    [
+     67,
+     "豪力",
+     41
+    ],
+    [
+     237,
+     "战舞郎",
+     43
+    ],
+    [
+     106,
+     "飞腿郎",
+     43
+    ],
+    [
+     107,
+     "快拳郎",
+     43
+    ],
+    [
+     62,
+     "蚊香泳士",
+     46
+    ]
+   ],
+   "counter_types": [
+    "flying",
+    "psychic",
+    "fairy"
+   ],
+   "resist_types": [
+    "poison",
+    "flying",
+    "psychic",
+    "bug",
+    "ghost",
+    "fairy"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 19,
+  "region": "johto",
+  "region_zh": "城都",
+  "name_zh": "钢铁徽章",
+  "name_fr": "Badge Minéral",
+  "path_zh": "漩涡列岛 → 浅葱市",
+  "band": [
+   46,
+   53
+  ],
+  "ui_lv": [
+   46,
+   54
+  ],
+  "ace": 54,
+  "cap": 54,
+  "day": false,
+  "steps": 7,
+  "wild": 11,
+  "trainers": 8,
+  "kinds": [
+   "route",
+   "heal",
+   "route",
+   "route",
+   "find",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "漩涡列岛",
+    "lv": [
+     46,
+     48
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "39号道路",
+    "lv": [
+     48,
+     51
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "浅葱灯塔",
+    "lv": [
+     51,
+     53
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "拾取@浅葱灯塔：金属膜（一次性）"
+  ],
+  "gym": {
+   "leader_zh": "阿蜜",
+   "leader_fr": "Jasmine",
+   "badge_zh": "钢铁徽章",
+   "badge_fr": "Minéral",
+   "types": [
+    "steel"
+   ],
+   "ace": 54,
+   "champion": false,
+   "double": false,
+   "reward": 4300,
+   "power": 1.07,
+   "team": [
+    [
+     81,
+     "小磁怪",
+     46
+    ],
+    [
+     81,
+     "小磁怪",
+     46
+    ],
+    [
+     227,
+     "盔甲鸟",
+     49
+    ],
+    [
+     205,
+     "佛烈托斯",
+     49
+    ],
+    [
+     82,
+     "三合一磁怪",
+     51
+    ],
+    [
+     208,
+     "大钢蛇",
+     54
+    ]
+   ],
+   "counter_types": [
+    "ground",
+    "fire",
+    "fighting"
+   ],
+   "resist_types": [
+    "fire",
+    "water",
+    "electric",
+    "steel"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 20,
+  "region": "johto",
+  "region_zh": "城都",
+  "name_zh": "愤怒之湖",
+  "name_fr": "Lac Colère",
+  "path_zh": "擂钵山 → 愤怒之湖",
+  "band": [
+   54,
+   57
+  ],
+  "ui_lv": [
+   58,
+   58
+  ],
+  "ace": 58,
+  "cap": 58,
+  "day": false,
+  "steps": 10,
+  "wild": 13,
+  "trainers": 9,
+  "kinds": [
+   "route",
+   "heal",
+   "route",
+   "find",
+   "gift",
+   "heal",
+   "route",
+   "heal",
+   "route",
+   "static"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "42号道路",
+    "lv": [
+     54,
+     55
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "擂钵山",
+    "lv": [
+     55,
+     56
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "43号道路",
+    "lv": [
+     56,
+     57
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "愤怒之湖",
+    "lv": [
+     56,
+     57
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "拾取@擂钵山：龙之鳞片（一次性）",
+   "礼物@擂钵山：无畏小子 Lv50",
+   "定点@愤怒之湖：暴鲤龙(异色) Lv58"
+  ],
+  "gym": null,
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 21,
+  "region": "johto",
+  "region_zh": "城都",
+  "name_zh": "冰河徽章",
+  "name_fr": "Badge Glacier",
+  "path_zh": "卡吉镇",
+  "band": [
+   58,
+   61
+  ],
+  "ui_lv": [
+   54,
+   62
+  ],
+  "ace": 62,
+  "cap": 62,
+  "day": false,
+  "steps": 7,
+  "wild": 10,
+  "trainers": 9,
+  "kinds": [
+   "route",
+   "heal",
+   "route",
+   "route",
+   "static",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "43号道路",
+    "lv": [
+     58,
+     59
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "火箭队基地",
+    "lv": [
+     59,
+     60
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "火箭队基地B2",
+    "lv": [
+     60,
+     61
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "定点@火箭队基地：顽皮雷弹 Lv56"
+  ],
+  "gym": {
+   "leader_zh": "柳伯",
+   "leader_fr": "Frédo",
+   "badge_zh": "冰河徽章",
+   "badge_fr": "Glacier",
+   "types": [
+    "ice"
+   ],
+   "ace": 62,
+   "champion": false,
+   "double": false,
+   "reward": 4700,
+   "power": 1.12,
+   "team": [
+    [
+     86,
+     "小海狮",
+     54
+    ],
+    [
+     87,
+     "白海狮",
+     58
+    ],
+    [
+     215,
+     "狃拉",
+     58
+    ],
+    [
+     124,
+     "迷唇姐",
+     58
+    ],
+    [
+     91,
+     "刺甲贝",
+     60
+    ],
+    [
+     221,
+     "长毛猪",
+     62
+    ]
+   ],
+   "counter_types": [
+    "fighting",
+    "grass",
+    "rock",
+    "fire"
+   ],
+   "resist_types": [
+    "fire",
+    "water",
+    "ice",
+    "steel"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 22,
+  "region": "johto",
+  "region_zh": "城都",
+  "name_zh": "广播塔",
+  "name_fr": "Tour Radio",
+  "path_zh": "满金市",
+  "band": [
+   62,
+   65
+  ],
+  "ui_lv": [
+   60,
+   66
+  ],
+  "ace": 66,
+  "cap": 66,
+  "day": false,
+  "steps": 5,
+  "wild": 9,
+  "trainers": 8,
+  "kinds": [
+   "route",
+   "route",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "满金市",
+    "lv": [
+     62,
+     63
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "地下室",
+    "lv": [
+     63,
+     64
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "广播塔",
+    "lv": [
+     64,
+     65
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "火箭队干部",
+   "leader_fr": "Admin Rocket",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "dark"
+   ],
+   "ace": 66,
+   "champion": false,
+   "double": false,
+   "reward": 4800,
+   "power": 1.09,
+   "team": [
+    [
+     228,
+     "戴鲁比",
+     60
+    ],
+    [
+     109,
+     "瓦斯弹",
+     60
+    ],
+    [
+     24,
+     "阿柏怪",
+     61
+    ],
+    [
+     110,
+     "双弹瓦斯",
+     63
+    ],
+    [
+     42,
+     "大嘴蝠",
+     64
+    ],
+    [
+     229,
+     "黑鲁加",
+     66
+    ]
+   ],
+   "counter_types": [
+    "ground",
+    "rock",
+    "psychic"
+   ],
+   "resist_types": [
+    "fighting",
+    "dark",
+    "fairy"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 23,
+  "region": "johto",
+  "region_zh": "城都",
+  "name_zh": "升龙徽章",
+  "name_fr": "Badge Lever",
+  "path_zh": "44号道路 → 烟墨市",
+  "band": [
+   66,
+   69
+  ],
+  "ui_lv": [
+   65,
+   70
+  ],
+  "ace": 70,
+  "cap": 70,
+  "day": false,
+  "steps": 8,
+  "wild": 12,
+  "trainers": 8,
+  "kinds": [
+   "route",
+   "route",
+   "heal",
+   "route",
+   "route",
+   "gift",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "44号道路",
+    "lv": [
+     66,
+     67
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "冰之小径",
+    "lv": [
+     67,
+     68
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "45-46号道路",
+    "lv": [
+     68,
+     69
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "龙之洞",
+    "lv": [
+     68,
+     69
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "礼物@龙之洞：迷你龙 Lv64"
+  ],
+  "gym": {
+   "leader_zh": "小椿",
+   "leader_fr": "Sandra",
+   "badge_zh": "升龙徽章",
+   "badge_fr": "Lever",
+   "types": [
+    "dragon"
+   ],
+   "ace": 70,
+   "champion": false,
+   "double": false,
+   "reward": 5000,
+   "power": 0.89,
+   "team": [
+    [
+     130,
+     "暴鲤龙",
+     65
+    ],
+    [
+     148,
+     "哈克龙",
+     65
+    ],
+    [
+     148,
+     "哈克龙",
+     65
+    ],
+    [
+     148,
+     "哈克龙",
+     65
+    ],
+    [
+     117,
+     "海刺龙",
+     67
+    ],
+    [
+     230,
+     "刺龙王",
+     70
+    ]
+   ],
+   "counter_types": [
+    "dragon",
+    "fairy",
+    "ice"
+   ],
+   "resist_types": [
+    "steel",
+    "fairy"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 24,
+  "region": "johto",
+  "region_zh": "城都",
+  "name_zh": "冠军之路",
+  "name_fr": "Route Victoire",
+  "path_zh": "26-27号道路 → 冠军之路",
+  "band": [
+   70,
+   74
+  ],
+  "ui_lv": [
+   67,
+   75
+  ],
+  "ace": 75,
+  "cap": 75,
+  "day": false,
+  "steps": 6,
+  "wild": 10,
+  "trainers": 8,
+  "kinds": [
+   "route",
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "26号道路",
+    "lv": [
+     70,
+     71
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "27号道路",
+    "lv": [
+     71,
+     73
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "冠军之路",
+    "lv": [
+     73,
+     74
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "银",
+   "leader_fr": "Silver",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "dark"
+   ],
+   "ace": 75,
+   "champion": false,
+   "double": false,
+   "reward": 5000,
+   "power": 1.1,
+   "team": [
+    [
+     215,
+     "狃拉",
+     67
+    ],
+    [
+     169,
+     "叉字蝠",
+     71
+    ],
+    [
+     82,
+     "三合一磁怪",
+     69
+    ],
+    [
+     94,
+     "耿鬼",
+     69
+    ],
+    [
+     65,
+     "胡地",
+     69
+    ],
+    [
+     160,
+     "大力鳄",
+     75
+    ]
+   ],
+   "counter_types": [],
+   "resist_types": [
+    "fighting",
+    "dark",
+    "fairy"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 25,
+  "region": "johto",
+  "region_zh": "城都",
+  "name_zh": "四天王：一树",
+  "name_fr": "Conseil 4 : Clément",
+  "path_zh": "石英高原",
+  "band": [
+   75,
+   79
+  ],
+  "ui_lv": [
+   76,
+   80
+  ],
+  "ace": 80,
+  "cap": 83,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     75,
+     79
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "一树",
+   "leader_fr": "Clément",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "psychic"
+   ],
+   "ace": 80,
+   "champion": false,
+   "double": false,
+   "reward": 5500,
+   "power": 0.4,
+   "team": [
+    [
+     178,
+     "天然鸟",
+     76
+    ],
+    [
+     203,
+     "麒麟奇",
+     78
+    ],
+    [
+     124,
+     "迷唇姐",
+     78
+    ],
+    [
+     103,
+     "椰蛋树",
+     78
+    ],
+    [
+     80,
+     "呆壳兽",
+     78
+    ],
+    [
+     178,
+     "天然鸟",
+     80
+    ]
+   ],
+   "counter_types": [
+    "dark",
+    "bug",
+    "ghost",
+    "rock"
+   ],
+   "resist_types": [
+    "psychic",
+    "dark",
+    "steel"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 1,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 26,
+  "region": "johto",
+  "region_zh": "城都",
+  "name_zh": "四天王：阿桔",
+  "name_fr": "Conseil 4 : Koga",
+  "path_zh": "石英高原",
+  "band": [
+   80,
+   84
+  ],
+  "ui_lv": [
+   77,
+   85
+  ],
+  "ace": 85,
+  "cap": 88,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     80,
+     84
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "阿桔",
+   "leader_fr": "Koga",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "poison"
+   ],
+   "ace": 85,
+   "champion": false,
+   "double": false,
+   "reward": 5700,
+   "power": 0.57,
+   "team": [
+    [
+     168,
+     "阿利多斯",
+     77
+    ],
+    [
+     49,
+     "摩鲁蛾",
+     79
+    ],
+    [
+     73,
+     "毒刺水母",
+     81
+    ],
+    [
+     205,
+     "佛烈托斯",
+     83
+    ],
+    [
+     89,
+     "臭臭泥",
+     81
+    ],
+    [
+     169,
+     "叉字蝠",
+     85
+    ]
+   ],
+   "counter_types": [
+    "psychic",
+    "fire",
+    "rock"
+   ],
+   "resist_types": [
+    "poison",
+    "ground",
+    "rock",
+    "ghost",
+    "steel"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 2,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 27,
+  "region": "johto",
+  "region_zh": "城都",
+  "name_zh": "四天王：希巴",
+  "name_fr": "Conseil 4 : Aldo",
+  "path_zh": "石英高原",
+  "band": [
+   85,
+   89
+  ],
+  "ui_lv": [
+   82,
+   90
+  ],
+  "ace": 90,
+  "cap": 93,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     85,
+     89
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "希巴",
+   "leader_fr": "Aldo",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "fighting"
+   ],
+   "ace": 90,
+   "champion": false,
+   "double": false,
+   "reward": 5900,
+   "power": 0.75,
+   "team": [
+    [
+     237,
+     "战舞郎",
+     82
+    ],
+    [
+     106,
+     "飞腿郎",
+     82
+    ],
+    [
+     107,
+     "快拳郎",
+     82
+    ],
+    [
+     95,
+     "大岩蛇",
+     84
+    ],
+    [
+     214,
+     "赫拉克罗斯",
+     84
+    ],
+    [
+     68,
+     "怪力",
+     90
+    ]
+   ],
+   "counter_types": [
+    "flying",
+    "psychic",
+    "fairy"
+   ],
+   "resist_types": [
+    "poison",
+    "flying",
+    "psychic",
+    "bug",
+    "ghost",
+    "fairy"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 3,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 28,
+  "region": "johto",
+  "region_zh": "城都",
+  "name_zh": "四天王：梨花",
+  "name_fr": "Conseil 4 : Marion",
+  "path_zh": "石英高原",
+  "band": [
+   90,
+   94
+  ],
+  "ui_lv": [
+   85,
+   95
+  ],
+  "ace": 95,
+  "cap": 95,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     90,
+     94
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "梨花",
+   "leader_fr": "Marion",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "dark"
+   ],
+   "ace": 95,
+   "champion": false,
+   "double": false,
+   "reward": 6100,
+   "power": 0.82,
+   "team": [
+    [
+     197,
+     "月亮伊布",
+     85
+    ],
+    [
+     45,
+     "霸王花",
+     85
+    ],
+    [
+     215,
+     "狃拉",
+     87
+    ],
+    [
+     198,
+     "黑暗鸦",
+     89
+    ],
+    [
+     94,
+     "耿鬼",
+     91
+    ],
+    [
+     229,
+     "黑鲁加",
+     95
+    ]
+   ],
+   "counter_types": [
+    "fighting",
+    "rock",
+    "fairy"
+   ],
+   "resist_types": [
+    "fighting",
+    "dark",
+    "fairy"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 4,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 29,
+  "region": "johto",
+  "region_zh": "城都",
+  "name_zh": "联盟冠军",
+  "name_fr": "Maître de la Ligue",
+  "path_zh": "石英高原",
+  "band": [
+   95,
+   94
+  ],
+  "ui_lv": [
+   84,
+   100
+  ],
+  "ace": 95,
+  "cap": 100,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     95,
+     96
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "阿渡",
+   "leader_fr": "Peter",
+   "badge_zh": "城都冠军徽章",
+   "badge_fr": "Maître Johto",
+   "types": [
+    "dragon"
+   ],
+   "ace": 95,
+   "champion": true,
+   "double": false,
+   "reward": 10000,
+   "power": 1.2,
+   "team": [
+    [
+     130,
+     "暴鲤龙",
+     84
+    ],
+    [
+     149,
+     "快龙",
+     89
+    ],
+    [
+     149,
+     "快龙",
+     89
+    ],
+    [
+     142,
+     "化石翼龙",
+     87
+    ],
+    [
+     6,
+     "喷火龙",
+     87
+    ],
+    [
+     149,
+     "快龙",
+     95
+    ]
+   ],
+   "counter_types": [
+    "ice",
+    "rock",
+    "electric",
+    "dragon"
+   ],
+   "resist_types": [
+    "steel",
+    "fairy"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 5,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 30,
+  "region": "johto",
+  "region_zh": "城都",
+  "name_zh": "白银山",
+  "name_fr": "Mont Argenté",
+  "path_zh": "真新镇 → 28号道路 → 白银山",
+  "band": [
+   90,
+   99
+  ],
+  "ui_lv": [
+   100,
+   100
+  ],
+  "ace": 100,
+  "cap": 100,
+  "day": false,
+  "steps": 7,
+  "wild": 15,
+  "trainers": 7,
+  "kinds": [
+   "gift",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "22号道路",
+    "lv": [
+     90,
+     92
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "28号道路",
+    "lv": [
+     92,
+     95
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "白银山",
+    "lv": [
+     95,
+     97
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "山顶",
+    "lv": [
+     97,
+     99
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "礼物@大木博士的研究所：妙蛙种子 / 小火龙 / 杰尼龟 选一 Lv5"
+  ],
+  "gym": {
+   "leader_zh": "赤红",
+   "leader_fr": "Red",
+   "badge_zh": "传说徽章",
+   "badge_fr": "Légende",
+   "types": [
+    "normal"
+   ],
+   "ace": 100,
+   "champion": true,
+   "double": false,
+   "reward": 100000,
+   "power": 0.95,
+   "team": [
+    [
+     25,
+     "皮卡丘",
+     100
+    ],
+    [
+     196,
+     "太阳伊布",
+     100
+    ],
+    [
+     143,
+     "卡比兽",
+     100
+    ],
+    [
+     3,
+     "妙蛙花",
+     100
+    ],
+    [
+     6,
+     "喷火龙",
+     100
+    ],
+    [
+     9,
+     "水箭龟",
+     100
+    ]
+   ],
+   "counter_types": [],
+   "resist_types": [
+    "rock",
+    "ghost",
+    "steel"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": true
+ },
+ {
+  "ch": 31,
+  "region": "hoenn",
+  "region_zh": "丰缘",
+  "name_zh": "原石徽章",
+  "name_fr": "Badge Roche (Hoenn)",
+  "path_zh": "未白镇 → 卡那兹市",
+  "band": [
+   2,
+   15
+  ],
+  "ui_lv": [
+   13,
+   18
+  ],
+  "ace": 16,
+  "cap": 18,
+  "day": false,
+  "steps": 10,
+  "wild": 15,
+  "trainers": 4,
+  "kinds": [
+   "gift",
+   "heal",
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "route",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "101号道路",
+    "lv": [
+     2,
+     3
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "102-103号道路",
+    "lv": [
+     4,
+     7
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "104号道路",
+    "lv": [
+     9,
+     12
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "橙华森林",
+    "lv": [
+     12,
+     15
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "礼物@小田卷博士的研究所：木守宫 / 火稚鸡 / 水跃鱼 选一 Lv5"
+  ],
+  "gym": {
+   "leader_zh": "杜娟",
+   "leader_fr": "Roxanne",
+   "badge_zh": "原石徽章",
+   "badge_fr": "Roche (Hoenn)",
+   "types": [
+    "rock"
+   ],
+   "ace": 16,
+   "champion": false,
+   "double": false,
+   "reward": 1400,
+   "power": 1.85,
+   "team": [
+    [
+     74,
+     "小拳石",
+     13
+    ],
+    [
+     299,
+     "朝北鼻",
+     16
+    ]
+   ],
+   "counter_types": [
+    "water",
+    "grass",
+    "fighting",
+    "ground"
+   ],
+   "resist_types": [
+    "fighting",
+    "ground",
+    "steel"
+   ],
+   "gym_trainers": 1,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": true,
+  "last_of_region": false
+ },
+ {
+  "ch": 32,
+  "region": "hoenn",
+  "region_zh": "丰缘",
+  "name_zh": "拳头徽章",
+  "name_fr": "Badge Poing",
+  "path_zh": "116号道路 → 武斗镇",
+  "band": [
+   16,
+   21
+  ],
+  "ui_lv": [
+   19,
+   22
+  ],
+  "ace": 22,
+  "cap": 22,
+  "day": false,
+  "steps": 7,
+  "wild": 13,
+  "trainers": 6,
+  "kinds": [
+   "route",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "116号道路",
+    "lv": [
+     16,
+     17
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "卡绿隧道",
+    "lv": [
+     17,
+     19
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "105-106号道路",
+    "lv": [
+     19,
+     20
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "石之洞窟",
+    "lv": [
+     20,
+     21
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "藤树",
+   "leader_fr": "Bastien",
+   "badge_zh": "拳头徽章",
+   "badge_fr": "Poing",
+   "types": [
+    "fighting"
+   ],
+   "ace": 22,
+   "champion": false,
+   "double": false,
+   "reward": 2100,
+   "power": 1.63,
+   "team": [
+    [
+     66,
+     "腕力",
+     19
+    ],
+    [
+     307,
+     "玛沙那",
+     19
+    ],
+    [
+     296,
+     "幕下力士",
+     22
+    ]
+   ],
+   "counter_types": [
+    "flying",
+    "fairy",
+    "psychic"
+   ],
+   "resist_types": [
+    "poison",
+    "flying",
+    "psychic",
+    "bug",
+    "ghost",
+    "fairy"
+   ],
+   "gym_trainers": 2,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 33,
+  "region": "hoenn",
+  "region_zh": "丰缘",
+  "name_zh": "发电徽章",
+  "name_fr": "Badge Dynamo",
+  "path_zh": "107-110号道路 → 紫堇市",
+  "band": [
+   22,
+   26
+  ],
+  "ui_lv": [
+   23,
+   27
+  ],
+  "ace": 27,
+  "cap": 27,
+  "day": false,
+  "steps": 8,
+  "wild": 13,
+  "trainers": 9,
+  "kinds": [
+   "route",
+   "route",
+   "route",
+   "heal",
+   "trainer",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "107-108号道路",
+    "lv": [
+     22,
+     23
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "弃船",
+    "lv": [
+     23,
+     24
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "109号道路",
+    "lv": [
+     24,
+     25
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "110号道路",
+    "lv": [
+     25,
+     26
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "剧情训练家@海洋博物馆：海洋队手下 土狼犬Lv25、利牙鱼Lv27"
+  ],
+  "gym": {
+   "leader_zh": "铁旋",
+   "leader_fr": "Voltère",
+   "badge_zh": "发电徽章",
+   "badge_fr": "Dynamo",
+   "types": [
+    "electric"
+   ],
+   "ace": 27,
+   "champion": false,
+   "double": false,
+   "reward": 2400,
+   "power": 0.98,
+   "team": [
+    [
+     100,
+     "霹雳电球",
+     23
+    ],
+    [
+     309,
+     "落雷兽",
+     23
+    ],
+    [
+     82,
+     "三合一磁怪",
+     25
+    ],
+    [
+     310,
+     "雷电兽",
+     27
+    ]
+   ],
+   "counter_types": [
+    "ground"
+   ],
+   "resist_types": [
+    "grass",
+    "electric",
+    "ground",
+    "dragon"
+   ],
+   "gym_trainers": 2,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 34,
+  "region": "hoenn",
+  "region_zh": "丰缘",
+  "name_zh": "热量徽章",
+  "name_fr": "Badge Chaleur",
+  "path_zh": "117号道路 → 釜炎镇",
+  "band": [
+   27,
+   31
+  ],
+  "ui_lv": [
+   26,
+   32
+  ],
+  "ace": 32,
+  "cap": 32,
+  "day": false,
+  "steps": 9,
+  "wild": 16,
+  "trainers": 9,
+  "kinds": [
+   "route",
+   "heal",
+   "route",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "117号道路",
+    "lv": [
+     27,
+     28
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "112号道路",
+    "lv": [
+     28,
+     29
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "火焰小径",
+    "lv": [
+     29,
+     30
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "113号道路",
+    "lv": [
+     29,
+     30
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "凹凸山道",
+    "lv": [
+     30,
+     31
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "亚莎",
+   "leader_fr": "Adriane",
+   "badge_zh": "热量徽章",
+   "badge_fr": "Chaleur",
+   "types": [
+    "fire"
+   ],
+   "ace": 32,
+   "champion": false,
+   "double": false,
+   "reward": 2900,
+   "power": 1.26,
+   "team": [
+    [
+     322,
+     "呆火驼",
+     26
+    ],
+    [
+     218,
+     "熔岩虫",
+     26
+    ],
+    [
+     323,
+     "喷火驼",
+     29
+    ],
+    [
+     219,
+     "熔岩蜗牛",
+     30
+    ],
+    [
+     324,
+     "煤炭龟",
+     32
+    ]
+   ],
+   "counter_types": [
+    "water",
+    "ground",
+    "rock"
+   ],
+   "resist_types": [
+    "fire",
+    "water",
+    "rock",
+    "dragon"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 35,
+  "region": "hoenn",
+  "region_zh": "丰缘",
+  "name_zh": "烟囱山",
+  "name_fr": "Mont Chimnée",
+  "path_zh": "114号道路 → 烟囱山",
+  "band": [
+   32,
+   36
+  ],
+  "ui_lv": [
+   36,
+   37
+  ],
+  "ace": 37,
+  "cap": 37,
+  "day": false,
+  "steps": 5,
+  "wild": 7,
+  "trainers": 6,
+  "kinds": [
+   "route",
+   "route",
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "114号道路",
+    "lv": [
+     32,
+     33
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "流星瀑布",
+    "lv": [
+     33,
+     35
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "烟囱山",
+    "lv": [
+     35,
+     36
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "首领赤焰松",
+   "leader_fr": "Chef Max",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "fire"
+   ],
+   "ace": 37,
+   "champion": false,
+   "double": false,
+   "reward": 3500,
+   "power": 0.96,
+   "team": [
+    [
+     262,
+     "大狼犬",
+     36
+    ],
+    [
+     42,
+     "大嘴蝠",
+     36
+    ],
+    [
+     323,
+     "喷火驼",
+     37
+    ]
+   ],
+   "counter_types": [],
+   "resist_types": [
+    "fire",
+    "water",
+    "rock",
+    "dragon"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 36,
+  "region": "hoenn",
+  "region_zh": "丰缘",
+  "name_zh": "平衡徽章",
+  "name_fr": "Badge Balance",
+  "path_zh": "111号道路 → 橙华市",
+  "band": [
+   37,
+   41
+  ],
+  "ui_lv": [
+   37,
+   42
+  ],
+  "ace": 42,
+  "cap": 42,
+  "day": false,
+  "steps": 11,
+  "wild": 16,
+  "trainers": 6,
+  "kinds": [
+   "route",
+   "route",
+   "gift",
+   "heal",
+   "route",
+   "route",
+   "heal",
+   "trade",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "111号道路沙漠",
+    "lv": [
+     37,
+     38
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "幻影之塔",
+    "lv": [
+     38,
+     39
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "新紫堇",
+    "lv": [
+     39,
+     40
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "卡绿隧道",
+    "lv": [
+     39,
+     40
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "104号道路",
+    "lv": [
+     40,
+     41
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "礼物@幻影之塔：根状化石 / 爪子化石 二选一",
+   "复活化石@得文公司：根状化石→触手百合，爪子化石→太古羽虫 Lv38"
+  ],
+  "gym": {
+   "leader_zh": "千里",
+   "leader_fr": "Norman",
+   "badge_zh": "平衡徽章",
+   "badge_fr": "Balance",
+   "types": [
+    "normal"
+   ],
+   "ace": 42,
+   "champion": false,
+   "double": false,
+   "reward": 4300,
+   "power": 0.84,
+   "team": [
+    [
+     327,
+     "晃晃斑",
+     37
+    ],
+    [
+     288,
+     "过动猿",
+     37
+    ],
+    [
+     335,
+     "猫鼬斩",
+     38
+    ],
+    [
+     277,
+     "大王燕",
+     38
+    ],
+    [
+     264,
+     "直冲熊",
+     39
+    ],
+    [
+     289,
+     "请假王",
+     42
+    ]
+   ],
+   "counter_types": [
+    "fighting"
+   ],
+   "resist_types": [
+    "rock",
+    "ghost",
+    "steel"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 37,
+  "region": "hoenn",
+  "region_zh": "丰缘",
+  "name_zh": "羽毛徽章",
+  "name_fr": "Badge Plume",
+  "path_zh": "118号道路 → 茵郁市",
+  "band": [
+   42,
+   46
+  ],
+  "ui_lv": [
+   41,
+   47
+  ],
+  "ace": 47,
+  "cap": 47,
+  "day": false,
+  "steps": 9,
+  "wild": 14,
+  "trainers": 12,
+  "kinds": [
+   "route",
+   "route",
+   "route",
+   "route",
+   "gift",
+   "unlock",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "118号道路",
+    "lv": [
+     42,
+     43
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "123号道路",
+    "lv": [
+     43,
+     44
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "119号道路",
+    "lv": [
+     44,
+     45
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "天气研究所",
+    "lv": [
+     44,
+     45
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "120号道路",
+    "lv": [
+     45,
+     46
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "礼物@天气研究所：飘浮泡泡 Lv45",
+   "关键道具@120号道路：得文侦测镜"
+  ],
+  "gym": {
+   "leader_zh": "娜琪",
+   "leader_fr": "Alizée",
+   "badge_zh": "羽毛徽章",
+   "badge_fr": "Plume",
+   "types": [
+    "flying"
+   ],
+   "ace": 47,
+   "champion": false,
+   "double": false,
+   "reward": 4300,
+   "power": 1.07,
+   "team": [
+    [
+     333,
+     "青绵鸟",
+     41
+    ],
+    [
+     357,
+     "热带龙",
+     41
+    ],
+    [
+     279,
+     "大嘴鸥",
+     43
+    ],
+    [
+     227,
+     "盔甲鸟",
+     44
+    ],
+    [
+     277,
+     "大王燕",
+     44
+    ],
+    [
+     334,
+     "七夕青鸟",
+     47
+    ]
+   ],
+   "counter_types": [
+    "ice",
+    "electric",
+    "rock"
+   ],
+   "resist_types": [
+    "electric",
+    "rock",
+    "steel"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 38,
+  "region": "hoenn",
+  "region_zh": "丰缘",
+  "name_zh": "送神山",
+  "name_fr": "Mont Mémoria",
+  "path_zh": "121号道路 → 送神山",
+  "band": [
+   47,
+   51
+  ],
+  "ui_lv": [
+   49,
+   52
+  ],
+  "ace": 52,
+  "cap": 52,
+  "day": false,
+  "steps": 9,
+  "wild": 19,
+  "trainers": 11,
+  "kinds": [
+   "route",
+   "route",
+   "heal",
+   "route",
+   "route",
+   "route",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "121号道路",
+    "lv": [
+     47,
+     48
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "狩猎地带",
+    "lv": [
+     48,
+     49
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "122号道路",
+    "lv": [
+     48,
+     49
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "送神山",
+    "lv": [
+     49,
+     50
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "送神山山顶",
+    "lv": [
+     50,
+     51
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "海洋队基地",
+    "lv": [
+     50,
+     51
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "海洋队干部",
+   "leader_fr": "Admin Aqua",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "water"
+   ],
+   "ace": 52,
+   "champion": false,
+   "double": false,
+   "reward": 4800,
+   "power": 1.19,
+   "team": [
+    [
+     262,
+     "大狼犬",
+     49
+    ],
+    [
+     42,
+     "大嘴蝠",
+     49
+    ],
+    [
+     319,
+     "巨牙鲨",
+     52
+    ]
+   ],
+   "counter_types": [
+    "electric",
+    "fairy",
+    "fighting",
+    "bug"
+   ],
+   "resist_types": [
+    "water",
+    "grass",
+    "dragon"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 39,
+  "region": "hoenn",
+  "region_zh": "丰缘",
+  "name_zh": "心灵徽章",
+  "name_fr": "Badge Esprit",
+  "path_zh": "124-125号道路 → 绿岭市",
+  "band": [
+   52,
+   56
+  ],
+  "ui_lv": [
+   56,
+   57
+  ],
+  "ace": 57,
+  "cap": 57,
+  "day": false,
+  "steps": 9,
+  "wild": 18,
+  "trainers": 13,
+  "kinds": [
+   "route",
+   "heal",
+   "gift",
+   "route",
+   "route",
+   "route",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "124号道路",
+    "lv": [
+     52,
+     53
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "125号道路",
+    "lv": [
+     53,
+     54
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "浅滩洞穴",
+    "lv": [
+     54,
+     55
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "冰之间",
+    "lv": [
+     54,
+     55
+    ],
+    "day": false,
+    "night": false,
+    "tide": "low"
+   },
+   {
+    "name_zh": "宇宙中心",
+    "lv": [
+     55,
+     56
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "礼物@大吾的家：铁哑铃 Lv40（需丰缘冠军徽章）"
+  ],
+  "gym": {
+   "leader_zh": "小枫与小南",
+   "leader_fr": "Lévy et Tatia",
+   "badge_zh": "心灵徽章",
+   "badge_fr": "Esprit",
+   "types": [
+    "psychic"
+   ],
+   "ace": 57,
+   "champion": false,
+   "double": true,
+   "reward": 4700,
+   "power": 0.83,
+   "team": [
+    [
+     344,
+     "念力土偶",
+     56
+    ],
+    [
+     178,
+     "天然鸟",
+     56
+    ],
+    [
+     337,
+     "月石",
+     57
+    ],
+    [
+     338,
+     "太阳岩",
+     57
+    ],
+    [
+     358,
+     "风铃铃",
+     56
+    ],
+    [
+     282,
+     "沙奈朵",
+     57
+    ]
+   ],
+   "counter_types": [
+    "ghost",
+    "dark",
+    "bug",
+    "water"
+   ],
+   "resist_types": [
+    "psychic",
+    "dark",
+    "steel"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 40,
+  "region": "hoenn",
+  "region_zh": "丰缘",
+  "name_zh": "危机",
+  "name_fr": "La crise",
+  "path_zh": "熔岩队基地 → 海底洞窟",
+  "band": [
+   57,
+   61
+  ],
+  "ui_lv": [
+   59,
+   62
+  ],
+  "ace": 62,
+  "cap": 62,
+  "day": false,
+  "steps": 7,
+  "wild": 13,
+  "trainers": 9,
+  "kinds": [
+   "route",
+   "trainer",
+   "route",
+   "route",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "熔岩队基地",
+    "lv": [
+     57,
+     58
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "128号道路",
+    "lv": [
+     58,
+     59
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "海底",
+    "lv": [
+     59,
+     60
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "海底洞窟",
+    "lv": [
+     60,
+     61
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "剧情训练家@熔岩队基地：首领赤焰松 大狼犬Lv57、叉字蝠Lv58、喷火驼Lv60"
+  ],
+  "gym": {
+   "leader_zh": "首领水梧桐",
+   "leader_fr": "Chef Arthur",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "water"
+   ],
+   "ace": 62,
+   "champion": false,
+   "double": false,
+   "reward": 5000,
+   "power": 1.19,
+   "team": [
+    [
+     262,
+     "大狼犬",
+     59
+    ],
+    [
+     169,
+     "叉字蝠",
+     59
+    ],
+    [
+     319,
+     "巨牙鲨",
+     62
+    ]
+   ],
+   "counter_types": [
+    "electric",
+    "fairy",
+    "fighting",
+    "bug"
+   ],
+   "resist_types": [
+    "water",
+    "grass",
+    "dragon"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 41,
+  "region": "hoenn",
+  "region_zh": "丰缘",
+  "name_zh": "雨滴徽章",
+  "name_fr": "Badge Pluie",
+  "path_zh": "126号道路 → 琉璃市",
+  "band": [
+   62,
+   66
+  ],
+  "ui_lv": [
+   60,
+   67
+  ],
+  "ace": 67,
+  "cap": 67,
+  "day": false,
+  "steps": 8,
+  "wild": 17,
+  "trainers": 10,
+  "kinds": [
+   "route",
+   "route",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "126号道路",
+    "lv": [
+     62,
+     63
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "觉醒祠堂",
+    "lv": [
+     63,
+     64
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "127号道路",
+    "lv": [
+     64,
+     65
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "129-131号道路",
+    "lv": [
+     64,
+     65
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "132-134号道路",
+    "lv": [
+     65,
+     66
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "亚当",
+   "leader_fr": "Juan",
+   "badge_zh": "雨滴徽章",
+   "badge_fr": "Pluie",
+   "types": [
+    "water"
+   ],
+   "ace": 67,
+   "champion": false,
+   "double": false,
+   "reward": 5000,
+   "power": 0.91,
+   "team": [
+    [
+     370,
+     "爱心鱼",
+     60
+    ],
+    [
+     340,
+     "鲶鱼王",
+     60
+    ],
+    [
+     364,
+     "海魔狮",
+     63
+    ],
+    [
+     342,
+     "铁螯龙虾",
+     63
+    ],
+    [
+     350,
+     "美纳斯",
+     64
+    ],
+    [
+     230,
+     "刺龙王",
+     67
+    ]
+   ],
+   "counter_types": [
+    "grass",
+    "electric"
+   ],
+   "resist_types": [
+    "water",
+    "grass",
+    "dragon"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 42,
+  "region": "hoenn",
+  "region_zh": "丰缘",
+  "name_zh": "冠军之路",
+  "name_fr": "Route Victoire",
+  "path_zh": "彩幽市 → 冠军之路",
+  "band": [
+   67,
+   71
+  ],
+  "ui_lv": [
+   66,
+   72
+  ],
+  "ace": 72,
+  "cap": 72,
+  "day": false,
+  "steps": 5,
+  "wild": 10,
+  "trainers": 8,
+  "kinds": [
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "彩幽市",
+    "lv": [
+     67,
+     69
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "冠军之路",
+    "lv": [
+     69,
+     71
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "满充",
+   "leader_fr": "Timmy",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "psychic"
+   ],
+   "ace": 72,
+   "champion": false,
+   "double": false,
+   "reward": 5000,
+   "power": 1.19,
+   "team": [
+    [
+     334,
+     "七夕青鸟",
+     70
+    ],
+    [
+     301,
+     "优雅猫",
+     69
+    ],
+    [
+     315,
+     "毒蔷薇",
+     70
+    ],
+    [
+     82,
+     "三合一磁怪",
+     66
+    ],
+    [
+     282,
+     "沙奈朵",
+     72
+    ]
+   ],
+   "counter_types": [],
+   "resist_types": [
+    "psychic",
+    "dark",
+    "steel"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 43,
+  "region": "hoenn",
+  "region_zh": "丰缘",
+  "name_zh": "四天王：花月",
+  "name_fr": "Conseil 4 : Damien",
+  "path_zh": "彩幽市",
+  "band": [
+   72,
+   79
+  ],
+  "ui_lv": [
+   75,
+   80
+  ],
+  "ace": 80,
+  "cap": 83,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     72,
+     79
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "花月",
+   "leader_fr": "Damien",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "dark"
+   ],
+   "ace": 80,
+   "champion": false,
+   "double": false,
+   "reward": 5500,
+   "power": 0.42,
+   "team": [
+    [
+     262,
+     "大狼犬",
+     75
+    ],
+    [
+     275,
+     "狡猾天狗",
+     78
+    ],
+    [
+     332,
+     "梦歌仙人掌",
+     75
+    ],
+    [
+     342,
+     "铁螯龙虾",
+     78
+    ],
+    [
+     302,
+     "勾魂眼",
+     77
+    ],
+    [
+     359,
+     "阿勃梭鲁",
+     80
+    ]
+   ],
+   "counter_types": [
+    "bug",
+    "fairy",
+    "fighting"
+   ],
+   "resist_types": [
+    "fighting",
+    "dark",
+    "fairy"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 1,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 44,
+  "region": "hoenn",
+  "region_zh": "丰缘",
+  "name_zh": "四天王：芙蓉",
+  "name_fr": "Conseil 4 : Spectra",
+  "path_zh": "彩幽市",
+  "band": [
+   80,
+   84
+  ],
+  "ui_lv": [
+   80,
+   85
+  ],
+  "ace": 85,
+  "cap": 88,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     80,
+     84
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "芙蓉",
+   "leader_fr": "Spectra",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "ghost"
+   ],
+   "ace": 85,
+   "champion": false,
+   "double": false,
+   "reward": 5700,
+   "power": 0.47,
+   "team": [
+    [
+     356,
+     "彷徨夜灵",
+     80
+    ],
+    [
+     354,
+     "诅咒娃娃",
+     82
+    ],
+    [
+     302,
+     "勾魂眼",
+     83
+    ],
+    [
+     355,
+     "夜巡灵",
+     80
+    ],
+    [
+     354,
+     "诅咒娃娃",
+     82
+    ],
+    [
+     356,
+     "彷徨夜灵",
+     85
+    ]
+   ],
+   "counter_types": [
+    "ghost",
+    "dark"
+   ],
+   "resist_types": [
+    "normal",
+    "dark"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 2,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 45,
+  "region": "hoenn",
+  "region_zh": "丰缘",
+  "name_zh": "四天王：波妮",
+  "name_fr": "Conseil 4 : Glacia",
+  "path_zh": "彩幽市",
+  "band": [
+   85,
+   89
+  ],
+  "ui_lv": [
+   85,
+   90
+  ],
+  "ace": 90,
+  "cap": 93,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     85,
+     89
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "波妮",
+   "leader_fr": "Glacia",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "ice"
+   ],
+   "ace": 90,
+   "champion": false,
+   "double": false,
+   "reward": 5900,
+   "power": 0.63,
+   "team": [
+    [
+     364,
+     "海魔狮",
+     85
+    ],
+    [
+     362,
+     "冰鬼护",
+     85
+    ],
+    [
+     364,
+     "海魔狮",
+     88
+    ],
+    [
+     362,
+     "冰鬼护",
+     88
+    ],
+    [
+     365,
+     "帝牙海狮",
+     87
+    ],
+    [
+     365,
+     "帝牙海狮",
+     90
+    ]
+   ],
+   "counter_types": [
+    "fighting",
+    "rock",
+    "grass",
+    "electric"
+   ],
+   "resist_types": [
+    "fire",
+    "water",
+    "ice",
+    "steel"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 3,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 46,
+  "region": "hoenn",
+  "region_zh": "丰缘",
+  "name_zh": "四天王：源治",
+  "name_fr": "Conseil 4 : Aragon",
+  "path_zh": "彩幽市",
+  "band": [
+   90,
+   94
+  ],
+  "ui_lv": [
+   90,
+   95
+  ],
+  "ace": 95,
+  "cap": 95,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     90,
+     94
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "源治",
+   "leader_fr": "Aragon",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "dragon"
+   ],
+   "ace": 95,
+   "champion": false,
+   "double": false,
+   "reward": 6100,
+   "power": 0.52,
+   "team": [
+    [
+     372,
+     "甲壳龙",
+     90
+    ],
+    [
+     334,
+     "七夕青鸟",
+     93
+    ],
+    [
+     330,
+     "沙漠蜻蜓",
+     92
+    ],
+    [
+     230,
+     "刺龙王",
+     92
+    ],
+    [
+     330,
+     "沙漠蜻蜓",
+     92
+    ],
+    [
+     373,
+     "暴飞龙",
+     95
+    ]
+   ],
+   "counter_types": [
+    "ice",
+    "dragon",
+    "fairy"
+   ],
+   "resist_types": [
+    "steel",
+    "fairy"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 4,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 47,
+  "region": "hoenn",
+  "region_zh": "丰缘",
+  "name_zh": "联盟冠军",
+  "name_fr": "Maître de la Ligue",
+  "path_zh": "彩幽市",
+  "band": [
+   95,
+   94
+  ],
+  "ui_lv": [
+   90,
+   100
+  ],
+  "ace": 95,
+  "cap": 100,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     95,
+     96
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "大吾",
+   "leader_fr": "Pierre Rochard",
+   "badge_zh": "丰缘冠军徽章",
+   "badge_fr": "Maître Hoenn",
+   "types": [
+    "steel"
+   ],
+   "ace": 95,
+   "champion": true,
+   "double": false,
+   "reward": 10000,
+   "power": 1.11,
+   "team": [
+    [
+     227,
+     "盔甲鸟",
+     93
+    ],
+    [
+     344,
+     "念力土偶",
+     90
+    ],
+    [
+     306,
+     "波士可多拉",
+     92
+    ],
+    [
+     346,
+     "摇篮百合",
+     92
+    ],
+    [
+     348,
+     "太古盔甲",
+     92
+    ],
+    [
+     376,
+     "巨金怪",
+     95
+    ]
+   ],
+   "counter_types": [
+    "water"
+   ],
+   "resist_types": [
+    "fire",
+    "water",
+    "electric",
+    "steel"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 5,
+  "first_of_region": false,
+  "last_of_region": true
+ },
+ {
+  "ch": 48,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "煤炭徽章",
+  "name_fr": "Badge Charbon",
+  "path_zh": "双叶镇 → 黑金市",
+  "band": [
+   2,
+   15
+  ],
+  "ui_lv": [
+   14,
+   18
+  ],
+  "ace": 16,
+  "cap": 18,
+  "day": false,
+  "steps": 15,
+  "wild": 19,
+  "trainers": 5,
+  "kinds": [
+   "gift",
+   "heal",
+   "route",
+   "trainer",
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "gift",
+   "trade",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "201号道路",
+    "lv": [
+     2,
+     3
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "心齐湖",
+    "lv": [
+     4,
+     6
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "202号道路",
+    "lv": [
+     3,
+     5
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "203号道路",
+    "lv": [
+     9,
+     11
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "黑金闸口",
+    "lv": [
+     11,
+     13
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "黑金炭坑",
+    "lv": [
+     13,
+     15
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "礼物@心齐湖：草苗龟 / 小火焰猴 / 波加曼 选一 Lv5",
+   "剧情训练家@201号道路：阿驯 姆克儿Lv4、小火焰猴Lv5",
+   "礼物@黑金炭坑博物馆：头盖化石 / 盾甲化石 二选一",
+   "复活化石@黑金炭坑博物馆：头盖化石→头盖龙，盾甲化石→盾甲龙 Lv15"
+  ],
+  "gym": {
+   "leader_zh": "瓢太",
+   "leader_fr": "Pierrick",
+   "badge_zh": "煤炭徽章",
+   "badge_fr": "Charbon",
+   "types": [
+    "rock"
+   ],
+   "ace": 16,
+   "champion": false,
+   "double": false,
+   "reward": 1400,
+   "power": 1.41,
+   "team": [
+    [
+     74,
+     "小拳石",
+     14
+    ],
+    [
+     95,
+     "大岩蛇",
+     14
+    ],
+    [
+     408,
+     "头盖龙",
+     16
+    ]
+   ],
+   "counter_types": [
+    "water",
+    "grass",
+    "fighting",
+    "ground"
+   ],
+   "resist_types": [
+    "fighting",
+    "ground",
+    "steel"
+   ],
+   "gym_trainers": 1,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": true,
+  "last_of_region": false
+ },
+ {
+  "ch": 49,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "森林徽章",
+  "name_fr": "Badge Forêt",
+  "path_zh": "204号道路 → 百代市",
+  "band": [
+   16,
+   21
+  ],
+  "ui_lv": [
+   19,
+   22
+  ],
+  "ace": 22,
+  "cap": 22,
+  "day": false,
+  "steps": 16,
+  "wild": 22,
+  "trainers": 14,
+  "kinds": [
+   "route",
+   "heal",
+   "route",
+   "route",
+   "route",
+   "static",
+   "trainer",
+   "route",
+   "route",
+   "static",
+   "route",
+   "heal",
+   "route",
+   "trainer",
+   "egg",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "204号道路",
+    "lv": [
+     16,
+     17
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "花苑花田",
+    "lv": [
+     17,
+     18
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "205号道路（南）",
+    "lv": [
+     17,
+     18
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "山谷发电厂",
+    "lv": [
+     18,
+     19
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "百代森林",
+    "lv": [
+     19,
+     20
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "森之洋馆",
+    "lv": [
+     19,
+     20
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "205号道路（东）",
+    "lv": [
+     20,
+     21
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "银河百代大楼",
+    "lv": [
+     20,
+     21
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "定点@山谷发电厂：旋转洛托姆 Lv21 天气:storm 出现率25% 需先捕获前置",
+   "剧情训练家@山谷发电厂：伙星 超音蝠Lv18、魅力喵Lv21",
+   "定点@森之洋馆的电视：洛托姆 Lv20 仅夜晚",
+   "剧情训练家@银河百代大楼：岁星 超音蝠Lv20、臭鼬噗Lv22",
+   "蛋@百代市：波克比蛋→寄放屋"
+  ],
+  "gym": {
+   "leader_zh": "菜种",
+   "leader_fr": "Flo",
+   "badge_zh": "森林徽章",
+   "badge_fr": "Forêt",
+   "types": [
+    "grass"
+   ],
+   "ace": 22,
+   "champion": false,
+   "double": false,
+   "reward": 2100,
+   "power": 1.05,
+   "team": [
+    [
+     420,
+     "樱花宝",
+     19
+    ],
+    [
+     387,
+     "草苗龟",
+     19
+    ],
+    [
+     407,
+     "罗丝雷朵",
+     22
+    ]
+   ],
+   "counter_types": [
+    "fire",
+    "ice",
+    "flying",
+    "poison"
+   ],
+   "resist_types": [
+    "fire",
+    "grass",
+    "poison",
+    "flying",
+    "bug",
+    "dragon",
+    "steel"
+   ],
+   "gym_trainers": 2,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 50,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "遗迹徽章",
+  "name_fr": "Badge Fantôme",
+  "path_zh": "206号道路 → 家缘市",
+  "band": [
+   22,
+   26
+  ],
+  "ui_lv": [
+   25,
+   27
+  ],
+  "ace": 27,
+  "cap": 27,
+  "day": false,
+  "steps": 10,
+  "wild": 18,
+  "trainers": 9,
+  "kinds": [
+   "route",
+   "route",
+   "route",
+   "route",
+   "route",
+   "heal",
+   "gift",
+   "route",
+   "trainer",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "206号道路",
+    "lv": [
+     22,
+     23
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "迷幻洞窟",
+    "lv": [
+     23,
+     24
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "207号道路",
+    "lv": [
+     23,
+     24
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "天冠山",
+    "lv": [
+     24,
+     25
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "208号道路",
+    "lv": [
+     25,
+     26
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "互动广场",
+    "lv": [
+     25,
+     26
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "礼物@家缘市：伊布 Lv20",
+   "剧情训练家@互动广场：阿驯 姆克鸟Lv25、泳圈鼬Lv23、猛火猴Lv27"
+  ],
+  "gym": {
+   "leader_zh": "梅丽莎",
+   "leader_fr": "Kiméra",
+   "badge_zh": "遗迹徽章",
+   "badge_fr": "Fantôme",
+   "types": [
+    "ghost"
+   ],
+   "ace": 27,
+   "champion": false,
+   "double": false,
+   "reward": 2400,
+   "power": 0.89,
+   "team": [
+    [
+     355,
+     "夜巡灵",
+     25
+    ],
+    [
+     93,
+     "鬼斯通",
+     25
+    ],
+    [
+     429,
+     "梦妖魔",
+     27
+    ]
+   ],
+   "counter_types": [
+    "ghost",
+    "dark"
+   ],
+   "resist_types": [
+    "normal",
+    "dark"
+   ],
+   "gym_trainers": 2,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 51,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "铺石徽章",
+  "name_fr": "Badge Pavé",
+  "path_zh": "209号道路 → 帷幕市",
+  "band": [
+   27,
+   31
+  ],
+  "ui_lv": [
+   28,
+   32
+  ],
+  "ace": 32,
+  "cap": 32,
+  "day": false,
+  "steps": 10,
+  "wild": 15,
+  "trainers": 11,
+  "kinds": [
+   "route",
+   "route",
+   "static",
+   "heal",
+   "route",
+   "route",
+   "route",
+   "heal",
+   "gift",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "209号道路",
+    "lv": [
+     27,
+     28
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "迷失塔",
+    "lv": [
+     28,
+     29
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "随意遗迹",
+    "lv": [
+     29,
+     30
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "210号道路（南）",
+    "lv": [
+     29,
+     30
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "215号道路",
+    "lv": [
+     30,
+     31
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "定点@灵魂之塔：花岩怪 Lv30 仅夜晚 需108个灵魂 需先捕获前置",
+   "礼物@帷幕市：多边兽 Lv25"
+  ],
+  "gym": {
+   "leader_zh": "阿李",
+   "leader_fr": "Mélina",
+   "badge_zh": "铺石徽章",
+   "badge_fr": "Pavé",
+   "types": [
+    "fighting"
+   ],
+   "ace": 32,
+   "champion": false,
+   "double": false,
+   "reward": 2900,
+   "power": 0.85,
+   "team": [
+    [
+     307,
+     "玛沙那",
+     28
+    ],
+    [
+     67,
+     "豪力",
+     29
+    ],
+    [
+     448,
+     "路卡利欧",
+     32
+    ]
+   ],
+   "counter_types": [
+    "flying",
+    "fairy"
+   ],
+   "resist_types": [
+    "poison",
+    "flying",
+    "psychic",
+    "bug",
+    "ghost",
+    "fairy"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 52,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "湿地徽章",
+  "name_fr": "Badge Palustre",
+  "path_zh": "214号道路 → 野原市",
+  "band": [
+   32,
+   36
+  ],
+  "ui_lv": [
+   33,
+   37
+  ],
+  "ace": 37,
+  "cap": 37,
+  "day": false,
+  "steps": 15,
+  "wild": 25,
+  "trainers": 14,
+  "kinds": [
+   "route",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "route",
+   "static",
+   "heal",
+   "route",
+   "route",
+   "route",
+   "static",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "银河仓库",
+    "lv": [
+     32,
+     33
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "214号道路",
+    "lv": [
+     32,
+     33
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "遗迹迷隧道",
+    "lv": [
+     33,
+     34
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "立志湖畔",
+    "lv": [
+     33,
+     34
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "213号道路",
+    "lv": [
+     34,
+     35
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "大湿地",
+    "lv": [
+     34,
+     35
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "212号道路（南）",
+    "lv": [
+     35,
+     36
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "自豪的后院",
+    "lv": [
+     35,
+     36
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "212号道路（北）",
+    "lv": [
+     36,
+     37
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "定点@213号道路：清洗洛托姆 Lv37 天气:rain/storm 出现率25% 需先捕获前置",
+   "定点@自豪的后院：切割洛托姆 Lv37 仅白天 出现率25% 需先捕获前置"
+  ],
+  "gym": {
+   "leader_zh": "吉宪",
+   "leader_fr": "Lovis",
+   "badge_zh": "湿地徽章",
+   "badge_fr": "Palustre",
+   "types": [
+    "water"
+   ],
+   "ace": 37,
+   "champion": false,
+   "double": false,
+   "reward": 4300,
+   "power": 0.82,
+   "team": [
+    [
+     130,
+     "暴鲤龙",
+     33
+    ],
+    [
+     195,
+     "沼王",
+     34
+    ],
+    [
+     419,
+     "浮潜鼬",
+     37
+    ]
+   ],
+   "counter_types": [
+    "grass",
+    "electric"
+   ],
+   "resist_types": [
+    "water",
+    "grass",
+    "dragon"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 53,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "矿山徽章",
+  "name_fr": "Badge Mine",
+  "path_zh": "210号道路 → 水脉市",
+  "band": [
+   37,
+   41
+  ],
+  "ui_lv": [
+   38,
+   42
+  ],
+  "ace": 42,
+  "cap": 42,
+  "day": false,
+  "steps": 8,
+  "wild": 12,
+  "trainers": 11,
+  "kinds": [
+   "route",
+   "heal",
+   "route",
+   "route",
+   "route",
+   "heal",
+   "trainer",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "210号道路（北）",
+    "lv": [
+     37,
+     38
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "211号道路",
+    "lv": [
+     38,
+     39
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "天冠山（211号道路）",
+    "lv": [
+     39,
+     40
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "218号道路",
+    "lv": [
+     40,
+     41
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "剧情训练家@水脉市：阿驯 姆克鹰Lv39、浮潜鼬Lv36、罗丝雷朵Lv39、烈焰猴Lv42"
+  ],
+  "gym": {
+   "leader_zh": "东瓜",
+   "leader_fr": "Charles",
+   "badge_zh": "矿山徽章",
+   "badge_fr": "Mine",
+   "types": [
+    "steel"
+   ],
+   "ace": 42,
+   "champion": false,
+   "double": false,
+   "reward": 4300,
+   "power": 1.06,
+   "team": [
+    [
+     82,
+     "三合一磁怪",
+     38
+    ],
+    [
+     208,
+     "大钢蛇",
+     39
+    ],
+    [
+     411,
+     "护城龙",
+     42
+    ]
+   ],
+   "counter_types": [
+    "ground",
+    "fighting",
+    "fire",
+    "water"
+   ],
+   "resist_types": [
+    "fire",
+    "water",
+    "electric",
+    "steel"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 54,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "三座湖",
+  "name_fr": "Les Lacs",
+  "path_zh": "钢铁岛 → 心齐湖",
+  "band": [
+   42,
+   46
+  ],
+  "ui_lv": [
+   45,
+   47
+  ],
+  "ace": 47,
+  "cap": 47,
+  "day": false,
+  "steps": 9,
+  "wild": 12,
+  "trainers": 12,
+  "kinds": [
+   "heal",
+   "route",
+   "route",
+   "egg",
+   "heal",
+   "route",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "钢铁岛海岸",
+    "lv": [
+     42,
+     43
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "钢铁岛",
+    "lv": [
+     43,
+     44
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "干涸的立志湖",
+    "lv": [
+     44,
+     45
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "心齐湖",
+    "lv": [
+     45,
+     46
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "蛋@钢铁岛：利欧路蛋→寄放屋"
+  ],
+  "gym": {
+   "leader_zh": "伙星",
+   "leader_fr": "Mars",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "poison"
+   ],
+   "ace": 47,
+   "champion": false,
+   "double": false,
+   "reward": 4800,
+   "power": 1.15,
+   "team": [
+    [
+     42,
+     "大嘴蝠",
+     45
+    ],
+    [
+     436,
+     "铜镜怪",
+     45
+    ],
+    [
+     432,
+     "东施喵",
+     47
+    ]
+   ],
+   "counter_types": [],
+   "resist_types": [
+    "poison",
+    "ground",
+    "rock",
+    "ghost",
+    "steel"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 55,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "冰河徽章",
+  "name_fr": "Badge Glaçon",
+  "path_zh": "216号道路 → 雪峰市",
+  "band": [
+   47,
+   51
+  ],
+  "ui_lv": [
+   47,
+   52
+  ],
+  "ace": 52,
+  "cap": 52,
+  "day": false,
+  "steps": 10,
+  "wild": 16,
+  "trainers": 12,
+  "kinds": [
+   "route",
+   "route",
+   "route",
+   "static",
+   "heal",
+   "route",
+   "route",
+   "trainer",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "天冠山（216号道路）",
+    "lv": [
+     47,
+     48
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "216号道路",
+    "lv": [
+     48,
+     49
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "217号道路",
+    "lv": [
+     49,
+     50
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "睿智湖畔",
+    "lv": [
+     49,
+     50
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "睿智湖",
+    "lv": [
+     50,
+     51
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "定点@217号道路：结冰洛托姆 Lv52 仅夜晚 天气:blizzard 出现率25% 需先捕获前置",
+   "剧情训练家@睿智湖：岁星 大嘴蝠Lv50、铜镜怪Lv50、坦克臭鼬Lv52"
+  ],
+  "gym": {
+   "leader_zh": "小菘",
+   "leader_fr": "Gladys",
+   "badge_zh": "冰河徽章",
+   "badge_fr": "Glaçon",
+   "types": [
+    "ice"
+   ],
+   "ace": 52,
+   "champion": false,
+   "double": false,
+   "reward": 4700,
+   "power": 0.97,
+   "team": [
+    [
+     215,
+     "狃拉",
+     47
+    ],
+    [
+     221,
+     "长毛猪",
+     47
+    ],
+    [
+     460,
+     "暴雪王",
+     50
+    ],
+    [
+     478,
+     "雪妖女",
+     52
+    ]
+   ],
+   "counter_types": [
+    "fire",
+    "steel",
+    "fighting",
+    "rock"
+   ],
+   "resist_types": [
+    "fire",
+    "water",
+    "ice",
+    "steel"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 56,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "银河队基地",
+  "name_fr": "QG Galaxie",
+  "path_zh": "帷幕市 → 银河队基地",
+  "band": [
+   52,
+   56
+  ],
+  "ui_lv": [
+   54,
+   57
+  ],
+  "ace": 57,
+  "cap": 57,
+  "day": false,
+  "steps": 4,
+  "wild": 0,
+  "trainers": 6,
+  "kinds": [
+   "heal",
+   "route",
+   "trainer",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "银河队基地",
+    "lv": [
+     52,
+     56
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "剧情训练家@银河队基地：赤日 狃拉Lv53、叉字蝠Lv53、乌鸦头头Lv57"
+  ],
+  "gym": {
+   "leader_zh": "镇星",
+   "leader_fr": "Saturne",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "poison"
+   ],
+   "ace": 57,
+   "champion": false,
+   "double": false,
+   "reward": 5000,
+   "power": 0.95,
+   "team": [
+    [
+     64,
+     "勇基拉",
+     54
+    ],
+    [
+     436,
+     "铜镜怪",
+     54
+    ],
+    [
+     454,
+     "毒骷蛙",
+     57
+    ]
+   ],
+   "counter_types": [
+    "ground",
+    "ghost",
+    "dark"
+   ],
+   "resist_types": [
+    "poison",
+    "ground",
+    "rock",
+    "ghost",
+    "steel"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 57,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "毁坏的世界",
+  "name_fr": "Monde Distorsion",
+  "path_zh": "天冠山 → 毁坏的世界",
+  "band": [
+   57,
+   61
+  ],
+  "ui_lv": [
+   58,
+   62
+  ],
+  "ace": 62,
+  "cap": 62,
+  "day": false,
+  "steps": 8,
+  "wild": 11,
+  "trainers": 4,
+  "kinds": [
+   "route",
+   "route",
+   "heal",
+   "trainer",
+   "trainer",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "天冠山",
+    "lv": [
+     57,
+     58
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "积雪的天冠山",
+    "lv": [
+     58,
+     60
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "送行之泉",
+    "lv": [
+     60,
+     61
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "剧情训练家@枪之柱：伙星 铜镜怪Lv59、大嘴蝠Lv59、东施喵Lv62",
+   "剧情训练家@枪之柱：岁星 铜镜怪Lv59、大嘴蝠Lv59、坦克臭鼬Lv62"
+  ],
+  "gym": {
+   "leader_zh": "赤日",
+   "leader_fr": "Hélio",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "dark"
+   ],
+   "ace": 62,
+   "champion": false,
+   "double": false,
+   "reward": 5500,
+   "power": 0.73,
+   "team": [
+    [
+     229,
+     "黑鲁加",
+     58
+    ],
+    [
+     430,
+     "乌鸦头头",
+     62
+    ],
+    [
+     169,
+     "叉字蝠",
+     59
+    ],
+    [
+     130,
+     "暴鲤龙",
+     59
+    ],
+    [
+     461,
+     "玛狃拉",
+     61
+    ]
+   ],
+   "counter_types": [
+    "rock",
+    "electric"
+   ],
+   "resist_types": [
+    "fighting",
+    "dark",
+    "fairy"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 58,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "灯塔徽章",
+  "name_fr": "Badge Phare",
+  "path_zh": "219-222号道路 → 滨海市",
+  "band": [
+   62,
+   66
+  ],
+  "ui_lv": [
+   62,
+   67
+  ],
+  "ace": 67,
+  "cap": 67,
+  "day": false,
+  "steps": 8,
+  "wild": 12,
+  "trainers": 8,
+  "kinds": [
+   "heal",
+   "route",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "219号道路",
+    "lv": [
+     62,
+     63
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "220号水路",
+    "lv": [
+     63,
+     64
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "221号道路",
+    "lv": [
+     64,
+     65
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "222号道路",
+    "lv": [
+     65,
+     66
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "电次",
+   "leader_fr": "Tanguy",
+   "badge_zh": "灯塔徽章",
+   "badge_fr": "Phare",
+   "types": [
+    "electric"
+   ],
+   "ace": 67,
+   "champion": false,
+   "double": false,
+   "reward": 5000,
+   "power": 0.84,
+   "team": [
+    [
+     135,
+     "雷伊布",
+     62
+    ],
+    [
+     26,
+     "雷丘",
+     62
+    ],
+    [
+     405,
+     "伦琴猫",
+     64
+    ],
+    [
+     466,
+     "电击魔兽",
+     67
+    ]
+   ],
+   "counter_types": [
+    "ground"
+   ],
+   "resist_types": [
+    "grass",
+    "electric",
+    "ground",
+    "dragon"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 59,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "冠军之路",
+  "name_fr": "Route Victoire",
+  "path_zh": "223号水路 → 冠军之路",
+  "band": [
+   67,
+   71
+  ],
+  "ui_lv": [
+   64,
+   72
+  ],
+  "ace": 72,
+  "cap": 72,
+  "day": false,
+  "steps": 5,
+  "wild": 10,
+  "trainers": 6,
+  "kinds": [
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "223号水路",
+    "lv": [
+     67,
+     69
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "冠军之路",
+    "lv": [
+     69,
+     71
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "阿驯",
+   "leader_fr": "Louka",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "normal"
+   ],
+   "ace": 72,
+   "champion": false,
+   "double": false,
+   "reward": 5000,
+   "power": 0.93,
+   "team": [
+    [
+     398,
+     "姆克鹰",
+     65
+    ],
+    [
+     419,
+     "浮潜鼬",
+     64
+    ],
+    [
+     407,
+     "罗丝雷朵",
+     65
+    ],
+    [
+     143,
+     "卡比兽",
+     69
+    ],
+    [
+     214,
+     "赫拉克罗斯",
+     67
+    ],
+    [
+     392,
+     "烈焰猴",
+     72
+    ]
+   ],
+   "counter_types": [
+    "flying",
+    "psychic"
+   ],
+   "resist_types": [
+    "rock",
+    "ghost",
+    "steel"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 60,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "四天王：阿柳",
+  "name_fr": "Conseil 4 : Aaron",
+  "path_zh": "宝可梦联盟",
+  "band": [
+   72,
+   79
+  ],
+  "ui_lv": [
+   74,
+   80
+  ],
+  "ace": 80,
+  "cap": 83,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     72,
+     79
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "阿柳",
+   "leader_fr": "Aaron",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "bug"
+   ],
+   "ace": 80,
+   "champion": false,
+   "double": false,
+   "reward": 5500,
+   "power": 0.48,
+   "team": [
+    [
+     269,
+     "毒粉蛾",
+     74
+    ],
+    [
+     267,
+     "狩猎凤蝶",
+     74
+    ],
+    [
+     416,
+     "蜂女王",
+     76
+    ],
+    [
+     214,
+     "赫拉克罗斯",
+     76
+    ],
+    [
+     452,
+     "龙王蝎",
+     80
+    ]
+   ],
+   "counter_types": [
+    "rock",
+    "flying",
+    "fire"
+   ],
+   "resist_types": [
+    "fire",
+    "fighting",
+    "poison",
+    "flying",
+    "ghost",
+    "steel",
+    "fairy"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 1,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 61,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "四天王：菊野",
+  "name_fr": "Conseil 4 : Terry",
+  "path_zh": "宝可梦联盟",
+  "band": [
+   80,
+   84
+  ],
+  "ui_lv": [
+   79,
+   85
+  ],
+  "ace": 85,
+  "cap": 88,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     80,
+     84
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "菊野",
+   "leader_fr": "Terry",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "ground"
+   ],
+   "ace": 85,
+   "champion": false,
+   "double": false,
+   "reward": 5700,
+   "power": 0.72,
+   "team": [
+    [
+     340,
+     "鲶鱼王",
+     79
+    ],
+    [
+     472,
+     "天蝎王",
+     81
+    ],
+    [
+     76,
+     "隆隆岩",
+     81
+    ],
+    [
+     464,
+     "超甲狂犀",
+     82
+    ],
+    [
+     450,
+     "河马兽",
+     85
+    ]
+   ],
+   "counter_types": [
+    "grass",
+    "water",
+    "ice"
+   ],
+   "resist_types": [
+    "grass",
+    "flying",
+    "bug"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 2,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 62,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "四天王：大叶",
+  "name_fr": "Conseil 4 : Adrien",
+  "path_zh": "宝可梦联盟",
+  "band": [
+   85,
+   89
+  ],
+  "ui_lv": [
+   84,
+   90
+  ],
+  "ace": 90,
+  "cap": 93,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     85,
+     89
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "大叶",
+   "leader_fr": "Adrien",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "fire"
+   ],
+   "ace": 90,
+   "champion": false,
+   "double": false,
+   "reward": 5900,
+   "power": 0.8,
+   "team": [
+    [
+     229,
+     "黑鲁加",
+     86
+    ],
+    [
+     136,
+     "火伊布",
+     84
+    ],
+    [
+     78,
+     "烈焰马",
+     86
+    ],
+    [
+     392,
+     "烈焰猴",
+     90
+    ],
+    [
+     467,
+     "鸭嘴炎兽",
+     84
+    ]
+   ],
+   "counter_types": [
+    "water",
+    "ground",
+    "rock"
+   ],
+   "resist_types": [
+    "fire",
+    "water",
+    "rock",
+    "dragon"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 3,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 63,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "四天王：悟松",
+  "name_fr": "Conseil 4 : Lucio",
+  "path_zh": "宝可梦联盟",
+  "band": [
+   90,
+   94
+  ],
+  "ui_lv": [
+   89,
+   95
+  ],
+  "ace": 95,
+  "cap": 95,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     90,
+     94
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "悟松",
+   "leader_fr": "Lucio",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "psychic"
+   ],
+   "ace": 95,
+   "champion": false,
+   "double": false,
+   "reward": 6100,
+   "power": 0.85,
+   "team": [
+    [
+     122,
+     "魔墙人偶",
+     89
+    ],
+    [
+     203,
+     "麒麟奇",
+     89
+    ],
+    [
+     308,
+     "恰雷姆",
+     90
+    ],
+    [
+     65,
+     "胡地",
+     90
+    ],
+    [
+     437,
+     "青铜钟",
+     95
+    ]
+   ],
+   "counter_types": [
+    "ghost",
+    "dark"
+   ],
+   "resist_types": [
+    "psychic",
+    "dark",
+    "steel"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 4,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 64,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "联盟冠军",
+  "name_fr": "Maître de la Ligue",
+  "path_zh": "宝可梦联盟",
+  "band": [
+   95,
+   94
+  ],
+  "ui_lv": [
+   91,
+   100
+  ],
+  "ace": 95,
+  "cap": 100,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     95,
+     96
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "竹兰",
+   "leader_fr": "Cynthia",
+   "badge_zh": "神奥冠军徽章",
+   "badge_fr": "Maître Sinnoh",
+   "types": [
+    "dragon"
+   ],
+   "ace": 95,
+   "champion": true,
+   "double": false,
+   "reward": 10000,
+   "power": 1.15,
+   "team": [
+    [
+     442,
+     "花岩怪",
+     91
+    ],
+    [
+     407,
+     "罗丝雷朵",
+     92
+    ],
+    [
+     468,
+     "波克基斯",
+     93
+    ],
+    [
+     448,
+     "路卡利欧",
+     93
+    ],
+    [
+     350,
+     "美纳斯",
+     94
+    ],
+    [
+     445,
+     "烈咬陆鲨",
+     95
+    ]
+   ],
+   "counter_types": [
+    "ice"
+   ],
+   "resist_types": [
+    "steel",
+    "fairy"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 5,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 65,
+  "region": "sinnoh",
+  "region_zh": "神奥",
+  "name_zh": "严酷山",
+  "name_fr": "Mont Abrupt",
+  "path_zh": "战斗区 → 严酷山",
+  "band": [
+   90,
+   99
+  ],
+  "ui_lv": [
+   95,
+   100
+  ],
+  "ace": 100,
+  "cap": 100,
+  "day": false,
+  "steps": 10,
+  "wild": 17,
+  "trainers": 13,
+  "kinds": [
+   "heal",
+   "route",
+   "route",
+   "route",
+   "static",
+   "heal",
+   "route",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "225号道路",
+    "lv": [
+     90,
+     92
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "226号水路",
+    "lv": [
+     92,
+     94
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "227号道路",
+    "lv": [
+     94,
+     95
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "228号道路",
+    "lv": [
+     95,
+     97
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "严酷山",
+    "lv": [
+     97,
+     99
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "定点@227号道路：加热洛托姆 Lv97 天气:ash/sun 出现率25% 需先捕获前置"
+  ],
+  "gym": {
+   "leader_zh": "冥王",
+   "leader_fr": "Pluton",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "electric"
+   ],
+   "ace": 100,
+   "champion": false,
+   "double": false,
+   "reward": 10000,
+   "power": 1.1,
+   "team": [
+    [
+     101,
+     "顽皮雷弹",
+     95
+    ],
+    [
+     437,
+     "青铜钟",
+     95
+    ],
+    [
+     435,
+     "坦克臭鼬",
+     95
+    ],
+    [
+     454,
+     "毒骷蛙",
+     97
+    ],
+    [
+     462,
+     "自爆磁怪",
+     98
+    ],
+    [
+     479,
+     "洛托姆",
+     100
+    ]
+   ],
+   "counter_types": [
+    "ground"
+   ],
+   "resist_types": [
+    "grass",
+    "electric",
+    "ground",
+    "dragon"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": true
+ },
+ {
+  "ch": 66,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "三元徽章",
+  "name_fr": "Badge Triple",
+  "path_zh": "鹿子镇 → 三曜市",
+  "band": [
+   2,
+   15
+  ],
+  "ui_lv": [
+   14,
+   18
+  ],
+  "ace": 16,
+  "cap": 18,
+  "day": false,
+  "steps": 11,
+  "wild": 9,
+  "trainers": 7,
+  "kinds": [
+   "gift",
+   "route",
+   "heal",
+   "find",
+   "trainer",
+   "route",
+   "heal",
+   "gift",
+   "route",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "1号道路",
+    "lv": [
+     2,
+     4
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "2号道路",
+    "lv": [
+     4,
+     7
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "三曜市",
+    "lv": [
+     7,
+     10
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "梦的遗址",
+    "lv": [
+     12,
+     15
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "礼物@鹿子镇：藤藤蛇 / 暖暖猪 / 水水獭 选一 Lv5",
+   "拾取@唐草镇：彩虹宝可方块（一次性）",
+   "剧情训练家@唐草镇：N 扒手猫Lv6",
+   "礼物@三曜市：爆香猴 Lv10"
+  ],
+  "gym": {
+   "leader_zh": "天桐",
+   "leader_fr": "Rachid",
+   "badge_zh": "三元徽章",
+   "badge_fr": "Triple",
+   "types": [
+    "grass",
+    "fire",
+    "water"
+   ],
+   "ace": 16,
+   "champion": false,
+   "double": false,
+   "reward": 1400,
+   "power": 1.21,
+   "team": [
+    [
+     506,
+     "小约克",
+     14
+    ],
+    [
+     511,
+     "花椰猴",
+     16
+    ]
+   ],
+   "counter_types": [
+    "fire",
+    "ice",
+    "fighting",
+    "poison"
+   ],
+   "resist_types": [
+    "fire",
+    "grass",
+    "poison",
+    "flying",
+    "bug",
+    "dragon",
+    "steel"
+   ],
+   "gym_trainers": 1,
+   "variants": [
+    {
+     "when": "starter:495",
+     "starter_zh": "藤藤蛇",
+     "leader_zh": "伯特",
+     "types": [
+      "fire"
+     ],
+     "team": [
+      [
+       506,
+       "小约克",
+       14
+      ],
+      [
+       513,
+       "爆香猴",
+       16
+      ]
+     ]
+    },
+    {
+     "when": "starter:498",
+     "starter_zh": "暖暖猪",
+     "leader_zh": "寇恩",
+     "types": [
+      "water"
+     ],
+     "team": [
+      [
+       506,
+       "小约克",
+       14
+      ],
+      [
+       515,
+       "冷水猴",
+       16
+      ]
+     ]
+    }
+   ]
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": true,
+  "last_of_region": false
+ },
+ {
+  "ch": 67,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "基础徽章",
+  "name_fr": "Badge Basique",
+  "path_zh": "3号道路 → 七宝市",
+  "band": [
+   16,
+   21
+  ],
+  "ui_lv": [
+   20,
+   22
+  ],
+  "ace": 22,
+  "cap": 22,
+  "day": false,
+  "steps": 9,
+  "wild": 10,
+  "trainers": 11,
+  "kinds": [
+   "route",
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "route",
+   "trade",
+   "trainer",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "3号道路",
+    "lv": [
+     16,
+     17
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "泉源洞穴",
+    "lv": [
+     17,
+     19
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "3号道路（东）",
+    "lv": [
+     19,
+     20
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "七宝市",
+    "lv": [
+     20,
+     21
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "复活化石@七宝博物馆：盖子化石→原盖海龟，羽毛化石→始祖小鸟 Lv25",
+   "剧情训练家@七宝市：N 豆豆鸽Lv18、圆蝌蚪Lv18、搬运小匠Lv18"
+  ],
+  "gym": {
+   "leader_zh": "芦荟",
+   "leader_fr": "Aloé",
+   "badge_zh": "基础徽章",
+   "badge_fr": "Basique",
+   "types": [
+    "normal"
+   ],
+   "ace": 22,
+   "champion": false,
+   "double": false,
+   "reward": 2100,
+   "power": 0.91,
+   "team": [
+    [
+     507,
+     "哈约克",
+     20
+    ],
+    [
+     505,
+     "步哨鼠",
+     22
+    ]
+   ],
+   "counter_types": [
+    "fighting"
+   ],
+   "resist_types": [
+    "rock",
+    "ghost",
+    "steel"
+   ],
+   "gym_trainers": 2,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 68,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "甲虫徽章",
+  "name_fr": "Badge Élytre",
+  "path_zh": "矢车森林 → 飞云市",
+  "band": [
+   22,
+   26
+  ],
+  "ui_lv": [
+   25,
+   27
+  ],
+  "ace": 27,
+  "cap": 27,
+  "day": false,
+  "steps": 7,
+  "wild": 7,
+  "trainers": 13,
+  "kinds": [
+   "route",
+   "heal",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "矢车森林",
+    "lv": [
+     22,
+     23
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "矢车森林（东）",
+    "lv": [
+     23,
+     24
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "天箭桥",
+    "lv": [
+     24,
+     25
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "飞云市",
+    "lv": [
+     25,
+     26
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "亚堤",
+   "leader_fr": "Artie",
+   "badge_zh": "甲虫徽章",
+   "badge_fr": "Élytre",
+   "types": [
+    "bug"
+   ],
+   "ace": 27,
+   "champion": false,
+   "double": false,
+   "reward": 2600,
+   "power": 1.1,
+   "team": [
+    [
+     544,
+     "车轮球",
+     25
+    ],
+    [
+     557,
+     "石居蟹",
+     25
+    ],
+    [
+     542,
+     "保姆虫",
+     27
+    ]
+   ],
+   "counter_types": [
+    "fire",
+    "flying",
+    "rock"
+   ],
+   "resist_types": [
+    "fire",
+    "fighting",
+    "poison",
+    "flying",
+    "ghost",
+    "steel",
+    "fairy"
+   ],
+   "gym_trainers": 2,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 69,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "古代城",
+  "name_fr": "Château Enfoui",
+  "path_zh": "4号道路 → 古代城",
+  "band": [
+   27,
+   31
+  ],
+  "ui_lv": [
+   30,
+   32
+  ],
+  "ace": 32,
+  "cap": 32,
+  "day": false,
+  "steps": 7,
+  "wild": 11,
+  "trainers": 9,
+  "kinds": [
+   "route",
+   "gift",
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "4号道路",
+    "lv": [
+     27,
+     28
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "荒野名胜区",
+    "lv": [
+     28,
+     30
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "古代城",
+    "lv": [
+     30,
+     31
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "礼物@荒野名胜区：盖子化石 / 羽毛化石 二选一"
+  ],
+  "gym": {
+   "leader_zh": "黑连",
+   "leader_fr": "Tcheren",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "normal"
+   ],
+   "ace": 32,
+   "champion": false,
+   "double": false,
+   "reward": 3000,
+   "power": 1.4,
+   "team": [
+    [
+     505,
+     "步哨鼠",
+     30
+    ],
+    [
+     520,
+     "咕咕鸽",
+     30
+    ],
+    [
+     522,
+     "斑斑马",
+     32
+    ]
+   ],
+   "counter_types": [],
+   "resist_types": [
+    "rock",
+    "ghost",
+    "steel"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 70,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "伏特徽章",
+  "name_fr": "Badge Volt",
+  "path_zh": "雷文市 → 5号道路",
+  "band": [
+   32,
+   37
+  ],
+  "ui_lv": [
+   36,
+   38
+  ],
+  "ace": 38,
+  "cap": 38,
+  "day": false,
+  "steps": 9,
+  "wild": 9,
+  "trainers": 12,
+  "kinds": [
+   "route",
+   "heal",
+   "find",
+   "route",
+   "trainer",
+   "route",
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "4号道路（北）",
+    "lv": [
+     32,
+     33
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "雷文市",
+    "lv": [
+     33,
+     35
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "16号道路",
+    "lv": [
+     35,
+     36
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "5号道路",
+    "lv": [
+     36,
+     37
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "拾取@雷文市：彩虹宝可方块（一次性）",
+   "剧情训练家@雷文市：N 黑眼鳄Lv34、火红不倒翁Lv34、滑滑小子Lv34、象征鸟Lv34"
+  ],
+  "gym": {
+   "leader_zh": "小菊儿",
+   "leader_fr": "Inezia",
+   "badge_zh": "伏特徽章",
+   "badge_fr": "Volt",
+   "types": [
+    "electric"
+   ],
+   "ace": 38,
+   "champion": false,
+   "double": false,
+   "reward": 3400,
+   "power": 1.1,
+   "team": [
+    [
+     587,
+     "电飞鼠",
+     36
+    ],
+    [
+     587,
+     "电飞鼠",
+     36
+    ],
+    [
+     596,
+     "电蜘蛛",
+     36
+    ],
+    [
+     523,
+     "雷电斑马",
+     38
+    ]
+   ],
+   "counter_types": [
+    "rock",
+    "ice"
+   ],
+   "resist_types": [
+    "grass",
+    "electric",
+    "ground",
+    "dragon"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 71,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "震动徽章",
+  "name_fr": "Badge Sismique",
+  "path_zh": "帆巴吊桥 → 帆巴市",
+  "band": [
+   38,
+   42
+  ],
+  "ui_lv": [
+   41,
+   43
+  ],
+  "ace": 43,
+  "cap": 43,
+  "day": false,
+  "steps": 6,
+  "wild": 8,
+  "trainers": 10,
+  "kinds": [
+   "route",
+   "heal",
+   "route",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "帆巴吊桥",
+    "lv": [
+     38,
+     39
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "帆巴市",
+    "lv": [
+     39,
+     41
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "冷冻仓库",
+    "lv": [
+     41,
+     42
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "菊老大",
+   "leader_fr": "Bardane",
+   "badge_zh": "震动徽章",
+   "badge_fr": "Sismique",
+   "types": [
+    "ground"
+   ],
+   "ace": 43,
+   "champion": false,
+   "double": false,
+   "reward": 3900,
+   "power": 1.1,
+   "team": [
+    [
+     552,
+     "混混鳄",
+     41
+    ],
+    [
+     536,
+     "蓝蟾蜍",
+     41
+    ],
+    [
+     618,
+     "泥巴鱼",
+     41
+    ],
+    [
+     530,
+     "龙头地鼠",
+     43
+    ]
+   ],
+   "counter_types": [
+    "grass",
+    "water",
+    "ice",
+    "fighting"
+   ],
+   "resist_types": [
+    "grass",
+    "flying",
+    "bug"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 72,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "喷射徽章",
+  "name_fr": "Badge Jet",
+  "path_zh": "6号道路 → 吹寄市",
+  "band": [
+   43,
+   47
+  ],
+  "ui_lv": [
+   46,
+   48
+  ],
+  "ace": 48,
+  "cap": 48,
+  "day": false,
+  "steps": 9,
+  "wild": 13,
+  "trainers": 9,
+  "kinds": [
+   "route",
+   "route",
+   "heal",
+   "route",
+   "trainer",
+   "route",
+   "static",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "6号道路",
+    "lv": [
+     43,
+     44
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "6号道路（北）",
+    "lv": [
+     44,
+     45
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "电气石洞穴",
+    "lv": [
+     45,
+     46
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "吹寄洞穴",
+    "lv": [
+     46,
+     47
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "剧情训练家@电气石洞穴：N 地幔岩Lv44、电电虫Lv44、种子铁球Lv44、齿轮儿Lv44",
+   "定点@吹寄洞穴：牙牙 Lv48 需10个断牙"
+  ],
+  "gym": {
+   "leader_zh": "风露",
+   "leader_fr": "Carolina",
+   "badge_zh": "喷射徽章",
+   "badge_fr": "Jet",
+   "types": [
+    "flying"
+   ],
+   "ace": 48,
+   "champion": false,
+   "double": false,
+   "reward": 4300,
+   "power": 1.2,
+   "team": [
+    [
+     528,
+     "心蝙蝠",
+     46
+    ],
+    [
+     521,
+     "高傲雉鸡",
+     46
+    ],
+    [
+     561,
+     "象征鸟",
+     46
+    ],
+    [
+     581,
+     "舞天鹅",
+     48
+    ]
+   ],
+   "counter_types": [
+    "electric",
+    "rock",
+    "ice",
+    "dark"
+   ],
+   "resist_types": [
+    "electric",
+    "rock",
+    "steel"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 73,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "冰柱徽章",
+  "name_fr": "Badge Stalactite",
+  "path_zh": "7号道路 → 雪花市",
+  "band": [
+   48,
+   52
+  ],
+  "ui_lv": [
+   51,
+   55
+  ],
+  "ace": 53,
+  "cap": 55,
+  "day": false,
+  "steps": 8,
+  "wild": 13,
+  "trainers": 11,
+  "kinds": [
+   "route",
+   "route",
+   "heal",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "7号道路",
+    "lv": [
+     48,
+     49
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "天堂之塔",
+    "lv": [
+     49,
+     50
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "7号道路（北）",
+    "lv": [
+     50,
+     51
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "罗斯山",
+    "lv": [
+     50,
+     51
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "雪花市",
+    "lv": [
+     51,
+     52
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "哈奇库",
+   "leader_fr": "Zhu",
+   "badge_zh": "冰柱徽章",
+   "badge_fr": "Stalactite",
+   "types": [
+    "ice"
+   ],
+   "ace": 53,
+   "champion": false,
+   "double": false,
+   "reward": 4700,
+   "power": 1.2,
+   "team": [
+    [
+     583,
+     "多多冰",
+     51
+    ],
+    [
+     615,
+     "几何雪花",
+     51
+    ],
+    [
+     584,
+     "双倍多多冰",
+     51
+    ],
+    [
+     614,
+     "冻原熊",
+     53
+    ]
+   ],
+   "counter_types": [
+    "fire",
+    "fighting",
+    "rock",
+    "steel"
+   ],
+   "resist_types": [
+    "fire",
+    "water",
+    "ice",
+    "steel"
+   ],
+   "gym_trainers": 3,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 74,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "龙螺旋之塔",
+  "name_fr": "Tour Dragospire",
+  "path_zh": "雪花湿地 → 龙螺旋之塔",
+  "band": [
+   53,
+   57
+  ],
+  "ui_lv": [
+   56,
+   58
+  ],
+  "ace": 58,
+  "cap": 58,
+  "day": false,
+  "steps": 7,
+  "wild": 10,
+  "trainers": 11,
+  "kinds": [
+   "route",
+   "route",
+   "heal",
+   "route",
+   "route",
+   "heal",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "雪花湿地",
+    "lv": [
+     53,
+     54
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "8号道路",
+    "lv": [
+     54,
+     55
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "龙螺旋之塔",
+    "lv": [
+     55,
+     56
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "龙螺旋之塔",
+    "lv": [
+     56,
+     57
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "白露",
+   "leader_fr": "Bianca",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "psychic"
+   ],
+   "ace": 58,
+   "champion": false,
+   "double": false,
+   "reward": 5000,
+   "power": 1.1,
+   "team": [
+    [
+     508,
+     "长毛狗",
+     56
+    ],
+    [
+     518,
+     "梦梦蚀",
+     56
+    ],
+    [
+     512,
+     "花椰猿",
+     58
+    ]
+   ],
+   "counter_types": [
+    "bug"
+   ],
+   "resist_types": [
+    "psychic",
+    "dark",
+    "steel"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 75,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "传说徽章",
+  "name_fr": "Badge Mythe",
+  "path_zh": "9号道路 → 双龙市",
+  "band": [
+   58,
+   62
+  ],
+  "ui_lv": [
+   61,
+   63
+  ],
+  "ace": 63,
+  "cap": 63,
+  "day": false,
+  "steps": 7,
+  "wild": 7,
+  "trainers": 10,
+  "kinds": [
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "find",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "9号道路",
+    "lv": [
+     58,
+     59
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "9号道路（东）",
+    "lv": [
+     59,
+     61
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "双龙市",
+    "lv": [
+     61,
+     62
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [
+   "拾取@双龙市：彩虹宝可方块（一次性）"
+  ],
+  "gym": {
+   "leader_zh": "夏卡",
+   "leader_fr": "Watson",
+   "badge_zh": "传说徽章",
+   "badge_fr": "Mythe",
+   "types": [
+    "dragon"
+   ],
+   "ace": 63,
+   "champion": false,
+   "double": false,
+   "reward": 5200,
+   "power": 1.02,
+   "team": [
+    [
+     611,
+     "斧牙龙",
+     61
+    ],
+    [
+     621,
+     "赤面龙",
+     61
+    ],
+    [
+     634,
+     "双首暴龙",
+     61
+    ],
+    [
+     612,
+     "双斧战龙",
+     63
+    ]
+   ],
+   "counter_types": [
+    "fairy",
+    "ice",
+    "dragon"
+   ],
+   "resist_types": [
+    "steel",
+    "fairy"
+   ],
+   "gym_trainers": 3,
+   "variants": [
+    {
+     "when": "night",
+     "leader_zh": "艾莉丝",
+     "types": [
+      "dragon"
+     ],
+     "team": [
+      [
+       611,
+       "斧牙龙",
+       61
+      ],
+      [
+       621,
+       "赤面龙",
+       61
+      ],
+      [
+       634,
+       "双首暴龙",
+       61
+      ],
+      [
+       612,
+       "双斧战龙",
+       63
+      ]
+     ]
+    }
+   ]
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 76,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "冠军之路",
+  "name_fr": "Route Victoire",
+  "path_zh": "10号道路 → 冠军之路",
+  "band": [
+   63,
+   69
+  ],
+  "ui_lv": [
+   68,
+   70
+  ],
+  "ace": 70,
+  "cap": 70,
+  "day": false,
+  "steps": 6,
+  "wild": 11,
+  "trainers": 9,
+  "kinds": [
+   "route",
+   "heal",
+   "route",
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "10号道路",
+    "lv": [
+     63,
+     65
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "冠军之路",
+    "lv": [
+     65,
+     67
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "冠军之路",
+    "lv": [
+     67,
+     69
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "黑连",
+   "leader_fr": "Tcheren",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "normal"
+   ],
+   "ace": 70,
+   "champion": false,
+   "double": false,
+   "reward": 5000,
+   "power": 1.25,
+   "team": [
+    [
+     505,
+     "步哨鼠",
+     68
+    ],
+    [
+     521,
+     "高傲雉鸡",
+     68
+    ],
+    [
+     510,
+     "酷豹",
+     70
+    ]
+   ],
+   "counter_types": [
+    "fighting"
+   ],
+   "resist_types": [
+    "rock",
+    "ghost",
+    "steel"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 77,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "四天王：婉龙",
+  "name_fr": "Conseil 4 : Anis",
+  "path_zh": "宝可梦联盟",
+  "band": [
+   70,
+   79
+  ],
+  "ui_lv": [
+   78,
+   80
+  ],
+  "ace": 80,
+  "cap": 83,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     70,
+     79
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "婉龙",
+   "leader_fr": "Anis",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "ghost"
+   ],
+   "ace": 80,
+   "champion": false,
+   "double": false,
+   "reward": 5500,
+   "power": 0.89,
+   "team": [
+    [
+     563,
+     "迭失棺",
+     78
+    ],
+    [
+     593,
+     "胖嘟嘟",
+     78
+    ],
+    [
+     623,
+     "泥偶巨人",
+     78
+    ],
+    [
+     609,
+     "水晶灯火灵",
+     80
+    ]
+   ],
+   "counter_types": [
+    "ghost",
+    "dark",
+    "water",
+    "grass"
+   ],
+   "resist_types": [
+    "normal",
+    "dark"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 1,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 78,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "四天王：越橘",
+  "name_fr": "Conseil 4 : Pieris",
+  "path_zh": "宝可梦联盟",
+  "band": [
+   80,
+   84
+  ],
+  "ui_lv": [
+   83,
+   85
+  ],
+  "ace": 85,
+  "cap": 88,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     80,
+     84
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "越橘",
+   "leader_fr": "Pieris",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "dark"
+   ],
+   "ace": 85,
+   "champion": false,
+   "double": false,
+   "reward": 5700,
+   "power": 1,
+   "team": [
+    [
+     560,
+     "头巾混混",
+     83
+    ],
+    [
+     510,
+     "酷豹",
+     83
+    ],
+    [
+     553,
+     "流氓鳄",
+     83
+    ],
+    [
+     625,
+     "劈斩司令",
+     85
+    ]
+   ],
+   "counter_types": [
+    "fighting",
+    "fairy",
+    "bug"
+   ],
+   "resist_types": [
+    "fighting",
+    "dark",
+    "fairy"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 2,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 79,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "四天王：嘉德丽雅",
+  "name_fr": "Conseil 4 : Percila",
+  "path_zh": "宝可梦联盟",
+  "band": [
+   85,
+   89
+  ],
+  "ui_lv": [
+   88,
+   90
+  ],
+  "ace": 90,
+  "cap": 93,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     85,
+     89
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "嘉德丽雅",
+   "leader_fr": "Percila",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "psychic"
+   ],
+   "ace": 90,
+   "champion": false,
+   "double": false,
+   "reward": 5900,
+   "power": 0.86,
+   "team": [
+    [
+     579,
+     "人造细胞卵",
+     88
+    ],
+    [
+     518,
+     "梦梦蚀",
+     88
+    ],
+    [
+     561,
+     "象征鸟",
+     88
+    ],
+    [
+     576,
+     "哥德小姐",
+     90
+    ]
+   ],
+   "counter_types": [
+    "ghost",
+    "dark",
+    "bug"
+   ],
+   "resist_types": [
+    "psychic",
+    "dark",
+    "steel"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 3,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 80,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "四天王：连武",
+  "name_fr": "Conseil 4 : Kunz",
+  "path_zh": "宝可梦联盟",
+  "band": [
+   90,
+   94
+  ],
+  "ui_lv": [
+   93,
+   95
+  ],
+  "ace": 95,
+  "cap": 95,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "房间",
+    "lv": [
+     90,
+     94
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "连武",
+   "leader_fr": "Kunz",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "fighting"
+   ],
+   "ace": 95,
+   "champion": false,
+   "double": false,
+   "reward": 6100,
+   "power": 0.86,
+   "team": [
+    [
+     538,
+     "投摔鬼",
+     93
+    ],
+    [
+     539,
+     "打击鬼",
+     93
+    ],
+    [
+     534,
+     "修建老匠",
+     93
+    ],
+    [
+     620,
+     "师父鼬",
+     95
+    ]
+   ],
+   "counter_types": [
+    "flying",
+    "psychic",
+    "fairy"
+   ],
+   "resist_types": [
+    "poison",
+    "flying",
+    "psychic",
+    "bug",
+    "ghost",
+    "fairy"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 4,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 81,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "N的城堡",
+  "name_fr": "Palais de N",
+  "path_zh": "宝可梦联盟",
+  "band": [
+   95,
+   94
+  ],
+  "ui_lv": [
+   93,
+   100
+  ],
+  "ace": 95,
+  "cap": 100,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "N的城堡",
+    "lv": [
+     95,
+     96
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "N",
+   "leader_fr": "N",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "dragon"
+   ],
+   "ace": 95,
+   "champion": false,
+   "double": false,
+   "reward": 8000,
+   "power": 0.78,
+   "team": [
+    [
+     565,
+     "肋骨海龟",
+     93
+    ],
+    [
+     584,
+     "双倍多多冰",
+     93
+    ],
+    [
+     567,
+     "始祖大鸟",
+     93
+    ],
+    [
+     571,
+     "索罗亚克",
+     93
+    ],
+    [
+     601,
+     "齿轮怪",
+     93
+    ],
+    [
+     643,
+     "莱希拉姆",
+     95
+    ]
+   ],
+   "counter_types": [
+    "fighting",
+    "rock",
+    "ground"
+   ],
+   "resist_types": [
+    "steel",
+    "fairy"
+   ],
+   "gym_trainers": 0,
+   "variants": [
+    {
+     "when": "night",
+     "leader_zh": "N",
+     "types": [
+      "dragon"
+     ],
+     "team": [
+      [
+       565,
+       "肋骨海龟",
+       93
+      ],
+      [
+       584,
+       "双倍多多冰",
+       93
+      ],
+      [
+       567,
+       "始祖大鸟",
+       93
+      ],
+      [
+       571,
+       "索罗亚克",
+       93
+      ],
+      [
+       601,
+       "齿轮怪",
+       93
+      ],
+      [
+       644,
+       "捷克罗姆",
+       95
+      ]
+     ]
+    }
+   ]
+  },
+  "league": true,
+  "league_room": 5,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 82,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "魁奇思",
+  "name_fr": "Ghetis",
+  "path_zh": "宝可梦联盟",
+  "band": [
+   95,
+   94
+  ],
+  "ui_lv": [
+   93,
+   100
+  ],
+  "ace": 95,
+  "cap": 100,
+  "day": false,
+  "steps": 3,
+  "wild": 0,
+  "trainers": 4,
+  "kinds": [
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "N的城堡",
+    "lv": [
+     95,
+     96
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "魁奇思",
+   "leader_fr": "Ghetis",
+   "badge_zh": "合众冠军徽章",
+   "badge_fr": "Maître Unys",
+   "types": [
+    "dark"
+   ],
+   "ace": 95,
+   "champion": true,
+   "double": false,
+   "reward": 10000,
+   "power": 0.83,
+   "team": [
+    [
+     563,
+     "迭失棺",
+     93
+    ],
+    [
+     626,
+     "爆炸头水牛",
+     93
+    ],
+    [
+     537,
+     "蟾蜍王",
+     93
+    ],
+    [
+     625,
+     "劈斩司令",
+     93
+    ],
+    [
+     604,
+     "麻麻鳗鱼王",
+     93
+    ],
+    [
+     635,
+     "三首恶龙",
+     95
+    ]
+   ],
+   "counter_types": [
+    "fighting"
+   ],
+   "resist_types": [
+    "fighting",
+    "dark",
+    "fairy"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": true,
+  "league_room": 6,
+  "first_of_region": false,
+  "last_of_region": false
+ },
+ {
+  "ch": 83,
+  "region": "unova",
+  "region_zh": "合众",
+  "name_zh": "巨人洞窟",
+  "name_fr": "Grotte Cyclopéenne",
+  "path_zh": "11号道路 → 巨人洞窟",
+  "band": [
+   90,
+   99
+  ],
+  "ui_lv": [
+   98,
+   100
+  ],
+  "ace": 100,
+  "cap": 100,
+  "day": false,
+  "steps": 18,
+  "wild": 35,
+  "trainers": 24,
+  "kinds": [
+   "heal",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "route",
+   "route",
+   "route",
+   "route",
+   "heal",
+   "route",
+   "gym"
+  ],
+  "route_bands": [
+   {
+    "name_zh": "11号道路",
+    "lv": [
+     90,
+     91
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "村庄桥",
+    "lv": [
+     91,
+     92
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "12号道路",
+    "lv": [
+     92,
+     93
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "13号道路",
+    "lv": [
+     92,
+     93
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "涟漪湾",
+    "lv": [
+     93,
+     94
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "14号道路",
+    "lv": [
+     94,
+     95
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "15号道路",
+    "lv": [
+     95,
+     96
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "白森林",
+    "lv": [
+     95,
+     96
+    ],
+    "day": true,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "黑色市",
+    "lv": [
+     96,
+     97
+    ],
+    "day": false,
+    "night": true,
+    "tide": null
+   },
+   {
+    "name_zh": "16号道路",
+    "lv": [
+     97,
+     98
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "迷幻森林",
+    "lv": [
+     98,
+     99
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   },
+   {
+    "name_zh": "巨人洞窟",
+    "lv": [
+     98,
+     99
+    ],
+    "day": false,
+    "night": false,
+    "tide": null
+   }
+  ],
+  "specials": [],
+  "gym": {
+   "leader_zh": "阿戴克",
+   "leader_fr": "Goyah",
+   "badge_zh": null,
+   "badge_fr": null,
+   "types": [
+    "bug"
+   ],
+   "ace": 100,
+   "champion": false,
+   "double": false,
+   "reward": 10000,
+   "power": 0.99,
+   "team": [
+    [
+     617,
+     "敏捷虫",
+     98
+    ],
+    [
+     626,
+     "爆炸头水牛",
+     98
+    ],
+    [
+     621,
+     "赤面龙",
+     98
+    ],
+    [
+     584,
+     "双倍多多冰",
+     98
+    ],
+    [
+     589,
+     "骑士蜗牛",
+     98
+    ],
+    [
+     637,
+     "火神蛾",
+     100
+    ]
+   ],
+   "counter_types": [
+    "rock",
+    "fire"
+   ],
+   "resist_types": [
+    "fire",
+    "fighting",
+    "poison",
+    "flying",
+    "ghost",
+    "steel",
+    "fairy"
+   ],
+   "gym_trainers": 0,
+   "variants": []
+  },
+  "league": false,
+  "league_room": null,
+  "first_of_region": false,
+  "last_of_region": true
+ }
+]
