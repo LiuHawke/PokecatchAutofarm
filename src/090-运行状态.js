@@ -65,7 +65,6 @@
     prog: null,            // 主线状态（progState() 懒加载，跨刷新保存在 pcauto.progress.v4）
     plan: null,            // 主线策略最近一次的结论 { key, why }
     progressAt: 0,
-    counterFor: null,      // 换上克制队时所在的道馆章节：期间平时的自动换队不动阵容
     healthReloads: 0,
     taskFails: {},         // 每项自动化连续失败次数，到 3 次停用
     berryPending: null,    // { key, have, until }：吃树果后等采样确认
@@ -95,11 +94,3 @@
     awaySnap: null,
     awayLastSeen: 0,
   };
-
-  function log(kind, msg) {
-    S.events.unshift({ t: new Date().toLocaleTimeString('zh-CN', { hour12: false }), kind, msg });
-    if (S.events.length > 80) S.events.pop();
-    S.logDirty = true;
-    if (S.cfg.logToConsole) console.log('[AutoFarm]', kind, msg);
-    scheduleHud();
-  }

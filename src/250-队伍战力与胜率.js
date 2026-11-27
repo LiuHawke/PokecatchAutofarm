@@ -33,13 +33,29 @@
   }
   function speedFloor() { return speedTarget() * 0.72; }
 
+  /** 上一次检查以来助手自己占的时间和浏览器报告的长任务，用来分辨是谁拖慢了游戏 */
+  function speedLoad() {
+    // 配队重算里包含原版重放，两者取大的，免得重复计
+    const own = Math.max(PERF.nr.ms, PERF.plan.ms) + PERF.tick.ms, lt = PERF.lt.ms;
+    const m = S.perfMark || { at: PERF.since, own: 0, lt: 0 };
+    S.perfMark = { at: now(), own, lt };
+    const min = Math.max(0.5, (now() - m.at) / 60000);
+    return { min, ownPct: (own - m.own) / (min * 600), ltPct: (lt - m.lt) / (min * 600) };
+  }
+
   function speedGuard() {
-    if (S.speedRatio == null) return;
+    const load = speedLoad();
+    // 刚启动时要过标题、开场动画，游戏时间本来就走得慢，先看 5 分钟再判断
+    if (S.speedRatio == null || now() - S.bootAt < 5 * 60000) return;
     if (S.speedRatio >= speedFloor()) { S.slowWarnAt = 0; return; }
     if (now() - (S.slowWarnAt || 0) < 25 * 60000) return;
     S.slowWarnAt = now();
-    const why = isRealHidden() ? '页面在后台' : '设备可能跟不上（战斗渲染卡顿）';
-    log('warn', `实际倍率只有 ${S.speedRatio.toFixed(1)}x（目标 ${speedTarget()}x）：${why}`);
+    let why;
+    if (isRealHidden()) why = '页面在后台';
+    else if (load.ownPct >= 15) why = `助手自己的计算占了约 ${Math.round(load.ownPct)}% 的时间（多半是配队 / 章节收益在重算，算完会恢复）`;
+    else if (load.ltPct >= 20) why = `浏览器卡顿：近 ${Math.round(load.min)} 分钟有约 ${Math.round(load.ltPct)}% 的时间在跑长任务，助手只占 ${Math.round(load.ownPct)}%（多是游戏渲染，窗口被挡住或电脑忙时常见）`;
+    else why = `助手只占 ${Math.round(load.ownPct)}%，也没有明显卡顿；可能是窗口被完全挡住、正在看动画 / 菜单，或游戏本身在这段停顿`;
+    log('warn', `实际倍率只有 ${S.speedRatio.toFixed(1)}x（目标 ${speedTarget()}x）：${why}`, perfText());
   }
 
   function powerGuard() {

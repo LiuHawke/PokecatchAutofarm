@@ -24,15 +24,11 @@
 
   /** 所有定时任务的统一兜底：单次异常不会让这条定时器变成植物人，且会在日志里喊一声 */
   function safeInterval(name, fn, ms) {
-    let warnedAt = 0;
     return setInterval(() => {
       try {
         fn();
       } catch (e) {
-        if (now() - warnedAt > 60000) {
-          warnedAt = now();
-          try { log('warn', `内部任务「${name}」异常：${(e && e.message) || e}`); } catch { /* 忽略 */ }
-        }
+        try { logError(`定时任务「${name}」`, e); } catch { /* 忽略 */ }
       }
     }, ms);
   }
@@ -86,16 +82,24 @@
         && (!isRealHidden() || S.keepAliveOn) && !findModal();
   }
 
+  const TASK_NAME = { feed: '喂糖', team: '换队', hatch: '孵蛋', shop: '买糖', chapter: '换章节', deposit: '寄放', ban: '禁招', pension: '培育屋' };
   async function runTask(name, fn) {
-    if (isBusyTask()) return { ok: false, msg: '正在执行其他任务' };
+    if (isBusyTask()) return { ok: false, busy: true, msg: `正在执行其他任务（${TASK_NAME[S.busyTask] || S.busyTask || '喂糖'}）` };
     S.busyTask = name;
     S.busySince = now();
     const prev = activeScreen();
+    const label = TASK_NAME[name] || name;
+    log('flow', `开始：${label}`);
+    let r;
     try {
-      return await fn();
+      r = await fn();
+      return r;
     } catch (e) {
-      return { ok: false, msg: (e && e.message) || String(e) };
+      logError(`任务「${label}」`, e);
+      r = { ok: false, msg: (e && e.message) || String(e) };
+      return r;
     } finally {
+      log('flow', `结束：${label}（${((now() - S.busySince) / 1000).toFixed(1)} 秒${r && r.ok === false ? `，未完成：${r.msg || '未知原因'}` : ''}）`);
       if (activeScreen() !== prev) gotoScreen(prev);
       S.busyTask = '';
       S.lastProgressAt = now();
@@ -106,7 +110,7 @@
   /** 连续失败 3 次就关掉这项自动化，避免一直和改版后的界面较劲 */
   function taskResult(cfgKey, label, r) {
     if (r && r.ok) { S.taskFails[cfgKey] = 0; return; }
-    if (r && r.skip) return;
+    if (r && (r.skip || r.busy)) return;
     const n = (S.taskFails[cfgKey] = (S.taskFails[cfgKey] || 0) + 1);
     log('warn', `${label}失败：${(r && r.msg) || '未知原因'}`);
     if (n >= 3 && S.cfg[cfgKey]) {
@@ -157,6 +161,7 @@
       saved = migrateCfgV3(safeParse(lsGet(CFG_KEY_V3), null)) || {};
       if (Object.keys(saved).length) { saved.migratedFrom = 3; lsSet(CFG_KEY, JSON.stringify(saved)); }
     }
+    if (PRESET_LEGACY[saved.preset]) S_BOOT.legacyPreset = saved.preset;
     const c = { ...DEFAULTS, ...saved, berryFamilies: { ...DEFAULTS.berryFamilies, ...(saved.berryFamilies || {}) } };
     for (const k of Object.keys(c)) if (!(k in DEFAULTS) && k !== 'migratedFrom') delete c[k];
     return c;
@@ -170,32 +175,36 @@
     storeSet(CFG_KEY, JSON.parse(JSON.stringify(c)));
   }
 
-  /** 开关组合恰好等于某一档就算该档，手动改过任何一项就是「自定义」 */
+  /** 开关组合恰好等于某个模式就算该模式，手动改过任何一项就是「自定义」 */
   function detectPreset(c) {
     for (const [name, p] of Object.entries(PRESETS)) {
-      if (Object.keys(p.cfg).every((k) => c[k] === p.cfg[k])) return name;
+      const hit = Object.keys(p.cfg).every((k) => (k === 'berryFamilies'
+        ? Object.keys(p.cfg.berryFamilies).every((x) => !!(c.berryFamilies || {})[x] === p.cfg.berryFamilies[x])
+        : c[k] === p.cfg[k]));
+      if (hit) return name;
     }
     return 'custom';
   }
 
   /**
-   * 一键挂机：先自检，页面结构或弹窗规则有失败项时不放心全托管，降为「稳妥」。
-   * 返回实际生效的档位。
+   * 切换挂机模式：先自检，页面结构或弹窗规则有失败项时不放心自动换章换队，改用「练级刷钱」。
+   * 返回实际生效的模式。
    */
-  function applyPreset(name) {
+  function applyPreset(name, quiet) {
+    name = PRESET_LEGACY[name] || name;
     if (!PRESETS[name]) return S.cfg.preset;
     let target = name;
     const st = runSelfTest();
-    if (st.fails && name !== 'safe') {
-      target = 'safe';
-      log('warn', `自检有 ${st.fails} 项失败，暂按「稳妥」档运行（点「诊断」查看）`);
+    if (st.fails && name === 'push') {
+      target = 'grind';
+      log('warn', `自检有 ${st.fails} 项失败，暂按「练级刷钱」运行，不自动换章换队（点「诊断」查看）`);
     }
-    Object.assign(S.cfg, PRESETS[target].cfg);
+    const p = PRESETS[target].cfg;
+    Object.assign(S.cfg, p, { berryFamilies: { ...(S.cfg.berryFamilies || {}), ...p.berryFamilies } });
     writeCfg(S.cfg);
     S.pausedByUser = false;
-    setKeepAlive(!!S.cfg.keepAlive).catch(() => {});
     if (S.cfg.wakeLock) requestWakeLock();
-    log('info', `一键挂机：已切到「${PRESETS[target].label}」档 —— ${PRESETS[target].desc}`);
+    log('info', `${quiet ? '已迁移旧档位：' : ''}挂机模式切到「${PRESETS[target].label}」—— ${PRESETS[target].desc}`);
     renderHud();
     return target;
   }

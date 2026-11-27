@@ -85,8 +85,8 @@
     hudTimer = setTimeout(() => {
       hudTimer = 0;
       hudRenderAt = now();
-      try { renderHud(); } catch { /* 忽略 */ }
-      try { if ($('#pcauto-panel')) renderPanel(false); } catch { /* 忽略 */ }
+      try { renderHud(); } catch (e) { logError('HUD 刷新', e); }
+      try { if ($('#pcauto-panel')) renderPanel(false); } catch (e) { logError('面板刷新', e); }
     }, ms);
   }
 
@@ -99,6 +99,7 @@
         <span class="h-dot" id="pcauto-dot"></span>
         <b id="pcauto-title" style="font-size:12px">挂机助手</b>
         <span style="flex:1"></span>
+        <button class="h-ib" id="pcauto-errbtn" title="有新的报错，点开日志查看" style="display:none;color:#fff;background:#b91c1c;border-radius:8px;padding:0 6px;font-size:11px"></button>
         <button class="h-ib" id="pcauto-bsbtn" title="实战统计悬浮窗">📊</button>
         <button class="h-ib" id="pcauto-toggle" title="折叠 / 展开">–</button>
         <button class="h-ib" id="pcauto-gear" title="打开主面板">☰</button>
@@ -130,6 +131,7 @@
     };
     hud.querySelector('#pcauto-gear').onclick = () => openPanel();
     hud.querySelector('#pcauto-bsbtn').onclick = () => bswToggle();
+    hud.querySelector('#pcauto-errbtn').onclick = () => { logView.cat = 'error'; logView.limit = 200; openPanel('log'); renderHud(); };
     hudPauseBtn.onclick = () => { S.pausedByUser = !S.pausedByUser; renderHud(); };
     hud.querySelector('#pcauto-oneclick').onclick = openPresetPicker;
 
@@ -201,7 +203,7 @@
     hudTitle.textContent = paused ? '已暂停' : running ? '挂机中' : '疑似停滞';
     hudPauseBtn.textContent = S.pausedByUser ? '继续' : '暂停';
     const p = PRESETS[detectPreset(S.cfg)];
-    hud.querySelector('#pcauto-oneclick').textContent = p ? `一键挂机 · ${p.label}` : '一键挂机 · 自定义';
+    hud.querySelector('#pcauto-oneclick').textContent = p ? `模式 · ${p.label}` : '模式 · 自定义';
 
     const f = facts();
     const plan = S.plan || (f ? planProgress(f, progState(), S.cfg) : null);
@@ -221,6 +223,12 @@
 
     if (S.logDirty) {
       S.logDirty = false;
+      const seen = S.logErrSeenId || 0;
+      let nErr = 0;
+      for (const e of S.events) { if (e.id <= seen) break; if (e.cat === 'error' || e.cat === 'game') nErr++; }
+      const eb = hud.querySelector('#pcauto-errbtn');
+      eb.style.display = nErr ? '' : 'none';
+      eb.textContent = `报错 ${nErr}`;
       hudLogs.innerHTML = S.events.slice(0, 3).map((e) => `<div><span style="color:#5b6478">${e.t}</span> ${esc(e.msg)}</div>`).join('') || '<div>等待事件…</div>';
     }
   }
@@ -267,7 +275,7 @@
       modal: S.unknownModal || null,
       rates: S.rate,
       idleSec: getIdleSec(),
-      automation: Object.fromEntries(['progress', 'counterSwap', 'autoFeed', 'autoShop', 'autoTeam', 'autoHatch', 'autoDeposit', 'autoEvent'].map((k) => [k, !!S.cfg[k]])),
+      automation: Object.fromEntries(['progress', 'counterSwap', 'autoFeed', 'autoShop', 'battleCounter', 'autoHatch', 'autoDeposit', 'autoEvent'].map((k) => [k, !!S.cfg[k]])),
       busyTask: S.busyTask || null,
       taskFails: S.taskFails,
       teamUndo: S.teamUndo ? S.teamUndo.length : 0,

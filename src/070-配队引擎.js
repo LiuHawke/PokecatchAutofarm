@@ -21,7 +21,8 @@
   function teamPrefs() {
     if (!S.teamPrefs) {
       const p = safeParse(lsGet(TEAM_KEY), null) || safeParse(storeGet(TEAM_KEY, null), null) || {};
-      S.teamPrefs = { pins: Array.isArray(p.pins) ? p.pins.map(String) : [], trainee: p.trainee != null ? String(p.trainee) : null };
+      S.teamPrefs = { pins: Array.isArray(p.pins) ? p.pins.map(String) : [], trainee: p.trainee != null ? String(p.trainee) : null,
+        coreOff: Array.isArray(p.coreOff) ? p.coreOff.map(String) : [] };
     }
     return S.teamPrefs;
   }
@@ -42,19 +43,97 @@
     saveTeamPrefs();
   }
 
-  /** 固定在队里的 uid：锁定 + 新人（+ 开了保护时的现役异色/传说） */
-  function teamFixed(save, pool) {
+  /** 核心等级位：现队里等级最高的几只自动算核心（玩家可以逐只取消） */
+  const TEAM_CORE_TOP = 4;
+  /** 推荐和卡关补位最多改动的非核心位置数 */
+  const TEAM_MAX_SWAPS = 2;
+  /** 新推荐要比旧推荐（或现队）高出这么多分才替换，免得每次重算都变 */
+  const TEAM_STICKY = 0.05;
+
+  /**
+   * 核心队员（永远不会被自动换下）：锁定 + 练级新人 + 开了保护时的现役异色/传说
+   * + 现队等级前 4 名（玩家取消过的除外）。返回 [{ uid, why }]。
+   */
+  function teamCoreInfo(save, pool) {
     const p = teamPrefs();
-    const have = new Set(pool.map((m) => String(m.uid)));
-    const out = p.pins.filter((u) => have.has(u));
-    if (p.trainee && have.has(p.trainee) && !out.includes(p.trainee)) out.push(p.trainee);
-    if (S.cfg.autoTeamProtect) {
-      for (const u of (save.team || []).map(String)) {
-        const m = pool.find((x) => String(x.uid) === u);
-        if (m && monProtected(m) && !out.includes(u)) out.push(u);
-      }
-    }
+    const byUid = new Map(pool.map((m) => [String(m.uid), m]));
+    const team = (save.team || []).map(String).filter((u) => byUid.has(u));
+    const out = [];
+    const add = (u, why) => { if (byUid.has(u) && !out.some((x) => x.uid === u)) out.push({ uid: u, why }); };
+    for (const u of p.pins) add(u, '锁定');
+    if (p.trainee) add(p.trainee, '练级新人');
+    if (S.cfg.autoTeamProtect) for (const u of team) if (monProtected(byUid.get(u))) add(u, byUid.get(u).shiny ? '异色' : '传说级');
+    const off = new Set(p.coreOff || []);
+    team.filter((u) => !off.has(u)).sort((a, b) => (byUid.get(b).level || 1) - (byUid.get(a).level || 1))
+      .slice(0, TEAM_CORE_TOP).forEach((u) => add(u, '主力'));
     return out.slice(0, 6);
+  }
+  /** 固定在队里的 uid：就是核心队员 */
+  function teamFixed(save, pool) {
+    return teamCoreInfo(save, pool).map((x) => x.uid);
+  }
+  /** 取消 / 恢复某只的「主力」核心身份（锁定、新人、异色传说不受影响） */
+  function toggleCore(uid) {
+    const p = teamPrefs();
+    uid = String(uid);
+    p.coreOff = (p.coreOff || []).includes(uid) ? p.coreOff.filter((u) => u !== uid) : [...(p.coreOff || []), uid].slice(-12);
+    saveTeamPrefs();
+  }
+
+  /** 新阵容相对现队换下了几只（现队有空位时，补空位不算） */
+  function teamSwapCount(curUids, uids) {
+    const now = new Set(uids.map(String));
+    return curUids.filter((u) => !now.has(String(u))).length;
+  }
+
+  /**
+   * 把推荐限制在最多 maxSwaps 处改动：从现队出发，先补空位，再贪心地做收益最大的单个替换。
+   * score(list) 越大越好。
+   */
+  async function teamLimitSwaps(curMons, bestMons, fixed, maxSwaps, score) {
+    const curU = curMons.map((m) => String(m.uid));
+    if (teamSwapCount(curU, bestMons.map((m) => String(m.uid))) <= maxSwaps) return bestMons;
+    const fixedSet = new Set(fixed);
+    const ins = bestMons.filter((m) => !curU.includes(String(m.uid)));
+    const trial = curMons.slice();
+    for (const f of fixed) if (!trial.some((m) => String(m.uid) === f)) {
+      const m = bestMons.find((x) => String(x.uid) === f);
+      if (!m) continue;
+      if (trial.length < 6) { trial.push(m); continue; }
+      // 锁定了 PC 里的宝可梦：顶掉等级最低的非核心队员
+      const outs = trial.map((x, i) => [x, i]).filter(([x]) => !fixedSet.has(String(x.uid))).sort((a, b) => (a[0].level || 1) - (b[0].level || 1));
+      if (outs.length) trial[outs[0][1]] = m;
+    }
+    while (trial.length < Math.min(6, bestMons.length)) {
+      let pick = null, bs = -Infinity;
+      for (const m of ins) {
+        if (trial.includes(m)) continue;
+        const s = score([...trial, m]);
+        if (s > bs) { bs = s; pick = m; }
+      }
+      if (!pick) break;
+      trial.push(pick);
+      await idle();
+    }
+    let cur = score(trial);
+    for (let n = 0; n < maxSwaps; n++) {
+      let bestTry = null, bs = cur + 0.004;
+      for (let i = 0; i < trial.length; i++) {
+        if (fixedSet.has(String(trial[i].uid)) || !curU.includes(String(trial[i].uid))) continue;
+        for (const m of ins) {
+          if (trial.includes(m)) continue;
+          const t = trial.slice();
+          t[i] = m;
+          const s = score(t);
+          if (s > bs) { bs = s; bestTry = t; }
+        }
+        await idle();
+      }
+      if (!bestTry) break;
+      trial.splice(0, trial.length, ...bestTry);
+      cur = bs;
+    }
+    return trial;
   }
 
   /* ---------- 目标 ---------- */
@@ -246,17 +325,25 @@
    * 先每套少量重放粗筛，再把前两名和现队各跑多次定胜负。
    * 后台档：最多 6 套 × 4 次、决赛 16 次，重放之间留出空闲（见 nrEval 的 pace）。
    */
-  async function teamNativePick(tgt, curMons, bestMons, search, fixed, tier = 'full') {
+  async function teamNativePick(tgt, curMons, bestMons, search, fixed, tier = 'full', prevMons = null) {
     const plans = teamNativePlans(tgt);
     if (!plans) return null;
     const bg = tier === 'bg';
     const maxCands = bg ? 6 : 10, quick = bg ? 4 : 6, final = bg ? 16 : 32;
     const t0 = performance.now(), deadline = t0 + (bg ? 60000 : 25000);
     const key = (l) => l.map((m) => String(m.uid)).sort().join(',');
+    const curU = curMons.map((m) => String(m.uid));
     const cands = [], seen = new Set();
-    const add = (l, tag) => { const k = key(l); if (l.length && !seen.has(k)) { seen.add(k); cands.push({ mons: l, tag }); } };
+    const add = (l, tag) => {
+      const k = key(l);
+      if (!l.length || seen.has(k)) return;
+      if (tag !== 'cur' && curMons.length >= 6 && teamSwapCount(curU, l.map((m) => String(m.uid))) > TEAM_MAX_SWAPS) return;
+      seen.add(k);
+      cands.push({ mons: l, tag });
+    };
     add(bestMons, 'best');
     add(curMons, 'cur');
+    if (prevMons) add(prevMons, 'prev');
     const fixedSet = new Set(fixed);
     for (const alt of search.short.filter((m) => !bestMons.includes(m)).slice(0, 4)) {
       for (let i = 0; i < bestMons.length && cands.length < maxCands; i++) {
@@ -274,12 +361,16 @@
     const finals = cands.slice(0, 2);
     const curC = cands.find((c) => c.tag === 'cur');
     if (curC && !finals.includes(curC)) finals.push(curC);
+    const prevC = cands.find((c) => c.tag === 'prev');
+    if (prevC && !finals.includes(prevC)) finals.push(prevC);
     for (const c of finals) {
       c.r = await teamNativeEval(plans, tgt, c.mons, final, deadline + (bg ? 30000 : 10000), tier);
       if (c.r.error) return { error: c.r.error };
     }
     finals.sort((a, b) => b.r.score - a.r.score);
-    return { plans, top: finals[0], cur: curC || null, tried: cands.length, ms: Math.round(performance.now() - t0) };
+    let top = finals[0];
+    if (prevC && top !== prevC && top !== curC && top.r.score < prevC.r.score + TEAM_STICKY) top = prevC;
+    return { plans, top, cur: curC || null, tried: cands.length, ms: Math.round(performance.now() - t0) };
   }
 
   /* ---------- 配招建议 ---------- */
@@ -415,7 +506,7 @@
     const mons = [...(save.mons || []).filter((m) => m && team.has(String(m.uid))), ...top].map((m) => `${m.uid}:${m.id}:${lv(m)}${ban(m)}`).join(',');
     const zone = key === 'zone' ? taEnemyPool().map((e) => e.id + ':' + e.level).join(',') : '';
     let h = 0;
-    const s = `${key}|${save.adv && save.adv.unlocked}|${[...team].join(',')}|${p.pins.join(',')}|${p.trainee}|${zone}|${mons}`;
+    const s = `${key}|${save.adv && save.adv.unlocked}|${[...team].sort().join(',')}|${p.pins.join(',')}|${p.trainee}|${zone}|${mons}`;
     for (let i = 0; i < s.length; i++) h = (Math.imul(h, 31) + s.charCodeAt(i)) | 0;
     return h;
   }
@@ -437,19 +528,31 @@
     const curMons = (save.team || []).map((u) => byUid.get(String(u))).filter(Boolean);
     const fixed = teamFixed(save, pool);
     const search = await teamSearch(tgt, pool, bg ? { fixed, unit, runs: 16, width: 12 } : { fixed, unit });
-    let bestMons = search.mons;
     const U = (list) => list.map((m) => unit(m));
+    const quickScore = (list) => teamEval(U(list), tgt, bg ? 16 : 30, 17).score;
+    // 核心队员不动，其余最多改 2 处
+    let bestMons = await teamLimitSwaps(curMons, search.mons, fixed, TEAM_MAX_SWAPS, quickScore);
+    // 上一次的推荐还成立、新推荐又没高出 5 分时沿用上一次的，免得推荐来回变
+    const prevPlan = S.teamPlans && S.teamPlans[key];
+    let prevMons = prevPlan && !prevPlan.error && !prevPlan.keep && prevPlan.best ? prevPlan.best.uids.map((u) => byUid.get(u)) : null;
+    if (prevMons && (prevMons.some((m) => !m) || fixed.some((u) => !prevPlan.best.uids.includes(u))
+        || (curMons.length >= 6 && teamSwapCount(curMons.map((m) => String(m.uid)), prevPlan.best.uids) > TEAM_MAX_SWAPS))) prevMons = null;
     let cur = teamEval(U(curMons), tgt, bg ? 80 : 200, 29);
     await idle();
     let best = teamEval(U(bestMons), tgt, bg ? 80 : 200, 29);
+    const setKey = (l) => l.map((m) => String(m.uid)).sort().join(',');
+    if (prevMons && setKey(prevMons) !== setKey(bestMons)) {
+      const prev = teamEval(U(prevMons), tgt, bg ? 80 : 200, 29);
+      if (best.score < prev.score + TEAM_STICKY) { bestMons = prevMons; best = prev; }
+    }
     const model = { cur: cur.clear, best: best.clear };
-    // 推荐不比现在好时，就以现队为准
-    let keep = best.score <= cur.score + 0.01 && curMons.length >= Math.min(6, pool.length);
+    // 推荐要比现队高出 5 分才算值得换
+    let keep = best.score <= cur.score + TEAM_STICKY && curMons.length >= Math.min(6, pool.length);
     let useMons = keep ? curMons : bestMons;
     let engine = 'model', native = null;
     if (tgt.kind === 'gym' && nsOk()) {
       try {
-        const np = await teamNativePick(tgt, curMons, bestMons, search, fixed, tier);
+        const np = await teamNativePick(tgt, curMons, bestMons, search, fixed, tier, prevMons);
         if (np && !np.error && np.top) {
           const toRooms = (r) => r.rooms.map((x, i) => {
             const top = Object.entries(x.lostTo).sort((a, b) => b[1] - a[1])[0];
@@ -457,7 +560,7 @@
               lostTo: tgt.rooms[i].ids.map(([id]) => x.lostTo[id] || 0) };
           });
           const nCur = np.cur, nTop = np.top;
-          keep = !!nCur && (nTop === nCur || nTop.r.score <= nCur.r.score + 0.03) && curMons.length >= Math.min(6, pool.length);
+          keep = !!nCur && (nTop === nCur || nTop.r.score <= nCur.r.score + TEAM_STICKY) && curMons.length >= Math.min(6, pool.length);
           const bestPick = keep ? nCur : nTop;
           useMons = bestPick.mons;
           bestMons = nTop.mons;
@@ -577,12 +680,12 @@
       PERF.plan.why[why] = (PERF.plan.why[why] || 0) + 1;
       S.teamPlanSig[key] = sig;
       const t0 = performance.now();
-      const teamAt = (save.team || []).join(',');
+      const teamAt = (save.team || []).slice().sort().join(',');
       teamPlanCompute(key, tier).then((r) => { r.tier = tier; S.teamPlans[key] = r; })
         .finally(() => {
           perfAdd(PERF.plan, performance.now() - t0);
           // 算的过程中换了队：结果对应的是旧队，下次调用时重算
-          if (((S.save && S.save.team) || []).join(',') !== teamAt) S.teamPlanSig[key] = null;
+          if (((S.save && S.save.team) || []).slice().sort().join(',') !== teamAt) S.teamPlanSig[key] = null;
         }).catch((e) => { S.teamPlans[key] = { key, error: String((e && e.message) || e), at: now() }; })
         .finally(() => {
           const list = S.teamWait[key] || [];

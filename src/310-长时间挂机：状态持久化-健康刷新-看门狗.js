@@ -2,7 +2,7 @@
 
   const STATE_KEY = 'pcauto.state.v1';
   const STATE_FIELDS = ['teamUndo', 'shopSpent', 'autoTeamAt', 'autoFeedAt', 'pensionAt', 'shopAt', 'taskFails',
-    'penSlots', 'deathStreak', 'lastDeathAt', 'progressAt', 'counterFor', 'healthReloads'];
+    'penSlots', 'deathStreak', 'lastDeathAt', 'progressAt', 'healthReloads'];
 
   /** 冷却、预算、撤销记录等存进 localStorage：停滞刷新或健康刷新之后不会重复花钱、马上又换一次队 */
   function persistState() {

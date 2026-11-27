@@ -1,6 +1,6 @@
-  /* ====================== 主面板：概览 / 队伍 / 日程 / 日志战报 / 设置 ====================== */
+  /* ====================== 主面板：概览 / 队伍 / 日程 / 日志 / 战报 / 设置 ====================== */
 
-  const PANEL_TABS = [['ov', '概览'], ['team', '配队'], ['plan', '日程'], ['log', '日志战报'], ['set', '设置']];
+  const PANEL_TABS = [['ov', '概览'], ['team', '配队'], ['plan', '日程'], ['log', '日志'], ['rep', '战报'], ['set', '设置']];
   let panelTab = 'ov';
 
   function openPanel(tab) {
@@ -34,8 +34,9 @@
     $$('.p-tab', box).forEach((b) => b.classList.toggle('on', b.dataset.tab === panelTab));
     const body = $('#pcauto-p-body', box);
     const keep = body.scrollTop;
-    const fn = { ov: panelOverview, team: panelTeam, plan: panelSchedule, log: panelLog, set: panelSettings }[panelTab];
-    fn(body);
+    const fn = { ov: panelOverview, team: panelTeam, plan: panelSchedule, log: panelLog, rep: panelReport, set: panelSettings }[panelTab];
+    if (full) delete body.dataset.view;
+    fn(body, full);
     if (!full) body.scrollTop = keep;
   }
 
@@ -107,15 +108,24 @@
     const byUid = new Map((save.mons || []).map((m) => [String(m.uid), m]));
     const useSet = new Set(tp.useUids);
     const curSet = new Set(tp.cur.uids);
+    const coreList = teamCoreInfo(save, teamPool(save, f.region));
+    const coreWhy = new Map(coreList.map((x) => [x.uid, x.why]));
+    const curTeam = new Set((save.team || []).map(String));
     const monRow = (uid, cls) => {
       const m = byUid.get(uid);
       if (!m) return '';
       const pin = prefs.pins.includes(uid), tr = prefs.trainee === uid;
+      const why = coreWhy.get(uid), off = (prefs.coreOff || []).includes(uid);
+      const coreBtn = curTeam.has(uid) && (why === '主力' || off)
+        ? `<button class="tm-ic ${why ? 'on' : ''}" data-core="${esc(uid)}" title="${why ? '主力核心：自动化不会换下。点一下取消' : '已取消主力核心：卡关补位时可以被换下。点一下恢复'}">⭐</button>` : '';
       return `<div class="tm-mon ${cls}">${monImg(m.id)}
-        <div class="nm"><b>${esc(taMonName(m))}</b>${m.shiny ? '✨' : ''} <span class="p-sub">Lv.${m.level}</span><div class="p-sub">${esc(typesCn(m.id))}</div></div>
-        <button class="tm-ic ${pin ? 'on' : ''}" data-pin="${esc(uid)}" title="锁定：自动换队不会换下">📌</button>
+        <div class="nm"><b>${esc(taMonName(m))}</b>${m.shiny ? '✨' : ''} <span class="p-sub">Lv.${m.level}</span>${why ? ` <span style="font-size:10px;color:#ffcb05;border:1px solid #ffcb0566;border-radius:4px;padding:0 3px">核心·${esc(why)}</span>` : ''}<div class="p-sub">${esc(typesCn(m.id))}</div></div>
+        ${coreBtn}
+        <button class="tm-ic ${pin ? 'on' : ''}" data-pin="${esc(uid)}" title="锁定：永远是核心，不在队里时推荐会把它带上">📌</button>
         <button class="tm-ic ${tr ? 'on' : ''}" data-tr="${esc(uid)}" title="练级新人：固定在队里，喂糖优先">🎓</button></div>`;
     };
+    const fl = progState().fill;
+    const fillNote = fl ? `<div class="pa-note info">卡关补位中：换下了 ${fl.out.map((u) => esc(monLabel(u))).join('、')}，换上 ${fl.in.map((u) => esc(monLabel(u))).join('、')}。打过这一关后自动换回。</div>` : '';
     const curCol = tp.cur.uids.map((u) => monRow(u, tp.keep || useSet.has(u) ? '' : 'out')).join('') || '<div class="p-sub">队伍是空的</div>';
     const bestCol = tp.keep ? '<div class="p-sub" style="padding:6px 2px">现队已经是模拟出来最好的阵容</div>'
       : tp.best.uids.map((u) => monRow(u, curSet.has(u) ? '' : 'new')).join('');
@@ -180,8 +190,9 @@
         <button class="pa-btn" id="pcauto-tm-mark">在 PC 里标出</button>
         <button class="pa-btn" id="pcauto-tm-re" ${busy ? 'disabled' : ''}>重新计算</button>
       </div>
-      ${trainee}
+      ${trainee}${fillNote}
       <div class="tm-cols" style="margin-top:8px"><div><h4>现在的队伍</h4>${curCol}</div><div><h4>${tp.keep ? '推荐' : '推荐（绿框 = 新换上）'}</h4>${bestCol}</div></div>
+      <div class="p-sub">标「核心」的不会被推荐或补位换下；推荐最多改 ${TEAM_MAX_SWAPS} 个位置，而且要比现队高出 ${Math.round(TEAM_STICKY * 100)} 分以上才会给出。⭐ 取消或恢复「主力」核心，📌 锁定。</div>
       ${roomRows ? `<h4>各间胜率</h4>${roomRows}` : ''}
       ${loadout}
       ${coverageSection(f)}
@@ -192,10 +203,10 @@
       <div class="p-sub" style="margin-top:10px">${nat ? '通关率来自游戏原版战斗重放；单挑表、进化、练级新人仍用近似模型（1 对 1 车轮战，按属性克制自动换人）。' : '模拟按游戏规则：1 对 1 车轮战，新敌人出场时游戏按属性克制自动换人；含命中、暴击、状态招。每间之前在宝可梦中心回满，道中训练师未计入。'}冒险途中换人要到下一个宝可梦中心才生效。</div>`;
     bind();
     $$('[data-pin]', body).forEach((b) => { b.onclick = () => { togglePin(b.dataset.pin); renderPanel(true); }; });
+    $$('[data-core]', body).forEach((b) => { b.onclick = () => { toggleCore(b.dataset.core); renderPanel(true); }; });
     $$('[data-tr]', body).forEach((b) => { b.onclick = () => { setTrainee(b.dataset.tr); renderPanel(true); }; });
     const ap = $('#pcauto-tm-apply', body);
     if (ap) ap.onclick = async () => {
-      S.counterFor = f.unlocked;
       const r = await applyTeam(tp.best.uids, `换上推荐队（${tp.label}）`);
       if (!r.ok) log('warn', '换队没完成：' + r.msg);
       renderPanel(true);
@@ -304,6 +315,7 @@
     const ditto = penMons.some((m) => m.id === DITTO_ID);
     const buffs = Object.values(buffState(save));
     body.innerHTML = `
+      ${chapterYieldSection()}
       <h4>每日 / 每周玩法</h4>
       <table><tr><th>玩法</th><th>周期</th><th>状态</th><th>说明</th></tr>
       ${modes.map((m) => `<tr><td>${esc(m.zh)}</td><td>${m.cycle}</td><td style="color:${color[m.state] || '#e8ecf4'}">${m.state}</td><td class="p-sub">${esc(m.hint || '')}</td></tr>`).join('')}</table>
@@ -317,20 +329,95 @@
       <h4>树果增益</h4>
       ${buffs.length ? buffs.map((b) => uiRow(esc((BERRY_BUFFS[b.key] || {}).label || b.key), `剩 ${b.leftMin} 分钟`)).join('') : '<div class="p-sub">没有生效中的增益</div>'}`;
     bindEventTeam(body, () => { if (panelTab === 'plan') renderPanel(true); });
+    bindChapterYield(body, () => { if (panelTab === 'plan') renderPanel(true); });
   }
 
-  /* ---------- 日志战报 ---------- */
+  /* ---------- 日志 ---------- */
 
-  function panelLog(body) {
-    const tone = { warn: '#fbbf24', badge: '#ffcb05', item: '#93c5fd', shiny: '#f472b6' };
+  const LOG_TONE = { error: '#f87171', game: '#fb923c', warn: '#fbbf24', flow: '#8b93a7', prog: '#ffcb05', team: '#a78bfa', item: '#93c5fd', catch: '#f472b6', info: '#c7d0e0' };
+  const logView = { cat: 'all', q: '', limit: 200, open: new Set() };
+
+  function logFiltered() {
+    const q = logView.q.trim().toLowerCase();
+    return S.events.filter((e) => (logView.cat === 'all' || e.cat === logView.cat
+        || (logView.cat === 'error' && e.cat === 'game')) && (!q || e.msg.toLowerCase().includes(q)));
+  }
+
+  function logRowHtml(e) {
+    const c = LOG_TONE[e.cat] || '#c7d0e0';
+    const open = logView.open.has(e.id);
+    return `<div class="lg-row" data-lid="${e.id}" style="padding:2px 0;border-bottom:1px solid rgba(255,255,255,.04);${e.detail ? 'cursor:pointer' : ''}">
+      <span style="color:#5b6478">${esc(e.t)}</span>
+      <span style="color:${c};border:1px solid ${c}55;border-radius:4px;padding:0 3px;font-size:10.5px">${esc(LOG_CAT_NAME[e.cat] || e.cat)}</span>
+      <span style="color:${e.cat === 'flow' ? '#9aa4b8' : c}">${esc(e.msg)}</span>${e.n > 1 ? ` <b style="color:#f87171">×${e.n}</b>` : ''}${e.detail ? ' <span class="p-sub">▸详情</span>' : ''}
+      ${open && e.detail ? `<pre style="white-space:pre-wrap;margin:3px 0 2px 10px;font-size:10.5px;color:#9aa4b8">${esc(e.detail)}</pre>` : ''}</div>`;
+  }
+
+  function panelLog(body, full) {
+    const topId = (S.events[0] || {}).id || 0;
+    if ((logView.cat === 'error' || logView.cat === 'all') && S.logErrSeenId !== topId) { S.logErrSeenId = topId; S.logDirty = true; }
+    if (!full && body.dataset.view === 'log') {
+      // 定时刷新只重画列表，不动筛选框和搜索框
+      const list = $('#pcauto-lg-list', body);
+      const top = S.events[0] ? S.events[0].id : 0;
+      if (list && list.dataset.top !== String(top)) logRenderList(body);
+      return;
+    }
+    body.dataset.view = 'log';
+    const counts = {};
+    for (const e of S.events) counts[e.cat] = (counts[e.cat] || 0) + 1;
+    const chip = (k, t, n) => `<button class="pa-btn${logView.cat === k ? ' acc' : ''}" data-lgcat="${k}" style="padding:3px 8px">${t}${n != null ? ` ${n}` : ''}</button>`;
+    body.innerHTML = `
+      <div style="display:flex;flex-wrap:wrap;gap:4px">
+        ${chip('all', '全部', S.events.length)}
+        ${chip('error', '报错', (counts.error || 0) + (counts.game || 0))}
+        ${LOG_CATS.filter(([k]) => k !== 'error' && k !== 'game').map(([k, t]) => chip(k, t, counts[k] || 0)).join('')}
+      </div>
+      <div style="display:flex;gap:6px;margin-top:6px">
+        <input id="pcauto-lg-q" placeholder="搜索日志内容" value="${esc(logView.q)}" style="flex:1;min-width:0;background:#0c0e14;border:1px solid #2c3346;border-radius:7px;color:#e8ecf4;padding:4px 8px">
+        <button class="pa-btn" id="pcauto-lg-copy">复制全部</button>
+        <button class="pa-btn" id="pcauto-lg-clear">清空</button>
+      </div>
+      <div class="p-sub" style="margin-top:4px">最多保存最近 ${LOG_MAX} 条，刷新页面后还在。带「▸详情」的点一下展开调用栈。「复制全部」会附上版本和诊断信息，方便贴给开发者。</div>
+      <div id="pcauto-lg-list" style="margin-top:6px"></div>`;
+    $$('[data-lgcat]', body).forEach((b) => { b.onclick = () => { logView.cat = b.dataset.lgcat; logView.limit = 200; renderPanel(true); }; });
+    const q = $('#pcauto-lg-q', body);
+    q.oninput = () => { logView.q = q.value; logView.limit = 200; logRenderList(body); };
+    $('#pcauto-lg-copy', body).onclick = () => {
+      let diag = '';
+      try { diag = JSON.stringify(diagInfo(), null, 2); } catch { /* 忽略 */ }
+      copyText(`挂机助手 v${VERSION} · ${new Date().toLocaleString('zh-CN', { hour12: false })}\n${diag}\n\n${logText(logFiltered())}`, '日志');
+    };
+    $('#pcauto-lg-clear', body).onclick = () => { logClear(); renderPanel(true); };
+    $('#pcauto-lg-list', body).onclick = (ev) => {
+      if (ev.target.closest('[data-lgmore]')) { logView.limit += 200; logRenderList(body); return; }
+      const row = ev.target.closest('.lg-row');
+      if (!row) return;
+      const id = +row.dataset.lid;
+      if (logView.open.has(id)) logView.open.delete(id); else logView.open.add(id);
+      logRenderList(body);
+    };
+    logRenderList(body);
+  }
+
+  function logRenderList(body) {
+    const list = $('#pcauto-lg-list', body);
+    if (!list) return;
+    const rows = logFiltered();
+    list.dataset.top = String(S.events[0] ? S.events[0].id : 0);
+    list.innerHTML = (rows.slice(0, logView.limit).map(logRowHtml).join('') || '<div class="p-sub">没有符合条件的日志</div>')
+      + (rows.length > logView.limit ? `<button class="pa-btn" data-lgmore="1" style="width:100%;margin-top:6px">再显示 200 条（共 ${rows.length} 条）</button>` : '');
+  }
+
+  /* ---------- 战报 ---------- */
+
+  function panelReport(body) {
     body.innerHTML = `
       <div class="p-btns" style="margin-top:0">
         <button class="pa-btn" id="pcauto-p-rs">本次会话战报</button>
         <button class="pa-btn" id="pcauto-p-rd">今日 / 昨日战报</button>
       </div>
-      ${battleStatsSection()}
-      <h4>最近 ${S.events.length} 条</h4>
-      ${S.events.map((e) => `<div style="padding:2px 0;border-bottom:1px solid rgba(255,255,255,.04)"><span style="color:#5b6478">${e.t}</span> <span style="color:${tone[e.kind] || '#c7d0e0'}">${esc(e.msg)}</span></div>`).join('') || '<div class="p-sub">还没有事件</div>'}`;
+      ${battleStatsSection()}`;
     $('#pcauto-p-rs', body).onclick = () => { $('#pcauto-panel')?.remove(); showReport(reportSince(S.bootSnap || tallySnap()), '本次会话战报'); };
     $('#pcauto-p-rd', body).onclick = () => { $('#pcauto-panel')?.remove(); showDaily(); };
   }
@@ -343,12 +430,12 @@
         <input type="number" data-k="${k}" value="${S.cfg[k]}" min="${min}" max="${max}" step="${step}"></label>`;
     const grp = (title, inner, open = false) => `<details ${open ? 'open' : ''}><summary>${title}</summary>${inner}</details>`;
     body.innerHTML = `
-      <h4>一键挂机档位</h4>
+      <h4>挂机模式</h4>
       <div id="pcauto-set-presets">${presetCardsHtml()}</div>
       <h4>详细设置</h4>
       ${grp('主线策略', `
         ${chk('progress', '主线推进：自动进最新章节，关掉会把人拉回旧章节的循环（您手动换章或改循环后 2 小时不动）')}
-        ${chk('counterSwap', '卡道馆 / 联盟：全队到上限后仍连败，按对战模拟换上胜率最高的阵容')}
+        ${chk('counterSwap', '卡关补位：全队到上限后仍连败，按模拟补 1～2 个克制位（提升 ≥ 10% 才换，核心不动，过关后换回，最多试 3 次）')}
         ${num('stuckDeaths', '到上限后再输几次算卡住', 2, 20)}
         ${chk('grindMode', '道馆 / 四天王失败后自动继续')}`)}
       ${grp('经验糖与金钱', `
@@ -359,9 +446,9 @@
         ${num('shopBudget', '每小时最多花多少 ₽', 0, 100000000, 1000)}
         ${num('shopUnitMax', '单笔超过多少 ₽ 不自动买', 1000, 100000000, 1000)}`)}
       ${grp('队伍', `
-        ${chk('autoTeam', '按推进目标（下一道馆 / 整个联盟）模拟，推荐队明显更强时自动换上（锁定队员和练级新人不动）')}
-        ${num('autoTeamGap', '推荐队的模拟得分高出多少（百分制）才换', 3, 60)}
-        ${chk('autoTeamProtect', '异色 / 传说级（种族值 ≥ 580）不会被自动换下')}
+        <div class="p-sub" style="padding:2px 0 4px">平时不会自动换队。核心队员（锁定、练级新人、现队等级前 4 名）永远不会被自动换下；只有推关模式卡关时，按模拟补 1～2 个克制位，过关后换回。</div>
+        ${chk('autoTeamProtect', '异色 / 传说级（种族值 ≥ 580）也算核心，不会被自动换下')}
+        ${chk('battleCounter', '战斗中自动换克制：场上这只明显打不过当前对手时，点替补的头像换上更合适的（实验）')}
         ${chk('raidOptimize', '团体战 / 活动选队面板打开时，替您点一次游戏自带的「优化」（每个首领每天一次，不点加入）')}
         ${chk('autoSwitch', '残血自动换人（会覆盖手动操作）')}
         ${num('switchAtHp', '血量低于多少 % 换人', 5, 90, 5)}

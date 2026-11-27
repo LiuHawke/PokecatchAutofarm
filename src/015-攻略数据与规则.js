@@ -111,6 +111,7 @@
       special: adv.event ? '活动' : adv.zone ? '区域' : adv.tower ? '对战塔' : adv.league ? '联盟' : '',
       nodeType: node ? node.type : '',
       money: save.money || 0,
+      monsN: (save.mons || []).length,
       regionDoneNext: unlocked < CH.length && chOf(unlocked) && chOf(unlocked).r !== region,
     };
     // 联盟：各间是连续章节，输了游戏把人送回第 1 间（章节号 < 推进到的那间属于正常）

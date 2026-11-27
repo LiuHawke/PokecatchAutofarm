@@ -99,9 +99,19 @@
       const changed = detectPreset({ ...c, autoFeed: !c.autoFeed });
       ok('逻辑', `档位「${PRESETS[name].label}」识别`, got === name && changed === 'custom', `${got} / 改一项后 ${changed}`);
     }
-    ok('逻辑', '档位逐级包含（均衡 ⊇ 稳妥，全托管 ⊇ 均衡）',
-        Object.keys(PRESET_SAFE).filter((k) => PRESET_SAFE[k] === true).every((k) => PRESET_BALANCED[k] === true)
-        && Object.keys(PRESET_BALANCED).filter((k) => PRESET_BALANCED[k] === true).every((k) => PRESET_FULL[k] === true));
+    ok('逻辑', '1.1 档位迁移（稳妥→练级刷钱，均衡/全托管→推关）',
+        PRESET_LEGACY.safe === 'grind' && PRESET_LEGACY.balanced === 'push' && PRESET_LEGACY.full === 'push' && Object.values(PRESET_LEGACY).every((k) => PRESETS[k]));
+    ok('逻辑', '只有推关模式换章、补位（练级刷钱 / 抓宠图鉴不动章节和队伍）',
+        PRESETS.push.cfg.progress && PRESETS.push.cfg.counterSwap && ['grind', 'dex'].every((k) => !PRESETS[k].cfg.progress && !PRESETS[k].cfg.counterSwap));
+    {
+      const lid = log('info', '自检：日志写入').id;
+      logPersist(true);
+      const back = safeParse(JSON.stringify(storeGet(LOG_KEY) || []), []);
+      S.events = S.events.filter((e) => e.id !== lid);
+      logPersist(true);
+      ok('逻辑', '日志能存下并按分类归档', Array.isArray(back) && back.some((e) => e.id === lid && e.cat === 'info') && logCat('game') === 'game' && logCat('battle') === 'team',
+          HAS_STORE ? `${back.length} 条` : '没有扩展存储，日志只在本次页面里', HAS_STORE ? 'fail' : 'warn');
+    }
     persistState();
     const back = safeParse(lsGet(STATE_KEY), {});
     ok('逻辑', '自动化状态持久化', STATE_FIELDS.every((k) => JSON.stringify(back[k]) === JSON.stringify(S[k])));
@@ -133,6 +143,8 @@
       ['没到上限 → 原地刷', pf({}), st0, 'farm'],
       ['到上限还连败 → 克制换队', pf({ atCap: true, deathsHere: 14 }), { ...st0, capBase: { 7: 10 } }, 'counter'],
       ['换过克制队仍连败 → 请玩家处理', pf({ atCap: true, deathsHere: 14 }), { ...st0, capBase: { 7: 10 }, counter: { 7: { at: 1 } } }, 'stuck'],
+      ['补位后又练了级、再连败 → 再补一次', pf({ atCap: true, deathsHere: 14 }), { ...st0, capBase: { 7: 10 }, counter: { 7: { at: 1, n: 1, sig: '0|50', deaths: 10 } } }, 'counter'],
+      ['补位后队伍没变化 → 不反复换', pf({ atCap: true, deathsHere: 14 }), { ...st0, capBase: { 7: 10 }, counter: { 7: { at: 1, n: 1, sig: '0|60', deaths: 10 } } }, 'stuck'],
       ['手动调整后让路', pf({ ch: 6, loops: [6] }), { ...st0, holdUntil: now() + 60000 }, 'hold'],
       ['地区通关 → 只提醒', pf({ ch: 13, unlocked: 14, regionDoneNext: true }), st0, 'travel'],
       ['活动中不动', pf({ special: '活动', ch: 6 }), st0, 'wait'],
@@ -186,6 +198,20 @@
     const fx1 = teamFixed({ team: [] }, poolF);
     S.teamPrefs = prefsOld;
     ok('战斗', '锁定队员与练级新人固定在队里', fx1.join() === 'p1,t9', fx1.join());
+    {
+      const poolC = [1, 2, 3, 4, 5, 6, 7].map((i) => ({ uid: 'c' + i, id: 16, level: 10 * i }));
+      S.teamPrefs = { pins: [], trainee: null, coreOff: ['c6'] };
+      const core = teamFixed({ team: ['c1', 'c2', 'c3', 'c4', 'c5', 'c6'] }, poolC);
+      S.teamPrefs = prefsOld;
+      ok('战斗', '核心队：队里等级最高的 4 只不被换（取消核心的那只除外）', core.join() === 'c5,c4,c3,c2', core.join());
+      ok('战斗', '换下几只的计数（补空位不算）', teamSwapCount(['a', 'b', 'c'], ['a', 'b', 'c', 'd']) === 0 && teamSwapCount(['a', 'b', 'c'], ['a', 'x', 'y']) === 2);
+    }
+    {
+      const lv = btUnit({ id: 25, level: 50 });
+      const low = btSim([{ ...lv, startHp: 1 }], [gyara], { kind: 'trainer', dmgMul: 0.9 }, 40, 1).win;
+      const full = btSim([lv], [gyara], { kind: 'trainer', dmgMul: 0.9 }, 40, 1).win;
+      ok('战斗', '战斗中换克制按当前血量算（1 血的皮卡丘胜率低于满血）', low < full, `${pct100(low)} / ${pct100(full)}`);
+    }
     const eo = evoOptions([{ uid: 'e1', id: 25, level: 30 }, { uid: 'e2', id: 16, level: 30 }], { 'thunder-stone': 1 });
     ok('战斗', '道具进化提醒（雷之石 → 雷丘，比比鸟不用道具）', eo.length === 1 && eo[0].to === 26, eo.map((e) => `${e.uid}→${e.to}`).join(','));
 

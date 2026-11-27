@@ -113,25 +113,3 @@
     if (r.ok) S.teamUndo = null;
     return r;
   }
-
-  /**
-   * 自动换队：按「推进目标」（下一道馆 / 整个联盟）模拟，推荐队的得分高出设定值才换。
-   * 锁定队员、练级新人、受保护的异色 / 传说都由引擎固定在队里。
-   */
-  async function autoTeamTick() {
-    if (!S.cfg.autoTeam || !autoIdle(15000)) return;
-    if (now() - S.autoTeamAt < 30 * 60000) return;
-    const save = S.save;
-    const adv = (save && save.adv) || {};
-    const node = adv.nodes && adv.nodes[adv.node];
-    if (node && node.type === 'gym') return;     // 道馆门口别动阵容
-    const tp = await teamPlanAsync('auto', false, 'bg');
-    if (!tp || tp.error || tp.keep || !tp.best || !tp.best.uids.length) return;
-    const curSet = new Set((save.team || []).map(String));
-    if (tp.best.uids.every((u) => curSet.has(u))) return;
-    const gap = Math.round((tp.best.score - tp.cur.score) * 100);
-    if (gap < (S.cfg.autoTeamGap || 15)) return;
-    S.autoTeamAt = now();
-    const r = await applyTeam(tp.best.uids, `自动换队（${tp.label}：通关率 ${Math.round(tp.cur.clear * 100)}% → ${Math.round(tp.best.clear * 100)}%）`);
-    taskResult('autoTeam', '自动换队', r);
-  }

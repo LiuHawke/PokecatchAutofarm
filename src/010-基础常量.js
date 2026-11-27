@@ -106,9 +106,8 @@
     // 自动化（会改阵容 / 花钱的默认关）
     autoFeed: true,          // 定时自动喂经验糖（按离上限的经验精确喂，不溢出）
     autoFeedMin: 15,
-    autoTeam: false,         // 推荐阵容明显更强时自动换上
-    autoTeamGap: 15,         // 推荐队的模拟得分比当前队高出多少（百分制）才换
-    autoTeamProtect: true,   // 异色与传说（种族值 ≥ 580）不会被自动换下
+    autoTeamProtect: true,   // 异色与传说（种族值 ≥ 580）算作核心，不会被自动换下
+    battleCounter: false,    // 战斗中自动换克制（点头像换人）
     autoHatch: true,         // 蛋孵好了自动孵化
     autoDeposit: false,      // 培育屋空位自动放入宝可梦（百变怪优先）
     autoEvent: false,        // 活动队伍选好后自动出发（实验）
@@ -119,32 +118,36 @@
     shopUnitMax: 100000,     // 单笔超过这个数不自动买，只提醒
     healthReload: false,     // 连续运行很久后在空闲时存档并刷新页面，释放内存
     healthHours: 6,
-    preset: 'custom',        // 一键挂机档位：safe / balanced / full / custom
+    preset: 'custom',        // 挂机模式：push 推关 / grind 练级刷钱 / dex 抓宠图鉴 / custom
   };
 
   /*
-   * 一键挂机档位：只写这里列出的开关，HUD、通知、声音等个人设置不动。
-   * 后一档在前一档的基础上追加。
+   * 挂机模式：只写这里列出的开关，HUD、通知、声音、保活等个人设置不动。
+   * 三种模式共用基础托管（弹窗、进化、孵蛋、保存、喂糖、树果），区别在章节、队伍、买糖和树果偏好。
    */
-  const PRESET_SAFE = {
+  const MODE_BASE = {
     enabled: true, autoDex: true, autoModal: true, autoGift: true, autoEvo: true, autoSave: true,
-    autoBerry: true, autoFeed: true, autoHatch: true, stallReload: true,
-    progress: false, counterSwap: false, autoTeam: false, autoDeposit: false, autoShop: false,
-    grindMode: false, keepAlive: false, healthReload: false,
-  };
-  const PRESET_BALANCED = {
-    ...PRESET_SAFE,
-    progress: true, counterSwap: true, autoDeposit: true, grindMode: true, wakeLock: true,
-  };
-  const PRESET_FULL = {
-    ...PRESET_BALANCED,
-    autoTeam: true, autoTeamGap: 15, autoShop: true, keepAlive: true, healthReload: true,
+    autoBerry: true, autoFeed: true, autoHatch: true, stallReload: true, grindMode: true,
   };
   const PRESETS = {
-    safe: { label: '稳妥', desc: '不花钱、不换章节、不换队：托管弹窗、进化、精确喂糖、孵蛋、树果', cfg: PRESET_SAFE },
-    balanced: { label: '均衡', desc: '加上主线推进（防循环陷阱）、卡道馆按克制换队、培育屋寄放', cfg: PRESET_BALANCED },
-    full: { label: '全托管', desc: '再加按需买经验糖、平时自动优化阵容、后台保活、定期健康刷新', cfg: PRESET_FULL },
+    push: {
+      label: '推关', desc: '自动去最新章、清掉会把人拉回旧章的循环；全队到上限还连输时，只补 1～2 个克制位（练好的核心不动），过关后换回；按需买糖',
+      cfg: { ...MODE_BASE, progress: true, counterSwap: true, battleCounter: true, autoShop: true, autoDeposit: true,
+        berryFamilies: { shiny: false, dex: false, rare: false, capture: false, xp: true, money: true } },
+    },
+    grind: {
+      label: '练级刷钱', desc: '留在您选的章（日程页「章节收益」告诉您哪章钱多），赚的钱按需买糖升级；不换章、不换队',
+      cfg: { ...MODE_BASE, progress: false, counterSwap: false, battleCounter: true, autoShop: true, autoDeposit: true,
+        berryFamilies: { shiny: false, dex: false, rare: false, capture: false, xp: true, money: true } },
+    },
+    dex: {
+      label: '抓宠图鉴', desc: '留在您选的章（日程页列出各章还没抓到的宝可梦），优先吃闪光、图鉴、稀有、捕获树果；不换章、不换队、不买糖',
+      cfg: { ...MODE_BASE, progress: false, counterSwap: false, battleCounter: false, autoShop: false, autoDeposit: true, nightGuard: true, phaseNotify: true,
+        berryFamilies: { shiny: true, dex: true, rare: true, capture: true, xp: false, money: false } },
+    },
   };
+  /** 1.1 及以前的档位名 → 模式 */
+  const PRESET_LEGACY = { safe: 'grind', balanced: 'push', full: 'push' };
 
   const SAFE_EXACT = [
     '继续', '确定', '确定！', '好', '好的', '明白了', '太棒了', '收下', '领取', '关闭', '跳过', '知道了', '是', '嗯',

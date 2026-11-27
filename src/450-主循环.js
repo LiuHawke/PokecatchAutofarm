@@ -54,7 +54,7 @@
         autoTick();
         raidOptimizeTick();
       }
-    } catch { /* 静默 */ }
+    } catch (e) { logError('主循环', e); }
     perfAdd(PERF.tick, performance.now() - t0);
   }
 
@@ -73,6 +73,7 @@
   function start() {
     if (document.getElementById('pcauto-hud') || PAGE_WIN.__pcauto) { if (EXT) dupWarn(); return; }
     progState();
+    installErrorLog();
     buildHud();
     renderHud();
     log('info', `挂机助手 v${VERSION} 已启动`);
@@ -99,6 +100,7 @@
       log('info', '已从 3.x 迁移设置：手机推送已移除，「连败回退 / 自动推进」合并为「主线推进」');
     }
     dropLegacyRetreat();
+    if (S_BOOT.legacyPreset) setTimeout(() => { try { applyPreset(S_BOOT.legacyPreset, true); } catch (e) { logError('迁移旧档位', e); } }, 3000);
     installBattleStats();
     if (S.cfg.bsWinOnStart) try { bswOpen(); } catch { /* 忽略 */ }
     try {
@@ -119,7 +121,9 @@
       teamTarget, teamEval, teamPlanAsync, teamPrefs, togglePin, setTrainee, btUnit, btSim, btFight,
       nsOk, nsWhy, nrPlanChapter, nrRun, nrEval, statsBattles: () => S.bstats, PERF, perfText,
       nrPlanLeague, nrRunLeague, nrEvalLeague, eliteTiers, eliteLeaguePick, banAdvise, banCands, applyBans, undoBans, banSelfTest,
-      blocPick, ugPick, bswOpen, bswClose, bsFinish }; } catch { /* 忽略 */ }
+      blocPick, ugPick, bswOpen, bswClose, bsFinish,
+      logError, logText, logPersist, chyCompute, chyRun, chapterFarm, teamCoreInfo, toggleCore, teamLimitSwaps, fillRestore,
+      battleCounterTick, bcPick }; } catch { /* 忽略 */ }
     ensureRealDescs();   // 先存下原始描述符，之后无论保活开没开，isRealHidden() 都能读到真值
     startGradeWatcher();
     safeInterval('tick', tick, TICK_MS);
@@ -131,9 +135,10 @@
     // 唤醒锁可能被系统释放，定期补申请
     safeInterval('wakeLock', requestWakeLock, 60000);
     safeInterval('backup', maybeBackup, 60000);
-    safeInterval('tally', () => { saveTally(); persistState(); }, 30000);
+    safeInterval('tally', () => { saveTally(); persistState(); logPersist(); }, 30000);
     safeInterval('daily', dailyTick, 30000);
     safeInterval('modes', modesTick, 60000);
+    safeInterval('chyield', chyMeasureTick, 60000);
     safeInterval('health', healthCheck, 60000);
     safeInterval('watchdog', taskWatchdog, 15000);
     // 首次备份等游戏读完档、跑出第一次采样之后再做
@@ -161,6 +166,7 @@
     // 关闭/刷新标签页前存一次档
     addEventListener('pagehide', () => {
       try { saveTally(); } catch { /* 忽略 */ }
+      try { logPersist(); } catch { /* 忽略 */ }
       if (!S.cfg.autoSave || S.restoring) return;   // 恢复存档时绝不能再存一次，会把恢复覆盖掉
       const sb = $('#save-btn');
       if (sb) { try { fire(sb); } catch { /* 忽略 */ } }

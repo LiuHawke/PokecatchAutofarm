@@ -46,7 +46,8 @@
    * 返回 { win, turns, ko: 打倒几只敌人, foeHp: 敌方剩余血量比例, myHp: 我方剩余血量比例, lostTo: 最后打败我方的敌人下标 }
    */
   function btFight(mine, foes, ctx, rnd) {
-    const mk = (u, side) => ({ u, side, hp: u.maxHp, status: null, sleep: 0, bit: 0, conf: 0, sure: false });
+    // startHp：从战斗中途开始算（战斗中换克制用当前血量）
+    const mk = (u, side) => ({ u, side, hp: u.startHp != null ? Math.max(1, Math.min(u.maxHp, u.startHp)) : u.maxHp, status: null, sleep: 0, bit: 0, conf: 0, sure: false });
     const A = mine.map((u) => mk(u, 0)), F = foes.map((u) => mk(u, 1));
     if (!A.length || !F.length) return { win: !F.length, turns: 0, ko: 0, foeHp: 1, myHp: 0, lostTo: 0 };
     const foeMul = ctx.dmgMul || 1;

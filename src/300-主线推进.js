@@ -93,6 +93,7 @@
   function progressWatch(save) {
     const adv = save && save.adv;
     if (!adv) return;
+    if (!S.cfg.progress) { S.lastChapter = adv.chapter | 0; S.lastLoopsKey = (adv.loops || []).join(','); return; }   // 只有推关模式才需要给手动换章让路
     const st = progState();
     const ch = adv.chapter | 0;
     const loopsKey = (adv.loops || []).join(',');
@@ -158,10 +159,15 @@
       return { key: 'farm', why: `全队已到上限 Lv.${f.cap}，挑战${foe}中（到上限后输了 ${lost} 次）${hint}` };
     }
     const tried = st.counter[sk];
-    if (cfg.counterSwap && !tried) {
-      return { key: 'counter', sk, why: `全队到上限后在${foe}输了 ${lost} 次：按模拟换上胜率最高的阵容${hint}` };
+    // 补过一次还卡：之后有升级或抓到新宝可梦、又输够次数，才再试，最多 3 次
+    const sig = `${f.monsN | 0}|${f.team.reduce((a, t) => a + (t.lv | 0), 0)}`;
+    const retry = tried && tried.sig != null && (tried.n || 1) < 3 && tried.sig !== sig
+        && deaths - (tried.deaths == null ? deaths : tried.deaths) >= (cfg.stuckDeaths || 4);
+    if (cfg.counterSwap && (!tried || retry)) {
+      return { key: 'counter', sk, sig, deaths, n: ((tried && tried.n) || 0) + 1,
+        why: `全队到上限后在${foe}输了 ${lost} 次：按模拟补 1～2 个克制位（核心队员不动）${hint}` };
     }
-    return { key: 'stuck', sk, why: `已到上限 Lv.${f.cap}${tried ? '、也按模拟换过阵容' : ''}，仍打不过${foe}${hint || '：需要换人或进化'}。挂机会继续刷钱和捕获` };
+    return { key: 'stuck', sk, why: `已到上限 Lv.${f.cap}${tried ? `、补位试过 ${tried.n || 1} 次` : ''}，仍打不过${foe}${hint || '：需要换人或进化'}。挂机会继续刷钱和捕获` };
   }
 
   /** 提醒只发一次（同一章同一类） */
@@ -212,7 +218,9 @@
     // 卡在道馆 / 联盟时提前在后台算好推进目标的配队，计划说明里会带上模拟结论
     if (f && f.gym && f.atCap) teamPlanGet('auto', null, false, 'bg');
     const plan = planProgress(f, st, S.cfg);
+    if (!S.plan || S.plan.key !== plan.key) log('prog', `主线判断：${plan.why}`);
     S.plan = plan;
+    if (st.fill && f && (await fillRestore(f, st))) return;
     if (!['clearLoops', 'go', 'counter', 'travel', 'stuck'].includes(plan.key)) return;
     if (plan.key === 'travel') { tellOnce(`travel:${f.unlocked}`, '可以前往新地区', plan.why); return; }
     if (plan.key === 'stuck') { tellOnce(`stuck:${plan.sk}`, '道馆卡关', plan.why); return; }
@@ -227,17 +235,51 @@
       if (r.ok && !r.same) { log('badge', `已进入第 ${plan.to + 1} 章：${plan.why}`); S.tally.advances = (S.tally.advances || 0) + 1; }
       if (r.skip) { st.noRow = { ...(st.noRow || {}), [plan.to]: now() }; persistProg(); log('warn', `${r.msg}，30 分钟内不再尝试打开地图切章`); }
     } else if (plan.key === 'counter') {
-      const tp = await teamPlanAsync('auto', false, 'bg');
-      st.counter[plan.sk] = { at: now(), clear: tp && tp.best ? tp.best.clear : 0, cur: tp && tp.cur ? tp.cur.clear : 0 };
+      log('flow', `卡关补位（第 ${plan.n} 次）：重新模拟配队…`);
+      const tp = await teamPlanAsync('auto', true, 'bg');
+      st.counter[plan.sk] = { at: now(), n: plan.n, sig: plan.sig, deaths: plan.deaths,
+        clear: tp && tp.best ? tp.best.clear : 0, cur: tp && tp.cur ? tp.cur.clear : 0 };
       persistProg();
-      if (!tp || tp.error || tp.keep) {
-        log('info', `配队模拟：${tp ? tp.error || tp.verdict : '没有结果'}，不换`);
+      const pc = (x) => `${Math.round((x || 0) * 100)}%`;
+      const gain = tp && tp.best && tp.cur ? tp.best.clear - tp.cur.clear : 0;
+      const later = plan.n < 3 ? '之后有升级或抓到新宝可梦、又输够次数时会再试' : '已经试满 3 次';
+      if (!tp || tp.error || tp.keep || gain < FILL_MIN_GAIN) {
+        log('team', `卡关补位（第 ${plan.n} 次）：${tp ? tp.error || `模拟通关率 ${pc(tp.cur && tp.cur.clear)} → ${pc(tp.best && tp.best.clear)}，提升不到 ${pc(FILL_MIN_GAIN)}` : '没有模拟结果'}，不换。${later}`);
         return;
       }
-      S.counterFor = f.unlocked;
-      r = await applyTeam(tp.best.uids, `按模拟换队（通关率 ${Math.round(tp.cur.clear * 100)}% → ${Math.round(tp.best.clear * 100)}%）`);
+      const outs = tp.cur.uids.filter((u) => !tp.best.uids.includes(u));
+      const ins = tp.best.uids.filter((u) => !tp.cur.uids.includes(u));
+      log('team', `卡关补位（第 ${plan.n} 次）：打算换下 ${outs.map(monLabel).join('、') || '—'}，换上 ${ins.map(monLabel).join('、') || '—'}；模拟通关率 ${pc(tp.cur.clear)} → ${pc(tp.best.clear)}。核心队员不动，打过这一关后换回`);
+      r = await applyTeam(tp.best.uids, `卡关补位（通关率 ${pc(tp.cur.clear)} → ${pc(tp.best.clear)}）`);
+      if (r && r.ok && (r.removed || []).length) {
+        st.fill = { sk: plan.sk, unlocked: f.unlocked, league: plan.sk[0] === 'L', region: f.region, out: r.removed, in: r.added, at: now() };
+        persistProg();
+      }
+      taskResult('counterSwap', '卡关补位', r);
+      return;
     }
     taskResult('progress', '主线推进', r);
+  }
+
+  const FILL_MIN_GAIN = 0.1;
+
+  /** 补位的那一关打过了：把换下的核心外队员换回来。返回 true 表示这一轮已经处理（或在等空闲） */
+  async function fillRestore(f, st) {
+    const fl = st.fill;
+    const team = ((S.save && S.save.team) || []).map(String);
+    const drop = (why) => { delete st.fill; persistProg(); log('team', why); return false; };
+    if (f.region !== fl.region) return drop('换了地区，补位前的队员上不了场，不再换回');
+    if (!fl.in.some((u) => team.includes(u))) return drop('补位换上的宝可梦已经不在队里（您手动换过队），不再换回');
+    const passed = fl.league ? f.regionDoneNext || f.unlocked > Math.max(...(f.leagueChs || [0])) : f.unlocked > fl.unlocked;
+    if (!passed || now() - (fl.tryAt || 0) < 5 * 60000) return false;
+    if (!autoIdle(15000)) return true;
+    fl.tryAt = now();
+    const mons = new Set(((S.save && S.save.mons) || []).map((m) => String(m.uid)));
+    const target = team.map((u) => { const i = fl.in.indexOf(u); return i >= 0 && fl.out[i] && mons.has(fl.out[i]) ? fl.out[i] : u; });
+    const r = await applyTeam(target, '过关了，换回补位前的队员');
+    if (r && r.ok) { delete st.fill; persistProg(); }
+    else log('warn', `换回补位前的队员没完成：${(r && r.msg) || '未知原因'}，稍后再试`);
+    return true;
   }
 
   /** 3.x 的「连败回退」状态：4.0 不再回退，读到就丢掉，循环交给 planProgress 清理 */
