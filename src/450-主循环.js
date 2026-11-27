@@ -100,6 +100,7 @@
     }
     dropLegacyRetreat();
     installBattleStats();
+    if (S.cfg.bsWinOnStart) try { bswOpen(); } catch { /* 忽略 */ }
     try {
       new PAGE_WIN.PerformanceObserver((list) => { for (const e of list.getEntries()) perfAdd(PERF.lt, e.duration); })
         .observe({ type: 'longtask', buffered: false });
@@ -116,7 +117,9 @@
       applyTeam, undoTeam, chapterGo, clearLoops, runSelfTest, classifyModal, applyPreset, detectPreset, persistState, dailyTick, showDaily,
       facts, planProgress, candyPlanFor, shopWant, modeStatus, levelCap, xpNeed,
       teamTarget, teamEval, teamPlanAsync, teamPrefs, togglePin, setTrainee, btUnit, btSim, btFight,
-      nsOk, nsWhy, nrPlanChapter, nrRun, nrEval, statsBattles: () => S.bstats, PERF, perfText }; } catch { /* 忽略 */ }
+      nsOk, nsWhy, nrPlanChapter, nrRun, nrEval, statsBattles: () => S.bstats, PERF, perfText,
+      nrPlanLeague, nrRunLeague, nrEvalLeague, eliteTiers, eliteLeaguePick, banAdvise, banCands, applyBans, undoBans, banSelfTest,
+      blocPick, ugPick, bswOpen, bswClose, bsFinish }; } catch { /* 忽略 */ }
     ensureRealDescs();   // 先存下原始描述符，之后无论保活开没开，isRealHidden() 都能读到真值
     startGradeWatcher();
     safeInterval('tick', tick, TICK_MS);

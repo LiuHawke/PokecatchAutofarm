@@ -92,7 +92,7 @@
     if (key === 'auto') key = (gymC && gymC.lg) || (f.cur && f.cur.lg) ? 'league' : 'gym';
     if (key === 'league') {
       if (!leagueChs.length) return null;
-      return { key, label: `${f.regionZh}联盟（${leagueChs.length} 间）`, kind: 'gym', rooms: leagueChs.map(gymRoom) };
+      return { key, label: `${f.regionZh}联盟（${leagueChs.length} 间）`, kind: 'gym', region: f.region, rooms: leagueChs.map(gymRoom) };
     }
     if (key === 'gym') {
       if (!gymC || !gymC.g) return null;
@@ -202,9 +202,13 @@
 
   /* ---------- 原生复核：用游戏原版战斗重放挑最终阵容 ---------- */
 
-  /** 道馆 / 联盟目标的重放底稿（每间一份）；不支持时返回 null */
+  /** 道馆目标每间一份重放底稿；联盟目标优先用一份整轮连打的底稿（069）；不支持时返回 null */
   function teamNativePlans(tgt) {
     if (!nsOk() || tgt.kind !== 'gym') return null;
+    if (tgt.key === 'league' && tgt.region) {
+      const lp = nrPlanLeague(tgt.region, 0);
+      if (lp && lp.course.length === tgt.rooms.length && lp.course.every((s, i) => s.ch === tgt.rooms[i].ch)) return [lp];
+    }
     const plans = tgt.rooms.map((r) => nrPlanChapter(r.ch));
     return plans.every(Boolean) ? plans : null;
   }
@@ -220,6 +224,10 @@
       live.push(x);
     }
     const valid = () => liveSave() === plans[0].save;
+    if (plans[0].kind === 'league') {
+      const r = await nrEvalLeague(plans[0], live, { runs, seed: 101, deadline, valid, pace });
+      return r.error && !r.runs ? { error: r.error } : { clear: r.clear, score: r.score, rooms: r.rooms, runs: r.runs };
+    }
     const rooms = [];
     let clear = 1, sum = 0, wsum = 0, n = 0;
     for (let i = 0; i < plans.length; i++) {
@@ -321,22 +329,15 @@
 
   /** 推荐配招对现阵容的影响（原版重放）：只在通关率提升时给出 */
   async function teamNativeLoadout(plans, tgt, mons) {
-    const foeTypes = [];
-    for (const r of tgt.rooms) for (const [id] of r.ids) if (BT_DEX[id]) foeTypes.push(BT_DEX[id].types);
-    if (!foeTypes.length) return null;
-    const sug = [];
-    for (const m of mons) {
-      const lo = loadoutFor(m, foeTypes, true);
-      const cur = (m.ban || []).slice().sort().join(',');
-      if (lo && lo.ban.join(',') !== cur) sug.push({ uid: String(m.uid), m, ...lo });
-    }
-    if (!sug.length) return null;
+    const adv = await banAdvise(mons, tgt.rooms, { yield: idle });
+    if (!adv) return { none: true, sug: [] };
+    const sug = adv.sug;
     const by = new Map(sug.map((s) => [s.uid, s]));
-    const deadline = performance.now() + 12000;
+    const deadline = performance.now() + 15000;
     const now0 = await teamNativeEval(plans, tgt, mons, 24, deadline);
     const trial = await teamNativeEval(plans, tgt, mons.map((m) => (by.has(String(m.uid)) ? { ...m, _ban: by.get(String(m.uid)).ban } : m)), 24, deadline);
     if (now0.error || trial.error) return null;
-    return { sug, before: now0.clear, after: trial.clear, better: trial.clear >= now0.clear + 0.04 };
+    return { sug, before: now0.clear, after: trial.clear, better: trial.clear >= now0.clear + 0.04, model: { before: adv.before, after: adv.after } };
   }
 
   /** 原生重放下「差多少」：全队 +5 / +10 级（不超过上限）后的通关率 */
@@ -452,7 +453,7 @@
         if (np && !np.error && np.top) {
           const toRooms = (r) => r.rooms.map((x, i) => {
             const top = Object.entries(x.lostTo).sort((a, b) => b[1] - a[1])[0];
-            return { win: x.win, arrive: x.arrive, roadLoss: x.runs ? x.roadLoss / x.runs : 0, topLost: top ? +top[0] : null,
+            return { win: x.win, arrive: x.arrive, reached: x.reached, roadLoss: x.runs ? x.roadLoss / x.runs : 0, topLost: top ? +top[0] : null,
               lostTo: tgt.rooms[i].ids.map(([id]) => x.lostTo[id] || 0) };
           });
           const nCur = np.cur, nTop = np.top;
@@ -463,7 +464,7 @@
           cur = nCur ? { score: nCur.r.score, clear: nCur.r.clear, rooms: toRooms(nCur.r) } : { score: 0, clear: 0, rooms: tgt.rooms.map((r) => ({ win: 0, lostTo: r.ids.map(() => 0) })) };
           best = { score: nTop.r.score, clear: nTop.r.clear, rooms: toRooms(nTop.r) };
           engine = 'native';
-          native = { runs: bestPick.r.runs, tried: np.tried, ms: np.ms, plans: np.plans };
+          native = { runs: bestPick.r.runs, tried: np.tried, ms: np.ms, plans: np.plans, league: np.plans[0].kind === 'league' };
         } else if (np && np.error) native = { error: np.error };
       } catch (e) { native = { error: String((e && e.message) || e) }; }
     }

@@ -14,6 +14,7 @@ node tools/sim-test.js       # 离线跑对战模拟：固定阵容打关都联�
 node tools/sim-check.js      # 离线核对战斗模型/配招/换人打分的自检输出
 node tools/ext-check.js      # 用假的 chrome.storage 自测 bridge.js + app-wrap.js，不开浏览器
 node tools/sim-blue.js       # 离线细看冠军战的对战模拟
+node tools/ban-check.js [N]  # 离线回归禁招建议：不禁招 / loadoutFor / 072 模拟搜索在留出种子上的通关率
 node tools/hook-src.js       # 打印 012 里注入页面的挂钩源码（单行），给 CDP 预注入用
 ```
 
@@ -45,7 +46,7 @@ node tools/hook-src.js       # 打印 012 里注入页面的挂钩源码（单�
 
 ## 约束与注意点
 
-- 配队/对战模拟相关模块（`060`、`062`、`065`、`066`，以及 `070` 的一段）会被 `sim-test.js`、`sim-check.js` 用 `new Function` 单独加载，必须保持不依赖 DOM 和外部全局变量，只依赖 `__DATA__`；`sim-check.js` 还靠 `070` 里 `const LOADOUT_DOT` 和 `/** 推荐配招对现阵容` 这两个标记截取代码，改动时别破坏它们。
+- 配队/对战模拟相关模块（`060`、`062`、`065`、`066`、`072`，以及 `070` 的一段）会被 `sim-test.js`、`sim-check.js`、`ban-check.js` 用 `new Function` 单独加载，必须保持不依赖 DOM 和外部全局变量，只依赖 `__DATA__`；`sim-check.js` 还靠 `070` 里 `const LOADOUT_DOT` 和 `/** 推荐配招对现阵容` 这两个标记截取代码，改动时别破坏它们。
 - 游戏接口是只读与沙盒重放：不调用 Cloud、不写游戏存档。拿不到 `__pcautoNS` 时退回 DOM / localStorage 方式。
 - 允许的站点在 `tools/build.js` 的 `MATCHES` 里维护，manifest 由它生成。
 - 构建在 Windows 上显式使用系统 `tar.exe` 打 zip（Git Bash 的 GNU tar 会把 `D:\...` 当成远程路径）。

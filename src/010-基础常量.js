@@ -90,6 +90,7 @@
     hudCollapsed: false,
     hudX: null,
     hudY: null,
+    bsWinOnStart: false,     // 启动时打开实战统计悬浮窗
     logToConsole: false,
     // 存档备份（存在扩展存储里，不占页面 localStorage 的 5MB）
     backup: true,

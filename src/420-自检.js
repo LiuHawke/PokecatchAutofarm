@@ -228,6 +228,44 @@
         ok('游戏接口', '实战统计监听已装上', PAGE_WIN.__pcautoTap === bsTap, '', 'warn');
       } else ok('游戏接口', '原版重放', true, '当前没有下一道馆或队伍为空，跳过', 'warn');
     }
+    /* ---- 1.1：实战统计、禁招候选、属性克制面 ---- */
+    {
+      const keep = S.bstats;
+      S.bstats = { cur: null, seg: null, segs: [], last: null, lastBoss: null, inflict: {}, hp: {}, dirty: false, savedAt: 0, scratch: true };
+      try {
+        bsTap('step', [{ type: 'battleStart', kind: 'wild' }], null);
+        bsTap('tick', [
+          { type: 'attack', side: 'ally', uid: 'zA', target: 'zE', damage: 50, hp: 30, maxHp: 80 },
+          { type: 'attack', side: 'ally', uid: 'zA', target: 'zE', damage: 100, hp: 0, maxHp: 80 },
+          { type: 'attack', side: 'enemy', uid: 'zF', target: 'zA', statusMove: true, inflict: 'burn', damage: 0 },
+          { type: 'status', side: 'ally', uid: 'zA', status: 'burn', what: 'hurt', damage: 10, hp: 90, maxHp: 100 },
+          { type: 'status', side: 'ally', uid: 'zB', status: 'poison', what: 'hurt', damage: 5, hp: 50, maxHp: 100 },
+        ], { zE: 80, zA: 100, zB: 55 });
+        bsTap('tick', [{ type: 'victory' }], null);
+        const sc = S.bstats.seg && S.bstats.seg.scopes.all;
+        const rows = sc ? Object.values(sc.mons) : [];
+        const a = rows.find((r) => r.uid === 'zA'), unk = rows.find((r) => r.uid === '?');
+        const dotFoe = rows.find((r) => r.side === 'foe' && r.dot === 10);
+        ok('实战统计', '不计溢出伤害（80 血的敌人挨 50 + 100 只算 80）', !!a && a.dealt === 80 && a.ko === 1, a ? `输出 ${a.dealt} · 击倒 ${a.ko}` : '没记到');
+        ok('实战统计', '灼伤记给施加者，没来源的记「来源不明」', !!dotFoe && !!unk && unk.dealt === 5 && a.taken === 10,
+          `施加者 ${dotFoe ? dotFoe.dot : '—'} · 来源不明 ${unk ? unk.dealt : '—'}`);
+        ok('实战统计', '野怪战不算进首领范围', sc && sc.n === 1 && S.bstats.seg.scopes.boss.n === 0);
+      } catch (e) {
+        ok('实战统计', '合成事件跑通', false, String((e && e.message) || e));
+      } finally { S.bstats = keep; }
+      ok('实战统计', '挂钩源码里没有模板插值和反斜杠', NS_HOOK.indexOf('${') < 0 && NS_HOOK.indexOf('\\') < 0);
+    }
+    {
+      const pk = { id: 25, level: 50 };
+      const cs = banCands(pk, [[TA_TI.water, TA_TI.flying]], true);
+      const atkKeys = (banMoves(pk) || { atk: [] }).atk.map((m) => m.key);
+      ok('禁招', '候选禁法始终至少留一个攻击招', cs.length > 1 && cs.every((b) => atkKeys.some((k) => !b.includes(k))), `${cs.length} 种候选`);
+      const team = [btUnit({ id: 25, level: 50 }), btUnit({ id: 26, level: 50 })];
+      const cv = covTeam(team);
+      ok('属性克制面', '纯电队怕地面、打水系两倍', !cv.blind.includes(TA_TI.water) && cv.off[TA_TI.water].e >= 2 && cv.hole.includes(TA_TI.ground),
+        `盲区 ${cv.blind.map(covTypeCn).join('、')} · 弱点 ${cv.hole.map(covTypeCn).join('、')}`);
+    }
+
     const fakePick = document.createElement('div');
     fakePick.innerHTML = '<div id="evt-pick" class="open"><div id="evt-pick-head"><h2>自检首领</h2></div><button id="evt-opt">Optimiser</button><div id="evt-team"></div></div>';
     let clicks = 0;
@@ -289,4 +327,16 @@
     $('#pcauto-diag-info', box).onclick = dumpDiag;
     $('#pcauto-diag-ok', box).onclick = () => box.remove();
     box.onclick = (e) => { if (e.target === box) box.remove(); };
+    // 一键禁招的点击流程是异步的，跑完再补到列表里
+    banSelfTest().then((items) => {
+      const extra = items.map((x) => ({ group: '一键禁招', name: x.name, level: x.ok ? 'ok' : 'fail', detail: x.detail }));
+      r.items.push(...extra);
+      r.total += extra.length;
+      r.fails += extra.filter((x) => x.level === 'fail').length;
+      const anchor = $('#pcauto-diag-st', box);
+      if (!anchor) return;
+      const html = `<div style="color:#8b93a7;font-size:11px;margin:8px 0 2px">一键禁招</div>` + extra.map((x) => `<div style="display:flex;gap:6px;font-size:11.5px;padding:1px 0">
+        <b style="color:${color[x.level]};width:12px">${mark[x.level]}</b><span style="flex:1">${esc(x.name)}<span style="color:#6b7488"> · ${esc(x.detail)}</span></span></div>`).join('');
+      anchor.parentElement.insertAdjacentHTML('beforebegin', html);
+    }).catch(() => { /* 忽略 */ });
   }

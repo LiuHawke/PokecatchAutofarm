@@ -1,8 +1,12 @@
   /* ====================== 声音 / 通知 ====================== */
 
   let sfxCtx = null;
+  // 浏览器要求用户手势之后才能创建 / 启动 AudioContext：没有手势前的提示音直接跳过，避免控制台警告
+  let sfxUnlocked = false;
+  ['pointerdown', 'keydown', 'touchstart'].forEach((ev) =>
+      addEventListener(ev, (e) => { if (e.isTrusted) sfxUnlocked = true; }, { capture: true, passive: true }));
   function beep(kind = 'info') {
-    if (!S.cfg.sound) return;
+    if (!S.cfg.sound || !sfxUnlocked) return;
     try {
       sfxCtx = sfxCtx || new (window.AudioContext || window.webkitAudioContext)();
       if (sfxCtx.state === 'suspended') sfxCtx.resume();

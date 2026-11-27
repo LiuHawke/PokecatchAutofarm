@@ -99,6 +99,7 @@
         <span class="h-dot" id="pcauto-dot"></span>
         <b id="pcauto-title" style="font-size:12px">挂机助手</b>
         <span style="flex:1"></span>
+        <button class="h-ib" id="pcauto-bsbtn" title="实战统计悬浮窗">📊</button>
         <button class="h-ib" id="pcauto-toggle" title="折叠 / 展开">–</button>
         <button class="h-ib" id="pcauto-gear" title="打开主面板">☰</button>
       </div>
@@ -128,6 +129,7 @@
       writeCfg(S.cfg);
     };
     hud.querySelector('#pcauto-gear').onclick = () => openPanel();
+    hud.querySelector('#pcauto-bsbtn').onclick = () => bswToggle();
     hudPauseBtn.onclick = () => { S.pausedByUser = !S.pausedByUser; renderHud(); };
     hud.querySelector('#pcauto-oneclick').onclick = openPresetPicker;
 

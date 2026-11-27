@@ -147,7 +147,9 @@
       S.hiddenSince = 0;
       if (gapMs > 60000) {
         const mins = Math.round(gapMs / 60000);
-        log('warn', `标签页在后台 ${mins} 分钟，游戏这期间是停摆的`);
+        log('warn', S.keepAliveOn
+          ? `标签页在后台 ${mins} 分钟：浏览器在后台会完全停掉动画帧，游戏主循环靠它驱动，保活管不到这部分，回到前台由游戏离线补算`
+          : `标签页在后台 ${mins} 分钟，游戏这期间是停摆的`);
       }
     }
 

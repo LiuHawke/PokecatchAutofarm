@@ -59,7 +59,7 @@
       ${uiRow('等级上限', `Lv.${f.cap}（全队${f.atCap ? '已到上限' : `最低 Lv.${f.teamMin}`}）`, f.atCap ? '#ffcb05' : undefined)}
       ${g ? uiRow('下一个馆主', `${esc(g.l)} · ${cn(g.t)}系 · 王牌 Lv.${g.ace}`) : ''}
       ${g ? uiRow('推荐属性', `打：${cn(g.ct)}　抗：${cn(g.rt)}`) : ''}
-      <div class="pa-note ${planTone(plan)}">${esc(plan.why)}</div>
+      <div class="pa-note ${planTone(plan)}">${esc(plan.why)}${plan.key === 'hold' ? '<div class="p-btns"><button class="pa-btn" id="pcauto-p-unhold">不是我换的，恢复自动推进</button></div>' : ''}</div>
       <h4>经验糖</h4>
       ${uiRow('全队离上限还差', `${fmt(f.xpDemand)} 经验 · 手上糖约 ${fmt(f.candyOwnedXp)}`)}
       ${candy.length ? `<div class="p-sub">喂糖方案：${candy.map((p) => `${esc(p.name)} ${p.list.length} 颗`).join('、')}</div>` : '<div class="p-sub">现在没有可以不溢出地喂进去的糖</div>'}
@@ -77,6 +77,8 @@
     $('#pcauto-p-feed', body).onclick = async () => { const r = await feedAllCandy(); log('item', '喂糖：' + r); };
     $('#pcauto-p-bak', body).onclick = () => { const r = backupNow('manual'); log(r.ok ? 'info' : 'warn', (r.ok ? '' : '备份失败：') + r.msg); };
     $('#pcauto-p-diag', body).onclick = openDiag;
+    const uh = $('#pcauto-p-unhold', body);
+    if (uh) uh.onclick = () => { progState().holdUntil = 0; persistProg(); S.plan = null; log('info', '已恢复自动推进'); renderPanel(true); };
   }
 
   /* ---------- 配队 ---------- */
@@ -125,25 +127,34 @@
       return i >= 0 && res.lostTo[i] > 0 ? esc(name(r.ids[i][0])) : '—';
     };
     const nat = tp.engine === 'native';
+    const lgRun = nat && tp.native.league;
     const useR = (i) => (tp.keep ? tp.cur : tp.best).rooms[i];
-    const roomRows = tp.kind === 'wild' ? '' : `<table><tr><th>对手</th><th>现队</th><th>${tp.keep ? '' : '推荐'}</th>${nat ? '<th>到馆主剩血</th><th>倒在路上</th>' : ''}<th>主要威胁</th></tr>
+    const roomRows = tp.kind === 'wild' ? '' : `<table><tr><th>对手</th><th>现队</th><th>${tp.keep ? '' : '推荐'}</th>${lgRun ? '<th>打到这间</th><th>进场剩血</th>' : nat ? '<th>到馆主剩血</th><th>倒在路上</th>' : ''}<th>主要威胁</th></tr>
       ${tp.rooms.map((r, i) => `<tr><td>${esc(r.name)}${r.champ ? ' 👑' : ''}</td>
         <td style="background:${winBg(tp.cur.rooms[i].win)}">${pct(tp.cur.rooms[i].win)}</td>
         <td style="background:${tp.keep ? 'none' : winBg(tp.best.rooms[i].win)}">${tp.keep ? '' : pct(tp.best.rooms[i].win)}</td>
-        ${nat ? `<td>${useR(i).arrive != null ? pct(useR(i).arrive) : '—'}</td><td>${pct(useR(i).roadLoss || 0)}</td>` : ''}
+        ${lgRun ? `<td>${pct(useR(i).reached || 0)}</td><td>${useR(i).arrive != null ? pct(useR(i).arrive) : '—'}</td>`
+        : nat ? `<td>${useR(i).arrive != null ? pct(useR(i).arrive) : '—'}</td><td>${pct(useR(i).roadLoss || 0)}</td>` : ''}
         <td>${threat(useR(i), r)}</td></tr>`).join('')}</table>`;
     const engineNote = tp.kind === 'wild' ? '' : nat
-      ? `<div class="pa-note ok" style="margin-top:6px">原生引擎：用游戏自己的战斗代码在沙盒里重放（从章节开头走到馆主，含路上训练家、招式禁用、状态抗性），每套 ${tp.native.runs} 次 · 比较了 ${tp.native.tried} 套 · ${(tp.native.ms / 1000).toFixed(1)} 秒。近似模型给的是：现队 ${pct(tp.model.cur)} / 推荐 ${pct(tp.model.best)}</div>`
+      ? `<div class="pa-note ok" style="margin-top:6px">原生引擎：用游戏自己的战斗代码在沙盒里重放（${lgRun ? '各间按顺序连打，只在有宝可梦中心的间回血，有夜间阵容的间白天 / 夜晚轮流；每间胜率是「打到这间时」的胜率' : '从章节开头走到馆主，含路上训练家'}、招式禁用、状态抗性），每套 ${tp.native.runs} 次 · 比较了 ${tp.native.tried} 套 · ${(tp.native.ms / 1000).toFixed(1)} 秒。近似模型给的是：现队 ${pct(tp.model.cur)} / 推荐 ${pct(tp.model.best)}</div>`
       : `<div class="pa-note warn" style="margin-top:6px">近似模型（没接入游戏内部接口：${esc(tp.native && tp.native.error ? tp.native.error : nsWhy() || '本目标不支持')}）。下方数字没算路上训练家，会偏乐观</div>`;
     const mvZh = (k) => TA_MVNAME[k] || k;
     const lo = nat && tp.native.loadout;
-    const loadout = !lo ? '' : !lo.better
-      ? `<div class="p-sub" style="margin-top:6px">配招：按攻略规则精简招式后原版重放 ${pct(lo.before)} → ${pct(lo.after)}，没有明显提升，不用改</div>`
-      : `<h4>配招建议（只提醒，不会替您改招式）</h4>
-      <div class="pa-note ok">按建议禁用后原版重放通关率 ${pct(lo.before)} → ${pct(lo.after)}，值得改。
-        在游戏里点开宝可梦 → 招式，点招式即可禁用 / 恢复（禁到没有攻击招时游戏会自动恢复全部）。</div>
+    const mvList = (ks) => ks.map((k) => esc(mvZh(k))).join('、');
+    const loadout = tp.kind === 'wild' ? ''
+      : !nat ? `<h4>禁招建议</h4><div class="p-sub">需要游戏内部接口（${esc(nsWhy() || '没接入')}），接上后这里会给出禁招建议和一键禁招</div>`
+      : !lo ? `<h4>禁招建议</h4><div class="p-sub">${busy ? '正在搜索…' : '后台只做了轻量计算，点上方「重新计算」后给出禁招建议'}</div>`
+      : lo.none ? `<h4>禁招建议</h4><div class="p-sub">对战模拟逐只试了各种禁法，都没有比现在的招式设置明显更好（提升不足 2%），不用改。</div>${S.banUndo ? banApplyButtons('team', []) : ''}`
+      : !lo.better
+      ? `<h4>禁招建议</h4><div class="p-sub">模拟搜索出的禁法用原版重放复核：${pct(lo.before)} → ${pct(lo.after)}，提升不到 4%，不用改</div>${S.banUndo ? banApplyButtons('team', []) : ''}`
+      : `<h4>禁招建议</h4>
+      <div class="pa-note ok">按建议改招式禁用后原版重放通关率 ${pct(lo.before)} → ${pct(lo.after)}，值得改。
+        可以一键让助手替您在游戏的招式抽屉里点（改完可撤销），也可以自己点开宝可梦 → 招式手动改。</div>
       ${lo.sug.map((s) => `<div class="pa-row"><span>${esc(taMonName(s.m))} Lv.${s.m.level}</span>
-        <b class="p-sub" style="font-weight:400">留：${s.keep.map((k) => esc(mvZh(k))).join('、')}；禁：${s.ban.map((k) => esc(mvZh(k))).join('、')}</b></div>`).join('')}`;
+        <b class="p-sub" style="font-weight:400">${s.add.length ? `禁：${mvList(s.add)}` : ''}${s.add.length && s.enable.length ? '；' : ''}${s.enable.length ? `恢复：${mvList(s.enable)}` : ''}；攻击招留 ${mvList(s.keep)}</b></div>`).join('')}
+      ${banApplyButtons('team', lo.sug)}
+      <div class="p-sub">招式禁用对所有玩法生效。每只的禁法由对战模拟逐只搜索，再用游戏原版重放复核。</div>`;
     const whatIf = nat && tp.native.whatIf && tp.native.whatIf.length
       ? tp.native.whatIf.map((w) => uiRow(`全队再升 ${w.add} 级（原版重放）`, pct(w.clear), w.clear >= 0.6 ? '#4ade80' : undefined)).join('') : '';
     const mxMons = tp.useUids.map((u) => byUid.get(u)).filter(Boolean);
@@ -173,6 +184,8 @@
       <div class="tm-cols" style="margin-top:8px"><div><h4>现在的队伍</h4>${curCol}</div><div><h4>${tp.keep ? '推荐' : '推荐（绿框 = 新换上）'}</h4>${bestCol}</div></div>
       ${roomRows ? `<h4>各间胜率</h4>${roomRows}` : ''}
       ${loadout}
+      ${coverageSection(f)}
+      ${eliteSection(f)}
       ${matrix ? `<h4>单挑胜率（%）· 黄框 = 游戏自动换人会派出的那只</h4>${matrix}` : ''}
       ${evo}
       ${zoneSection(f)}
@@ -204,6 +217,58 @@
     $('#pcauto-tm-re', body).onclick = () => { teamPlanGet('auto', redraw, true); renderPanel(true); };
     const zb = $('#pcauto-tm-zone', body);
     if (zb) zb.onclick = () => { teamPlanGet('zone', redraw, true); renderPanel(true); };
+    bindElite(body, f, redraw);
+    bindBanApply(body, redraw);
+  }
+
+  /** 精英联盟：选阶级 → 整轮重放选队（约 20 秒，点了才算，只推荐不换队） */
+  function eliteSection(f) {
+    const tiers = eliteTiers(f.region);
+    if (!tiers.length) return '';
+    const ep = S.elitePick || {};
+    const same = ep.region === f.region;
+    const tier = same && ep.tier ? ep.tier : tiers[0];
+    const sel = `<select id="pcauto-el-tier">${tiers.map((t) => `<option value="${t}" ${t === tier ? 'selected' : ''}>阶级 ${t}</option>`).join('')}</select>`;
+    const btn = `<button class="pa-btn" id="pcauto-el-go" ${ep.busy ? 'disabled' : ''}>${ep.busy ? `重放中…（已比较 ${ep.n || 0} 套）` : '整轮重放选队'}</button>`;
+    let out = '';
+    const r = same && ep.tier === tier ? ep.res : null;
+    if (r && r.error) out = `<div class="pa-note warn">${esc(r.error)}</div>`;
+    else if (r) {
+      const name = (id) => TA_NAME[id - 1] || `#${id}`;
+      const row = (res) => res.rooms.map((x, i) => {
+        const top = Object.entries(x.lostTo || {}).sort((a, b) => b[1] - a[1])[0];
+        return `<tr><td>${esc(r.stages[i].leader)}${r.stages[i].night ? ' 🌙' : ''}${r.stages[i].heal ? ' ✚' : ''}</td><td>${pct(x.reached)}</td>
+          <td style="background:${winBg(x.win)}">${x.reached ? pct(x.win) : '—'}</td><td>${top ? esc(name(+top[0])) : '—'}</td></tr>`;
+      }).join('');
+      out = `<div class="pa-note ${r.best.clear >= 0.6 ? 'ok' : 'warn'}">推荐队整轮通关率 ${pct(r.best.clear)}${r.cur && r.cur !== r.best ? `（现在的精英联盟队 ${pct(r.cur.clear)}）` : ''} · 比较了 ${r.tried} 套 · ${(r.ms / 1000).toFixed(1)} 秒</div>
+        <div class="p-sub">${r.team.map((m) => `${esc(taMonName(m))} Lv.${m.level}${m.rank ? ` ◆${m.rank}` : ''}`).join('、')}</div>
+        <table style="margin-top:4px"><tr><th>对手（🌙 有夜间阵容 · ✚ 会回血）</th><th>打到</th><th>胜率</th><th>主要威胁</th></tr>${row(r.best)}</table>
+        <div class="p-btns"><button class="pa-btn" id="pcauto-el-mark">在 PC 里标出</button></div>
+        ${r.ban && r.ban.better ? `<div class="pa-note ok" style="margin-top:6px">禁招建议：整轮通关率 ${pct(r.ban.before)} → ${pct(r.ban.after)}（原版重放复核）</div>
+          ${r.ban.sug.map((s) => `<div class="pa-row"><span>${esc(taMonName(s.m))}</span><b class="p-sub" style="font-weight:400">${s.add.length ? `禁：${s.add.map((k) => esc(TA_MVNAME[k] || k)).join('、')}` : ''}${s.enable.length ? ` 恢复：${s.enable.map((k) => esc(TA_MVNAME[k] || k)).join('、')}` : ''}</b></div>`).join('')}
+          ${banApplyButtons('elite', r.ban.sug)}` : r.ban ? `<div class="p-sub">禁招：模拟搜出的禁法原版重放 ${pct(r.ban.before)} → ${pct(r.ban.after)}，不用改</div>` : ''}
+        <div class="p-sub">精英联盟的队伍在游戏的联盟入口里选，这里只给推荐。</div>`;
+    }
+    return `<h4>精英联盟</h4><div class="pa-row"><span>${sel}</span>${btn}</div>${out}`;
+  }
+  function bindElite(body, f, redraw) {
+    const go = $('#pcauto-el-go', body);
+    if (go) go.onclick = async () => {
+      const tier = Number($('#pcauto-el-tier', body).value) || 1;
+      S.elitePick = { region: f.region, tier, busy: true, n: 0 };
+      renderPanel(true);
+      const res = await eliteLeaguePick(f.region, tier, (n) => { S.elitePick.n = n; });
+      S.elitePick = { region: f.region, tier, busy: false, res };
+      redraw();
+    };
+    const sel = $('#pcauto-el-tier', body);
+    if (sel) sel.onchange = () => { if (!(S.elitePick || {}).busy) { S.elitePick = { ...(S.elitePick || {}), region: f.region, tier: Number(sel.value) }; renderPanel(true); } };
+    const mk = $('#pcauto-el-mark', body);
+    if (mk) mk.onclick = () => {
+      const r = S.elitePick && S.elitePick.res;
+      const n = r && r.team ? teamHighlight(r.team.map((m) => String(m.uid))) : 0;
+      log('info', n ? `已在格子上标出精英联盟推荐的 ${n} 只` : '当前界面没有可标记的格子：先打开游戏的「队伍」页');
+    };
   }
 
   /** 刷级稳定度：现队在当前区域野怪里的胜率（近似模型，点了才算） */
@@ -243,6 +308,7 @@
       <table><tr><th>玩法</th><th>周期</th><th>状态</th><th>说明</th></tr>
       ${modes.map((m) => `<tr><td>${esc(m.zh)}</td><td>${m.cycle}</td><td style="color:${color[m.state] || '#e8ecf4'}">${m.state}</td><td class="p-sub">${esc(m.hint || '')}</td></tr>`).join('')}</table>
       <div class="p-sub" style="margin-top:6px">这些玩法需要登录拿服务器数据，结果由服务器校验，脚本只提醒不代打。攻略顺序：宝可方块首领 → 糖果工厂 → 团体战 → 对战塔（有里程碑且临近周一 08:00）→ 主线；地下通道不占队伍，随时派。</div>
+      ${eventTeamSection()}
       <h4>培育屋</h4>
       ${uiRow('寄放', `${penMons.length} 只${ditto ? '（有百变怪）' : '（没有百变怪，下蛋只能同家族配对）'}`)}
       ${penMons.length ? `<div class="p-sub">${penMons.map((m) => esc(taMonName(m)) + (m.shiny ? '✨' : '')).join('、')}</div>` : ''}
@@ -250,6 +316,7 @@
       ${eggs.map((e) => uiRow(`蛋 · ${esc(taMonName({ id: e.id }))}`, e.hatchAt <= now() ? '可以孵化' : `${fmtDur(e.hatchAt - now())} 后孵化`, e.hatchAt <= now() ? '#4ade80' : undefined)).join('')}
       <h4>树果增益</h4>
       ${buffs.length ? buffs.map((b) => uiRow(esc((BERRY_BUFFS[b.key] || {}).label || b.key), `剩 ${b.leftMin} 分钟`)).join('') : '<div class="p-sub">没有生效中的增益</div>'}`;
+    bindEventTeam(body, () => { if (panelTab === 'plan') renderPanel(true); });
   }
 
   /* ---------- 日志战报 ---------- */
@@ -335,6 +402,7 @@
         ${chk('notify', '桌面通知（闪光、卡关、需要您点一下）')}
         ${chk('sound', '提示音')}
         ${chk('awayReport', '回到电脑前时弹出离开期间战报')}
+        ${chk('bsWinOnStart', '启动时打开实战统计悬浮窗（HUD 上的 📊 随时开关）')}
         ${num('awayMin', '离开超过多少分钟才弹', 1, 1440)}`)}
       ${grp('存档备份', `
         ${HAS_STORE ? '' : '<div class="pa-note bad">扩展存储没连上，备份不可用</div>'}

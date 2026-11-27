@@ -96,7 +96,10 @@
     const st = progState();
     const ch = adv.chapter | 0;
     const loopsKey = (adv.loops || []).join(',');
-    const scripted = intentFresh('chapter', 60000);
+    // 打赢馆主自然进下一章、切回前台时游戏补算期间推进的章节，都不是玩家动的手
+    const scripted = intentFresh('chapter', 60000)
+        || (S.lastChapter != null && ch === S.lastChapter + 1)
+        || (S.catchup && now() - S.catchup.at < 15000);
     if (S.lastLoopsKey != null && loopsKey !== S.lastLoopsKey && !scripted && loopsKey) {
       st.holdUntil = now() + 2 * 3600000;
       persistProg();
